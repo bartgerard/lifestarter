@@ -43,3 +43,15 @@ sudo npm install primeicons --save
 sudo npm i -g npm-check-updates
 sudo ncu -u
 sudo npm install
+
+
+sudo chmod -R 777 .
+
+https://www.devglan.com/spring-boot/spring-boot-angular-deployment
+
+# TODO
+    "build": "ng build --prod --output-path ../service/src/main/resources/static/",
+
+sudo npm run build
+
+sudo npm start
