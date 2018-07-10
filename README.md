@@ -55,3 +55,12 @@ https://www.devglan.com/spring-boot/spring-boot-angular-deployment
 sudo npm run build
 
 sudo npm start
+
+http://localhost:8080/browser/index.html#/
+
+
+
+
+
+
+sudo npm run build

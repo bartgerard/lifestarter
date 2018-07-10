@@ -3,19 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>starter</artifactId>
+        <artifactId>starter-server</artifactId>
         <groupId>be.gerard</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>starter-server</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>web</module>
-        <module>shared</module>
-        <module>service</module>
-    </modules>
+    <artifactId>starter-shared</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

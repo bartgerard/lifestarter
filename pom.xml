@@ -29,6 +29,24 @@
         <java.version>10</java.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>be.gerard</groupId>
+                <artifactId>starter-shared</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>be.gerard</groupId>
+                <artifactId>starter-service</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
     <!--
     <dependencies>
         <dependency>
