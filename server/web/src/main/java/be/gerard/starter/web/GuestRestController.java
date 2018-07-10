@@ -26,4 +26,9 @@ public class GuestRestController {
         return guestService.findAll();
     }
 
+    @GetMapping("slow")
+    public Flux<Guest> findAllSlowly() {
+        return guestService.findAllSlowly();
+    }
+
 }
