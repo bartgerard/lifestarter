@@ -50,7 +50,7 @@ sudo chmod -R 777 .
 https://www.devglan.com/spring-boot/spring-boot-angular-deployment
 
 # TODO
-    "build": "ng build --prod --output-path ../service/src/main/resources/static/",
+    "build": "ng build --prod --output-path ../server/web/src/main/resources/static/",
 
 sudo npm run build
 

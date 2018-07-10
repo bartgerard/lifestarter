@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lifestarter-service" />
+        <module name="starter-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="lifestarter-service" target="10" />
-    </bytecodeTargetLevel>
   </component>
 </project>
