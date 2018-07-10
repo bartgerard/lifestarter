@@ -59,6 +59,9 @@ sudo npm start
 http://localhost:8080/browser/index.html#/
 
 
+curl http://localhost:8080/guests
+
+
 
 
 

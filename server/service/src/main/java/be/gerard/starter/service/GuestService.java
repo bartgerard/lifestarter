@@ -3,6 +3,7 @@ package be.gerard.starter.service;
 import be.gerard.starter.model.Guest;
 import be.gerard.starter.value.FullName;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -25,8 +26,8 @@ public class GuestService {
                     .build()
     );
 
-    public List<Guest> findAll() {
-        return GUESTS;
+    public Flux<Guest> findAll() {
+        return Flux.fromIterable(GUESTS);
     }
 
 }

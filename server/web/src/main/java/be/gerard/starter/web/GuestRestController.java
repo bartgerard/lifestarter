@@ -6,8 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 /**
  * GuestRestController
@@ -23,7 +22,7 @@ public class GuestRestController {
     private final GuestService guestService;
 
     @GetMapping
-    public List<Guest> guests() {
+    public Flux<Guest> guests() {
         return guestService.findAll();
     }
 
