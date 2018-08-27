@@ -47,6 +47,14 @@ sudo npm install
 
 sudo chmod -R 777 .
 
+
+
+
+sudo npm run build
+
+
+
+
 https://www.devglan.com/spring-boot/spring-boot-angular-deployment
 
 # TODO
@@ -66,4 +74,5 @@ curl http://localhost:8080/guests
 
 
 
-sudo npm run build
+
+

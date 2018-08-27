@@ -7,9 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Mono;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
@@ -28,24 +26,21 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 @RequiredArgsConstructor
 public class GuestConfig {
 
-    private final GuestService guestService;
-
     @Bean
-    public RouterFunction<?> routes() {
+    public RouterFunction<ServerResponse> routes(
+            final GuestService guestService
+    ) {
         return nest(
                 path("/guests"),
                 nest(
                         accept(MediaType.APPLICATION_JSON),
-                        route(GET("/"), this::guests)
+                        route(
+                                GET("/"),
+                                request -> ok().contentType(MediaType.APPLICATION_JSON)
+                                        .body(guestService.findAll(), Guest.class)
+                        )
                 )
         );
-    }
-
-    private Mono<ServerResponse> guests(
-            final ServerRequest request
-    ) {
-        return ok().contentType(MediaType.APPLICATION_JSON)
-                .body(guestService.findAll(), Guest.class);
     }
 
 }
