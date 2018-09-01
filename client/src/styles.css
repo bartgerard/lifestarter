@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'RNS-B';
+  src: url('assets/fonts/rns_baruta_black/RNS-B.ttf')
+}
+
+.life-starter {
+  font-family: 'RNS-B';
+  font-size: 5em;
+}
+
+.life {
+  color: #404040;
+}
+
+.starter {
+  color: #85C442;
+}

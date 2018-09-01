@@ -2,15 +2,13 @@ package be.gerard.starter.web;
 
 import be.gerard.starter.model.Info;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.codec.ServerSentEvent;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.util.Objects;
+import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -23,12 +21,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @RequiredArgsConstructor
 public class SseRestController {
 
-    private final CopyOnWriteArrayList<SseEmitter> emitters = new CopyOnWriteArrayList<>();
-
     @GetMapping("feed")
     public Mono<Info> ping() {
         return Mono.just(Info.of("pong"));
     }
+
+    /*
 
     @GetMapping("random")
     public Flux<ServerSentEvent<Info>> random() {
@@ -38,6 +36,10 @@ public class SseRestController {
                         .build()
                 );
     }
+
+    */
+
+    private final CopyOnWriteArrayList<SseEmitter> emitters = new CopyOnWriteArrayList<>();
 
     @GetMapping("stream")
     public SseEmitter stream() {
@@ -49,6 +51,17 @@ public class SseRestController {
         emitter.onTimeout(() -> this.emitters.remove(emitter));
 
         return emitter;
+    }
+
+    @GetMapping("test")
+    public void test() {
+        emitters.forEach(emitter -> {
+            try {
+                emitter.send(Info.of("test"), MediaType.APPLICATION_JSON);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }

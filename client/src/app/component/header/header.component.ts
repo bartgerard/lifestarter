@@ -9,6 +9,8 @@ import {Info} from "../../model/info";
 })
 export class HeaderComponent implements OnInit {
 
+  //lifeUri: string = 'assets/images/life.png';
+
   ping: Info;
 
   random: Info;
@@ -22,10 +24,12 @@ export class HeaderComponent implements OnInit {
     this.eventService.getPing()
       .subscribe(ping => this.ping = ping);
 
+    /*
     let source = new EventSource('http://localhost:8080/random');
     source.addEventListener('message', event => {
-      this.random = JSON.parse(event.data);
+      this.random = JSON.parse(event['data']);
     })
+    */
   }
 
 }

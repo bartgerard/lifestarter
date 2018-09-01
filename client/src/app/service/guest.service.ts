@@ -1,20 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Info} from "../model/info";
+import {Guest} from "../model/guest";
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventService {
+export class GuestService {
 
   constructor(
     private http: HttpClient
   ) {
   }
 
-  getPing(): Observable<Info> {
-    return this.http.get<Info>('feed');
+  getGuests(): Observable<Guest> {
+    return this.http.get<Guest>('http://localhost:8080/guests');
   }
 
 }
