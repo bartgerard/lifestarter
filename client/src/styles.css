@@ -9,10 +9,14 @@
   font-size: 2em;
 }
 
-.life {
+.green {
   color: #404040;
 }
 
-.starter {
+.grey {
   color: #85C442;
+}
+
+.full-width {
+  width: 100%;
 }

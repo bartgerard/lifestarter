@@ -7,7 +7,6 @@ import reactor.core.publisher.Flux;
 import reactor.util.function.Tuple2;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
 @Service
 public class GuestService {
 
-    private static final List<Guest> GUESTS = Arrays.asList(
+    private static final List<Guest> GUESTS = List.of(
             Guest.builder()
                     .fullName(FullName.builder()
                             .firstName("James")

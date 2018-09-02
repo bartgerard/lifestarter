@@ -64,6 +64,9 @@ sudo npm run build
 
 sudo npm start
 
+
+
+
 http://localhost:8080/browser/index.html#/
 
 
@@ -71,6 +74,9 @@ curl http://localhost:8080/guests
 
 
 
+
+
+ng generate module app-routing --flat --module=app
 
 
 

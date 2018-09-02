@@ -1,0 +1,41 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="item col-md-12">
+      <span class="ui-float-label">
+        <input id="first-name" type="text" pInputText [(ngModel)]="firstName" class="full-width">
+        <label for="first-name">First name</label>
+      </span>
+    </div>
+
+    <div class="item col-md-12">
+      <span class="ui-float-label">
+        <input id="last-name" type="text" pInputText [(ngModel)]="lastName" class="full-width">
+        <label for="last-name">Last name</label>
+      </span>
+    </div>
+
+    <div class="item col-md-12">
+      <p-dropdown [options]="dietaryOptions"
+                  placeholder="Select dietary preference"
+                  [style]="{'width':'100%'}">
+      </p-dropdown>
+    </div>
+
+    <div class="item col-md-12">
+      <button label="Add"
+              (onClick)="handleClick()"
+              routerLink="/project"
+              pButton
+              class="full-width">
+      </button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <life-allergy></life-allergy>
+  </div>
+
+</div>

@@ -1,21 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Guest} from "../model/guest";
 import {WebConfig} from "../model/web-config";
 
 @Injectable({
   providedIn: 'root'
 })
-export class GuestService {
+export class DietService {
 
   constructor(
     private http: HttpClient
   ) {
   }
 
-  getGuests(): Observable<Guest> {
-    return this.http.get<Guest>(WebConfig.baseUri + '/guests');
+  diets(): Observable<string[]> {
+    return this.http.get<string[]>(WebConfig.baseUri + '/diets');
   }
 
 }
