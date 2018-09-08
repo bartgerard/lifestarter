@@ -4,6 +4,7 @@ import be.gerard.starter.model.Guest;
 import be.gerard.starter.service.GuestService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
@@ -25,6 +26,7 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
  */
 //@Configuration
 @EnableWebFlux
+@EnableWebFluxSecurity
 public class WebFluxConfig implements WebFluxConfigurer {
 
     @Override

@@ -4,14 +4,14 @@
 
     <div class="item col-md-12">
       <span class="ui-float-label">
-        <input id="first-name" type="text" pInputText [(ngModel)]="firstName" class="full-width">
+        <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="full-width">
         <label for="first-name">First name</label>
       </span>
     </div>
 
     <div class="item col-md-12">
       <span class="ui-float-label">
-        <input id="last-name" type="text" pInputText [(ngModel)]="lastName" class="full-width">
+        <input pInputText id="last-name" type="text" [(ngModel)]="lastName" class="full-width">
         <label for="last-name">Last name</label>
       </span>
     </div>
@@ -20,15 +20,36 @@
       <p-dropdown [options]="dietaryOptions"
                   placeholder="Select dietary preference"
                   [style]="{'width':'100%'}">
+        <ng-template let-diet pTemplate="item">
+          {{'diet.' + diet.label | translate}}
+        </ng-template>
+        <!--
+        <ng-template let-diet pTemplate="item">
+          <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+            <img src="assets/images/diets/{{diet.label}}.png"
+                 style="width:24px;position:absolute;top:1px;left:5px"/>
+            <div style="font-size:14px;padding-left:30px;margin-top:4px">{{diet.label}}</div>
+          </div>
+        </ng-template>
+        -->
       </p-dropdown>
     </div>
 
     <div class="item col-md-12">
-      <button label="Add"
-              (onClick)="handleClick()"
-              routerLink="/project"
-              pButton
+      <span class="ui-float-label">
+        <textarea pInputText id="comment" type="text" [(ngModel)]="comment" class="full-width">
+        </textarea>
+        <label for="comment">Comment</label>
+      </span>
+    </div>
+
+    <div class="item col-md-12">
+      <button pButton
+              type="button"
+              label="Add"
+              (click)="handleClick()"
               class="full-width">
+        <!--routerLink="/project"-->
       </button>
     </div>
 
@@ -36,6 +57,10 @@
 
   <div class="row">
     <life-allergy></life-allergy>
+  </div>
+
+  <div class="row">
+    <life-seat></life-seat>
   </div>
 
 </div>

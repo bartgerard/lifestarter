@@ -11,6 +11,7 @@ export class GuestComponent implements OnInit {
 
   firstName: string;
   lastName: string;
+  comment: string;
 
   dietaryOptions: SelectItem[];
 
@@ -21,13 +22,22 @@ export class GuestComponent implements OnInit {
 
   ngOnInit() {
     this.dietService.diets()
-      .subscribe(diets => this.dietaryOptions = [
-        {label: 'A', value: 'A'}
-      ]);
+      .subscribe(diets => this.dietaryOptions = GuestComponent.toDietaryOptions(diets));
+  }
+
+  private static toDietaryOptions(
+    diets: string[]
+  ) {
+    return diets.map(diet => {
+      return {
+        label: diet,
+        value: diet
+      };
+    });
   }
 
   handleClick() {
-    console.log(this.firstName + ' ' + this.lastName);
+    console.log(this.firstName + ' ' + this.lastName + ' - ' + this.comment);
   }
 
 }

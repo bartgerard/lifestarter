@@ -21,8 +21,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventService.getPing()
-      .subscribe(ping => this.ping = ping);
+    //this.eventService.getPing()
+    //  .subscribe(ping => this.ping = ping);
 
     /*
     let source = new EventSource('http://localhost:8080/random');

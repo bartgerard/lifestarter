@@ -15,6 +15,9 @@ import {AddressComponent} from './component/address/address.component';
 import {AllergyComponent} from './component/allergy/allergy.component';
 import {RegistrationComponent} from './component/registration/registration.component';
 import {UserComponent} from './component/user/user.component';
+import { SeatComponent } from './component/seat/seat.component';
+import { ContactInformationComponent } from './component/contact-information/contact-information.component';
+import { TranslatePipe } from './pipe/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {UserComponent} from './component/user/user.component';
     AddressComponent,
     AllergyComponent,
     RegistrationComponent,
-    UserComponent
+    UserComponent,
+    SeatComponent,
+    ContactInformationComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
