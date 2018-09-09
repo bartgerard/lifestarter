@@ -1,5 +1,5 @@
 export class WebConfig {
 
-  public static baseUri: string = 'http://localhost:8080';
+  public static baseUri = 'http://localhost:8080';
 
 }

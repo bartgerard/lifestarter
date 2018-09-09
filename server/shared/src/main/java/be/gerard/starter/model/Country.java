@@ -1,18 +1,20 @@
 package be.gerard.starter.model;
 
-import lombok.EqualsAndHashCode;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Allergy
+ * Country
  *
  * @author bartgerard
  * @version v0.0.1
  */
-@RequiredArgsConstructor(staticName = "of")
+@RequiredArgsConstructor
 @Getter
-@EqualsAndHashCode(of = "name")
-public class Allergy {
+@Builder
+public class Country {
+    private final String iso2;
+    private final String iso3;
     private final String name;
 }

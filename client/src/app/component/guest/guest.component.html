@@ -5,48 +5,80 @@
     <div class="item col-md-12">
       <span class="ui-float-label">
         <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="full-width">
-        <label for="first-name">First name</label>
+        <label for="first-name">{{'guest.first-name' | translate}}</label>
       </span>
     </div>
 
     <div class="item col-md-12">
       <span class="ui-float-label">
         <input pInputText id="last-name" type="text" [(ngModel)]="lastName" class="full-width">
-        <label for="last-name">Last name</label>
+        <label for="last-name">{{'guest.last-name' | translate}}</label>
       </span>
     </div>
 
+    <!--
     <div class="item col-md-12">
       <p-dropdown [options]="dietaryOptions"
-                  placeholder="Select dietary preference"
+                  [(ngModel)]="selectedDiet"
+                  placeholder="{{'common.select' | translate}} {{'guest.diet' | translate}}"
                   [style]="{'width':'100%'}">
-        <ng-template let-diet pTemplate="item">
-          {{'diet.' + diet.label | translate}}
-        </ng-template>
-        <!--
-        <ng-template let-diet pTemplate="item">
-          <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-            <img src="assets/images/diets/{{diet.label}}.png"
-                 style="width:24px;position:absolute;top:1px;left:5px"/>
-            <div style="font-size:14px;padding-left:30px;margin-top:4px">{{diet.label}}</div>
-          </div>
-        </ng-template>
-        -->
+                  -->
+    <!--
+    <ng-template let-diet pTemplate="item">
+      <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+        <img src="assets/images/diets/{{diet.label}}.png"
+             style="width:24px;position:absolute;top:1px;left:5px"/>
+        <div style="font-size:14px;padding-left:30px;margin-top:4px">{{diet.label}}</div>
+      </div>
+    </ng-template>
+    -->
+    <!--
       </p-dropdown>
+    </div>
+    -->
+
+    <div class="item col-md-12">
+      <p-listbox [options]="dietaryOptions"
+                 [(ngModel)]="selectedDiet"
+                 [style]="{'width':'100%'}">
+        <p-header>
+          {{'guest.diet' | translate}}
+        </p-header>
+      </p-listbox>
+    </div>
+
+    <div class="item col-md-12">
+      <p-listbox [options]="allergyOptions"
+                 [(ngModel)]="selectedAllergies"
+                 multiple="multiple"
+                 checkbox="checkbox"
+                 filter="filter"
+                 [style]="{'width':'100%'}">
+        <p-header>
+          {{'guest.allergies' | translate}}
+        </p-header>
+        <p-footer>
+          <div>
+            {{'common.selected' | translate}}:
+            <span *ngFor="let allergy of selectedAllergies; let i = index">{{i === 0 ? '' : ', '}}{{'allergy.' + allergy | translate}}</span>
+            <!--{{selectedAllergies || 'common.none' | translate}}-->
+          </div>
+        </p-footer>
+      </p-listbox>
     </div>
 
     <div class="item col-md-12">
       <span class="ui-float-label">
         <textarea pInputText id="comment" type="text" [(ngModel)]="comment" class="full-width">
         </textarea>
-        <label for="comment">Comment</label>
+        <label for="comment">{{'guest.comment' | translate}}</label>
       </span>
     </div>
 
     <div class="item col-md-12">
       <button pButton
               type="button"
-              label="Add"
+              label="{{'common.add' | translate}}"
               (click)="handleClick()"
               class="full-width">
         <!--routerLink="/project"-->
@@ -56,11 +88,11 @@
   </div>
 
   <div class="row">
-    <life-allergy></life-allergy>
+    <app-allergy></app-allergy>
   </div>
 
   <div class="row">
-    <life-seat></life-seat>
+    <app-seat></app-seat>
   </div>
 
 </div>

@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {EventService} from "../../service/event.service";
-import {Info} from "../../model/info";
+import {EventService} from '../../service/event.service';
+import {Info} from '../../model/info';
 
 @Component({
-  selector: 'life-header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  //lifeUri: string = 'assets/images/life.png';
+  // lifeUri: string = 'assets/images/life.png';
 
   ping: Info;
 
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.eventService.getPing()
+    // this.eventService.getPing()
     //  .subscribe(ping => this.ping = ping);
 
     /*

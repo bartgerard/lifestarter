@@ -1,11 +1,11 @@
 package be.gerard.starter.web;
 
-import be.gerard.starter.model.Diet;
+import be.gerard.starter.model.Allergy;
+import be.gerard.starter.service.AllergyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -17,13 +17,16 @@ import java.util.List;
  * @version v0.0.1
  */
 @RestController
-@RequestMapping("diets")
+@RequestMapping("allergies")
 @RequiredArgsConstructor
-public class DietRestController {
+public class AllergyRestController {
+
+    private final AllergyService allergyService;
 
     @GetMapping
-    public Mono<List<Diet>> diets() {
-        return Flux.just(Diet.values())
+    public Mono<List<String>> allergies() {
+        return allergyService.findAll()
+                .map(Allergy::getName)
                 .collectList();
     }
 

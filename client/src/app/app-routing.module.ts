@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
-import {ProjectComponent} from "./component/project/project.component";
-import {RegistrationComponent} from "./component/registration/registration.component";
+import {RouterModule, Routes} from '@angular/router';
+import {ProjectComponent} from './component/project/project.component';
+import {RegistrationComponent} from './component/registration/registration.component';
 
 const routes: Routes = [
   {path: '', component: RegistrationComponent},

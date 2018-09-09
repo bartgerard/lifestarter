@@ -8,7 +8,7 @@ package be.gerard.starter.model;
  */
 public enum Diet {
     MEAT_EATER,
-    PESCETARIAN, // a person who does not eat meat but does eat fish
+    PESCATARIAN, // a person who does not eat meat but does eat fish
     VEGETARIAN, // a person who does not eat meat or fish, and sometimes other animal products, especially for moral, religious, or health reasons
     VEGAN, // a person who does not eat or use animal products
     FRUITARIAN // a person who eats only fruit

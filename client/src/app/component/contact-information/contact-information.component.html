@@ -4,8 +4,46 @@
 
     <div class="item col-md-12">
       <span class="ui-float-label">
-        <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="full-width">
-        <label for="first-name">First name</label>
+        <input pInputText id="email" type="text" [(ngModel)]="email" class="full-width">
+        <label for="email">{{'contact.email' | translate}}</label>
+      </span>
+    </div>
+
+    <div class="item col-md-12">
+      <span class="ui-float-label">
+        <input pInputText id="address" type="text" [(ngModel)]="address" class="full-width">
+        <label for="address">{{'contact.address' | translate}}</label>
+      </span>
+    </div>
+
+    <div class="item col-md-4">
+      <span class="ui-float-label">
+        <input pInputText id="zip-code" type="text" [(ngModel)]="zipCode" class="full-width">
+        <label for="zip-code">{{'contact.zip-code' | translate}}</label>
+      </span>
+    </div>
+
+    <div class="item col-md-8">
+      <span class="ui-float-label">
+        <input pInputText id="city" type="text" [(ngModel)]="city" class="full-width">
+        <label for="city">{{'contact.city' | translate}}</label>
+      </span>
+    </div>
+
+    <div class="item col-md-12">
+      <p-dropdown [options]="countries"
+                  [(ngModel)]="selectedCountry"
+                  filter="true"
+                  placeholder="{{'contact.country' | translate}}"
+                  [style]="{'width':'100%'}">
+      </p-dropdown>
+    </div>
+
+    <div class="item col-md-12">
+      <span class="ui-float-label">
+        <p-inputMask mask="+32 999 999 999" id="phone-number" [(ngModel)]="phoneNumber" styleClass="full-width">
+        </p-inputMask>
+        <label for="phone-number">{{'contact.phone-number' | translate}}</label>
       </span>
     </div>
 

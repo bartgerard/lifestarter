@@ -1,4 +1,4 @@
-import {FullName} from "./full-name";
+import {FullName} from './full-name';
 
 export class Guest {
 
