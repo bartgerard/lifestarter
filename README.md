@@ -80,5 +80,40 @@ ng generate module app-routing --flat --module=app
 
 
 
+# find linux version
+cat /etc/*-release
+lsb_release -a
+uname -a
+uname -mrs
+cat /proc/version
 
+# Mac OS X
+brew install mongodb
+port install mongodb
+
+# http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install mongodb-server
+
+# start on startup
+sudo service mongod start
+# restart
+sudo service mongod restart
+# to stop
+sudo service mongod stop
+
+mongo
+
+export PATH=<mongodb-install-directory>/bin:$PATH
+<path>/mongod
+<path>/mongod --dbpath <path to data directory>
+Wait for -> [initandlisten] waiting for connections on port 27017
+mongo --host 127.0.0.1:27017
+
+show collections
+
+
+~/./workspace/mongodb-osx-x86_64-4.0.2/bin/mongod
+~/./workspace/mongodb-osx-x86_64-4.0.2/bin/mongo
 

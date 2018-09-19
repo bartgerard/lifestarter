@@ -25,6 +25,7 @@ export class TranslationService {
     .set('common.select', 'Select')
     .set('common.selected', 'Selected')
     .set('common.none', 'none')
+    .set('guest.title', 'Guest')
     .set('guest.first-name', 'First Name')
     .set('guest.last-name', 'Last Name')
     .set('guest.diet', 'Dietary Preference')

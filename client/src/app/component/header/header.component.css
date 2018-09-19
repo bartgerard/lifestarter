@@ -1,3 +1,11 @@
 .border-bottom {
   border-bottom: 1px solid #dee2e6;
 }
+
+.text-dark {
+  color: #343a40;
+}
+
+.p-2 {
+  padding: .5rem;
+}

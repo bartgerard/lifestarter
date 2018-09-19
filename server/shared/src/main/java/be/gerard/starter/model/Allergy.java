@@ -3,6 +3,7 @@ package be.gerard.starter.model;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 /**
  * Allergy
@@ -12,7 +13,10 @@ import lombok.RequiredArgsConstructor;
  */
 @RequiredArgsConstructor(staticName = "of")
 @Getter
-@EqualsAndHashCode(of = "name")
+@EqualsAndHashCode(of = "id")
 public class Allergy {
-    private final String name;
+
+    @Id
+    private final String id;
+
 }

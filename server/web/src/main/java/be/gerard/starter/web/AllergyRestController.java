@@ -26,7 +26,7 @@ public class AllergyRestController {
     @GetMapping
     public Mono<List<String>> allergies() {
         return allergyService.findAll()
-                .map(Allergy::getName)
+                .map(Allergy::getId)
                 .collectList();
     }
 

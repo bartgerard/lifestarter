@@ -1,9 +1,12 @@
 package be.gerard.starter.service;
 
 import be.gerard.starter.model.Allergy;
+import be.gerard.starter.repository.AllergyRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +17,7 @@ import java.util.List;
  * @version v0.0.1
  */
 @Service
+@RequiredArgsConstructor
 public class AllergyService {
 
     private static final List<Allergy> ALLERGIES = Arrays.asList(
@@ -29,8 +33,15 @@ public class AllergyService {
             Allergy.of("PAPRIKA_POWDER")
     );
 
+    private final AllergyRepository allergyRepository;
+
     public Flux<Allergy> findAll() {
-        return Flux.fromIterable(ALLERGIES);
+        return Flux.fromIterable(allergyRepository.findAll());
+    }
+
+    @PostConstruct
+    public void init() {
+        allergyRepository.saveAll(ALLERGIES);
     }
 
 }
