@@ -25,8 +25,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     ) {
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:4200",
-                        "http://wedding.xplained.be:8080"
+                        "http://localhost:4200"
                 );
     }
 

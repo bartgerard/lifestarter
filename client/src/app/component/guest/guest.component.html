@@ -2,14 +2,14 @@
 
   <div class="row">
 
-    <div class="item col-md-12">
+    <div class="mt-3 mb-3 col-md-12">
       <span class="ui-float-label">
         <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="full-width">
         <label for="first-name">{{'guest.first-name' | translate}}</label>
       </span>
     </div>
 
-    <div class="item col-md-12">
+    <div class="mt-3 mb-3 col-md-12">
       <span class="ui-float-label">
         <input pInputText id="last-name" type="text" [(ngModel)]="lastName" class="full-width">
         <label for="last-name">{{'guest.last-name' | translate}}</label>
@@ -17,7 +17,7 @@
     </div>
 
     <!--
-    <div class="item col-md-12">
+    <div class="mt-3 mb-3 col-md-12">
       <p-dropdown [options]="dietaryOptions"
                   [(ngModel)]="selectedDiet"
                   placeholder="{{'common.select' | translate}} {{'guest.diet' | translate}}"
@@ -37,7 +37,7 @@
     </div>
     -->
 
-    <div class="item col-md-12">
+    <div class="mt-3 mb-3 col-md-12">
       <p-listbox [options]="dietaryOptions"
                  [(ngModel)]="selectedDiet"
                  [style]="{'width':'100%'}">
@@ -47,31 +47,11 @@
       </p-listbox>
     </div>
 
-    <div class="item col-md-12">
-      <p-listbox [options]="allergyOptions"
-                 [(ngModel)]="selectedAllergies"
-                 multiple="multiple"
-                 checkbox="checkbox"
-                 filter="filter"
-                 [style]="{'width':'100%'}">
-        <p-header>
-          {{'guest.allergies' | translate}}
-        </p-header>
-        <ng-template let-allergen pTemplate="item">
-          <img src="assets/images/allergens/{{allergen.value}}_grey_50x50.png" width="50">
-          <span style="margin-left: 5px;">{{allergen.label}}</span>
-        </ng-template>
-        <p-footer>
-          <div>
-            {{'common.selected' | translate}}:
-            <span *ngFor="let allergy of selectedAllergies; let i = index">{{i === 0 ? '' : ', '}}{{'allergy.' + allergy | translate}}</span>
-            <!--{{selectedAllergies || 'common.none' | translate}}-->
-          </div>
-        </p-footer>
-      </p-listbox>
+    <div class="mt-3 mb-3 col-md-12">
+      <app-allergy [(allergies)]="allergies"></app-allergy> <!--(allergiesChange)="this.allergies = allergies"-->
     </div>
 
-    <div class="item col-md-12">
+    <div class="mt-3 mb-3 col-md-12">
       <span class="ui-float-label">
         <textarea pInputText id="comment" type="text" [(ngModel)]="comment" class="full-width">
         </textarea>
@@ -79,7 +59,7 @@
       </span>
     </div>
 
-    <div class="item col-md-12">
+    <div class="mt-3 mb-3 col-md-12">
       <button pButton
               type="button"
               label="{{'common.add' | translate}}"
@@ -89,10 +69,6 @@
       </button>
     </div>
 
-  </div>
-
-  <div class="row">
-    <app-allergy></app-allergy>
   </div>
 
   <div class="row">

@@ -35,10 +35,10 @@ sudo npm update ws --depth 4
 
 sudo npm install primeng --save
 sudo npm install primeicons --save
+sudo npm install ngx-bootstrap bootstrap --save
 
-
-
-
+// Don't forget to add:
+- "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 sudo npm i -g npm-check-updates
 sudo ncu -u

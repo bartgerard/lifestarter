@@ -14,7 +14,7 @@ export class GuestComponent implements OnInit {
   firstName: string;
   lastName: string;
   selectedDiet: string;
-  selectedAllergies: string[];
+  allergies: string[];
   comment: string;
 
   dietaryOptions: SelectItem[];
@@ -57,7 +57,7 @@ export class GuestComponent implements OnInit {
   }
 
   handleClick() {
-    console.log(this.firstName + ' ' + this.lastName + this.selectedDiet + ' - ' + this.comment);
+    console.log(this.firstName + ' ' + this.lastName + this.selectedDiet + ' - ' + this.comment + ' - ' + this.allergies);
   }
 
 }
