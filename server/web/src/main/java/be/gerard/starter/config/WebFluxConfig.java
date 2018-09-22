@@ -33,7 +33,8 @@ public class WebFluxConfig implements WebFluxConfigurer {
     public void addCorsMappings(
             final CorsRegistry registry
     ) {
-        registry.addMapping("/**");
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:4200");
     }
 
     @Bean

@@ -24,7 +24,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
             final CorsRegistry registry
     ) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:4200");
+                .allowedOrigins(
+                        "http://localhost:4200",
+                        "http://wedding.xplained.be:8080"
+                );
     }
 
     // Thx to https://stackoverflow.com/questions/46148843/spring-boot-angular-4-routing-in-app-hits-the-server#
