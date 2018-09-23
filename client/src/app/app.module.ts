@@ -18,6 +18,7 @@ import {UserComponent} from './component/user/user.component';
 import {SeatComponent} from './component/seat/seat.component';
 import {ContactInformationComponent} from './component/contact-information/contact-information.component';
 import {TranslatePipe} from './pipe/translate.pipe';
+import { InfoComponent } from './component/info/info.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {TranslatePipe} from './pipe/translate.pipe';
     UserComponent,
     SeatComponent,
     ContactInformationComponent,
-    TranslatePipe
+    TranslatePipe,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

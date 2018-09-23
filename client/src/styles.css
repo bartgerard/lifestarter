@@ -13,10 +13,14 @@
   color: #404040;
 }
 
-.grey {
-  color: #85C442;
+.green-back {
+  background-color: #037362;
 }
 
-.full-width {
-  width: 100%;
+.ksr-green {
+  color: #037362;
+}
+
+.grey {
+  color: #85C442;
 }

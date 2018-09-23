@@ -4,14 +4,14 @@
 
     <div class="mt-3 mb-3 col-md-12">
       <span class="ui-float-label">
-        <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="full-width">
+        <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="w-100">
         <label for="first-name">{{'guest.first-name' | translate}}</label>
       </span>
     </div>
 
     <div class="mt-3 mb-3 col-md-12">
       <span class="ui-float-label">
-        <input pInputText id="last-name" type="text" [(ngModel)]="lastName" class="full-width">
+        <input pInputText id="last-name" type="text" [(ngModel)]="lastName" class="w-100">
         <label for="last-name">{{'guest.last-name' | translate}}</label>
       </span>
     </div>
@@ -53,7 +53,7 @@
 
     <div class="mt-3 mb-3 col-md-12">
       <span class="ui-float-label">
-        <textarea pInputText id="comment" type="text" [(ngModel)]="comment" class="full-width">
+        <textarea pInputText id="comment" type="text" [(ngModel)]="comment" class="w-100">
         </textarea>
         <label for="comment">{{'guest.comment' | translate}}</label>
       </span>
@@ -64,7 +64,7 @@
               type="button"
               label="{{'common.add' | translate}}"
               (click)="handleClick()"
-              class="full-width">
+              class="w-100">
         <!--routerLink="/project"-->
       </button>
     </div>

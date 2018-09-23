@@ -25,6 +25,7 @@ export class TranslationService {
     .set('common.select', 'Select')
     .set('common.selected', 'Selected')
     .set('common.none', 'none')
+    .set('common.rsvp', 'RSVP')
     .set('guest.title', 'Guest')
     .set('guest.first-name', 'First Name')
     .set('guest.last-name', 'Last Name')
@@ -36,7 +37,9 @@ export class TranslationService {
     .set('contact.zip-code', 'Zip Code')
     .set('contact.city', 'City')
     .set('contact.country', 'Country')
-    .set('contact.phone-number', 'Phone Number');
+    .set('contact.phone-number', 'Phone Number')
+    .set('main.title', 'Togetherness Foreverness')
+    .set('main.subtitle', 'Een registratie module voor vrienden en familie voor de trouw van Kim & Bart met een lichte knipoog naar een welbepaald crowdfunding platform.');
 
   constructor() {
   }
