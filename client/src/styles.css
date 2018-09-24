@@ -24,3 +24,7 @@
 .grey {
   color: #85C442;
 }
+
+.circle {
+  border-radius: 50%;
+}
