@@ -28,3 +28,15 @@
 .circle {
   border-radius: 50%;
 }
+
+.border-bottom {
+  border-bottom: 0.1rem solid #DCDEDD;
+}
+
+@media (min-width: 768px) {
+
+  .border-bottom-none-md {
+    border-bottom: none !important;
+  }
+
+}
