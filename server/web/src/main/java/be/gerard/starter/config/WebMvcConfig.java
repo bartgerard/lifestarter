@@ -19,6 +19,7 @@ import java.io.IOException;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
+
     @Override
     public void addCorsMappings(
             final CorsRegistry registry

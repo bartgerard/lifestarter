@@ -117,3 +117,70 @@ show collections
 ~/./workspace/mongodb-osx-x86_64-4.0.2/bin/mongod
 ~/./workspace/mongodb-osx-x86_64-4.0.2/bin/mongo
 
+
+
+
+
+# NGINX (reverse proxy)
+
+
+## Remove
+
+    sudo apt-get remove --purge nginx
+
+## In case you did delete /etc/nginx
+
+    sudo apt-get install --reinstall nginx-common
+    
+## Install
+
+    sudo apt-get install nginx
+
+## Start sServer
+
+    sudo /etc/init.d/nginx start
+
+## Auto start on reboot
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+
+# Change config
+(https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-with-ssl-as-a-reverse-proxy-for-jenkins)
+
+(https://www.linode.com/docs/development/java/how-to-deploy-spring-boot-applications-nginx-ubuntu-16-04/)
+
+sudo nano /etc/nginx/conf.d/lifestarter.conf
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name example.com;
+
+    location / {
+         proxy_pass http://localhost:8080/;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header X-Forwarded-Proto $scheme;
+         proxy_set_header X-Forwarded-Port $server_port;
+    }
+}
+
+
+sudo nginx -t
+sudo systemctl restart nginx
+sudo systemctl reload nginx
+
+https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/
+
+
+# https
+https://drissamri.be/blog/java/enable-https-in-spring-boot/
+
+
+https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/
+https://www.linode.com/docs/web-servers/nginx/how-to-configure-nginx/
+https://gist.github.com/soheilhy/8b94347ff8336d971ad0
+
+
+## Determine to which package belongs a file
+    dpkg -S /etc/nginx
