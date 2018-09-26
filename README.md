@@ -184,3 +184,22 @@ https://gist.github.com/soheilhy/8b94347ff8336d971ad0
 
 ## Determine to which package belongs a file
     dpkg -S /etc/nginx
+    
+server {
+    listen 80;
+    listen [::]:80;
+
+    #server_name wedding.xplained.be;
+    server_name _; # Wildcard server
+
+    location / {
+         proxy_bind $host:80;
+         proxy_pass http://localhost:8080/;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header X-Forwarded-Proto $scheme;
+         proxy_set_header X-Forwarded-Port $server_port;
+         proxy_set_header Host            $host; # Pass host header
+         proxy_set_header X-Real-IP       $remote_addr; # Preserve client IP
+         proxy_set_header X-Forwarded-For $remote_addr;
+    }
+}
