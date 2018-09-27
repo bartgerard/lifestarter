@@ -35,8 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             final HttpSecurity http
     ) throws Exception {
         http.headers()
-                .frameOptions()
-                .disable() // FAR FROM IDEAL
+                //.frameOptions()
+                //.disable() // FAR FROM IDEAL
                 //.sameOrigin()
                 .and()
                 .authorizeRequests()
