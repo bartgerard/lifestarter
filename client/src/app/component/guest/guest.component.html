@@ -2,14 +2,14 @@
 
   <div class="row">
 
-    <div class="mt-3 mb-3 col-md-12 col-12">
+    <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <input pInputText id="first-name" type="text" [(ngModel)]="firstName" class="w-100">
         <label for="first-name">{{'guest.first-name' | translate}}</label>
       </span>
     </div>
 
-    <div class="mt-3 mb-3 col-md-12 col-12">
+    <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <input pInputText id="last-name" type="text" [(ngModel)]="lastName" class="w-100">
         <label for="last-name">{{'guest.last-name' | translate}}</label>
@@ -17,7 +17,7 @@
     </div>
 
     <!--
-    <div class="mt-3 mb-3 col-md-12">
+    <div class="mt-3 mb-3">
       <p-dropdown [options]="dietaryOptions"
                   [(ngModel)]="selectedDiet"
                   placeholder="{{'common.select' | translate}} {{'guest.diet' | translate}}"
@@ -37,7 +37,7 @@
     </div>
     -->
 
-    <div class="mt-3 mb-3 col-md-12 col-12">
+    <div class="mt-3 mb-3 col-12">
       <p-listbox [options]="dietaryOptions"
                  [(ngModel)]="selectedDiet"
                  [style]="{'width':'100%'}">
@@ -47,11 +47,11 @@
       </p-listbox>
     </div>
 
-    <div class="mt-3 mb-3 col-md-12 col-12">
+    <div class="mt-3 mb-3 col-12">
       <app-allergy [(allergies)]="allergies"></app-allergy> <!--(allergiesChange)="this.allergies = allergies"-->
     </div>
 
-    <div class="mt-3 mb-3 col-md-12 col-12">
+    <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <textarea pInputText id="comment" type="text" [(ngModel)]="comment" class="w-100">
         </textarea>
@@ -59,7 +59,7 @@
       </span>
     </div>
 
-    <div class="mt-3 mb-3 col-md-12 col-12">
+    <div class="mt-3 mb-3 col-12">
       <button pButton
               type="button"
               label="{{'common.add' | translate}}"

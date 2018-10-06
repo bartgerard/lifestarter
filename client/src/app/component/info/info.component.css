@@ -7,3 +7,7 @@
   height: 42px;
   width: 42px;
 }
+
+.link-active {
+  border-bottom: 3px solid #282828;
+}

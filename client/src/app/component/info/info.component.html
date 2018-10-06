@@ -1,5 +1,5 @@
 <div>
-  <div class="container">
+  <div class="container mb-5">
     <div class="row">
       <div class="col-md-8 order-md-2 col-12">
         <img src="assets/images/info/ring.jpg" class="img-fluid">
@@ -7,17 +7,17 @@
       <div class="col-md-8 col-12 order-md-4">
         <div class="p-0 pt-2 pb-2 container border-bottom-none-md border-bottom">
           <div class="row">
-            <div class="col-4">
+            <div class="col-sm-4 col-auto">
               <i class="p-1 fa fa-heart"></i>
               <small>Kim</small>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4 col-auto">
               <i class="p-1 fa fa-compass"></i>
               <small>Wedding</small>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4 col-auto">
               <i class="p-1 fa fa-map-marker"></i>
-              <small>Herent, Belgium</small>
+              <small>Bertem, Belgium</small>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
             <div class="mt-2 mb-2 pl-0 pr-0 col-12">
               <button pButton
                       type="button"
-                label="{{'common.rsvp' | translate}}"
+                      label="{{'common.rsvp' | translate}}"
                       class="w-100 pt-2 pb-2"
                       routerLink="/registration">
               </button>
@@ -62,12 +62,12 @@
             <div class="mt-2 mb-2 pl-0 pr-0 col-6">
               <button pButton
                       type="button"
-                label="{{'common.follow' | translate}}"
+                      label="{{'common.reminder' | translate}}"
                       class="ui-button-secondary w-100 pt-2 pb-2"
                       routerLink="/registration">
               </button>
             </div>
-            <div class="col-1">
+            <div class="col-1 d-md-none d-lg-block">
             </div>
             <div class="mt-auto mb-auto col-1">
               <i class="fa fa-facebook"></i>
@@ -92,9 +92,59 @@
   </div>
 </div>
 
-
-<section>
-  <div class="container text-center">
-    <h2>Test</h2>
+<div class="border-bottom border-top">
+  <div class="container d-flex flex-row justify-content-start">
+    <a class="mr-5 pt-3 pb-3" href="#" [class.link-active]="true" >Concept</a>
+    <a class="mr-5 pt-3 pb-3" href="#" [class.link-active]="" >Updates</a>
+    <a class="mr-5 pt-3 pb-3" href="#" [class.link-active]="" >Comments</a>
   </div>
-</section>
+</div>
+
+<div class="container">
+  <div class="row campaign">
+    <div class="col-12 col-md-8 order-0 mt-5 mb-5">
+      <h3 class="mb-4">About</h3>
+      <div>
+        <h4>Planning</h4>
+        <!--Life is like a box of chocolates. You never know what you're gonna get. Toch heb ik mijn pralineetje al gevonden!-->
+        24 --> font
+        ~11:00 Official
+        ~13:00 Ceremonial
+        ~15:00 Reception
+        ~17:00 Jamjamjamjam
+        ~18:00 Dessertenbuffet
+      </div>
+      <div>
+        <h4>Shipping</h4>
+        Huwelijksbootje :-)
+        <p>
+          <img class="img-fluid center" src="assets/images/shipping/Eu-Friendly-Banner.png">
+        </p>
+      </div>
+      <div>
+        <h4>Stretch Goals</h4>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 order-2 order-md-1 mt-5 mb-5">
+      <h3 class="mb-4">Support</h3>
+      <app-pledge></app-pledge>
+    </div>
+    <div class="col-12 col-md-8 order-1 order-md-2 mt-5 mb-5">
+      <h3 class="mb-4">Risks and challenges</h3>
+      <p>Kim en Bart kennen elkaar ondertussen al minimaal negen jaar op het moment van dit schrijven. Zij beleefden
+        samen al menig avontuur. Samen trotseerden zij onder andere (maar niet gelimiteerd tot) een Star Wars WArathon,
+        de examens van de KULeuven, een inbraak, een bouw en nu ook al de voorbereidingen voor de trouw.</p>
+      <p>Natuurlijk veranderen mensen en niemand weet wat de toekomst zal brengen. Wij willen samen actief streven en
+        actief werken naar een gelukkig leven samen. Een eiken huwelijksverjaardag (80 jaar) zit er waarschijnlijk
+        niet meer in, maar wij gaan ons best doen voor de Diamond Achievement&trade; (60 jaar).</p>
+      <p>
+        <img class="img-fluid center" src="assets/images/achievement.png">
+      </p>
+      <p>Zo ver zijn we natuurlijk lang nog niet en hierbij valt onderweg de rol van vrienden en familie zeker niet te
+        onderschatten.</p>
+      <p>
+        <u>Learn about accountability on Lifestarter</u>
+      </p>
+    </div>
+  </div>
+</div>

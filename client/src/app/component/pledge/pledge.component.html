@@ -1,0 +1,20 @@
+<div class="d-flex flex-column">
+  <div class="p-3 mb-4 border" *ngFor="let pledge of pledges">
+
+    <p>Pledge {{pledge.price | currency : 'EUR' : 'symbol' : '1.0'}} or more</p>
+
+    <p>{{pledge.name}}</p>
+
+    <p class="text-small">{{pledge.description}}</p>
+
+    <div *ngIf="pledge.contents && pledge.contents.length > 0" class="text-small">
+      Includes:
+      <ul>
+        <li *ngFor="let content of pledge.contents">{{content}}</li>
+      </ul>
+    </div>
+
+    <div class="text-small">{{pledge.amount}} backers</div>
+
+  </div>
+</div>

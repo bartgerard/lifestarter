@@ -19,6 +19,7 @@ import {SeatComponent} from './component/seat/seat.component';
 import {ContactInformationComponent} from './component/contact-information/contact-information.component';
 import {TranslatePipe} from './pipe/translate.pipe';
 import {InfoComponent} from './component/info/info.component';
+import { PledgeComponent } from './component/pledge/pledge.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {InfoComponent} from './component/info/info.component';
     SeatComponent,
     ContactInformationComponent,
     TranslatePipe,
-    InfoComponent
+    InfoComponent,
+    PledgeComponent
   ],
   imports: [
     BrowserModule,

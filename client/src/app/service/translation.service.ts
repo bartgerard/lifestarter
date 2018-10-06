@@ -26,6 +26,7 @@ export class TranslationService {
     .set('common.selected', 'Selected')
     .set('common.none', 'none')
     .set('common.rsvp', 'RSVP')
+    .set('common.reminder', 'Reminder')
     .set('guest.title', 'Guest')
     .set('guest.first-name', 'First Name')
     .set('guest.last-name', 'Last Name')

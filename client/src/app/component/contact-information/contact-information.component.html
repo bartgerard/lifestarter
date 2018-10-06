@@ -2,35 +2,35 @@
 
   <div class="row">
 
-    <div class="mt-3 mb-3 col-md-12">
+    <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <input pInputText id="email" type="text" [(ngModel)]="email" class="w-100">
         <label for="email">{{'contact.email' | translate}}</label>
       </span>
     </div>
 
-    <div class="mt-3 mb-3 col-md-12">
+    <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <input pInputText id="address" type="text" [(ngModel)]="address" class="w-100">
         <label for="address">{{'contact.address' | translate}}</label>
       </span>
     </div>
 
-    <div class="mt-3 mb-3 col-md-4">
+    <div class="mt-3 mb-3 col-4">
       <span class="ui-float-label">
         <input pInputText id="zip-code" type="text" [(ngModel)]="zipCode" class="w-100">
         <label for="zip-code">{{'contact.zip-code' | translate}}</label>
       </span>
     </div>
 
-    <div class="mt-3 mb-3 col-md-8">
+    <div class="mt-3 mb-3 col-8">
       <span class="ui-float-label">
         <input pInputText id="city" type="text" [(ngModel)]="city" class="w-100">
         <label for="city">{{'contact.city' | translate}}</label>
       </span>
     </div>
 
-    <div class="mt-3 mb-3 col-md-12">
+    <div class="mt-3 mb-3 col-12">
       <p-dropdown [options]="countries"
                   [(ngModel)]="selectedCountry"
                   filter="true"
@@ -39,7 +39,7 @@
       </p-dropdown>
     </div>
 
-    <div class="mt-3 mb-3 col-md-12">
+    <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <p-inputMask mask="+32 999 999 999" id="phone-number" [(ngModel)]="phoneNumber" styleClass="w-100">
         </p-inputMask>
