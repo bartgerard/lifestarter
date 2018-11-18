@@ -1,9 +1,12 @@
 package be.gerard.starter.model;
 
 import be.gerard.starter.value.FullName;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Singular;
+
+import java.util.List;
 
 /**
  * Guest
@@ -11,9 +14,16 @@ import lombok.Getter;
  * @author bartgerard
  * @version v0.0.1
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Builder
 public class Guest {
-    private FullName fullName;
+
+    private final FullName fullName;
+
+    private final Diet diet;
+
+    @Singular
+    private final List<String> allergies;
+
 }

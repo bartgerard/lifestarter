@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Guest} from '../../model/guest';
 
 @Component({
   selector: 'app-registration',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  guests: Guest[] = [new Guest()];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

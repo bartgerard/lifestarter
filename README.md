@@ -36,6 +36,7 @@ sudo npm update ws --depth 4
 sudo npm install primeng --save
 sudo npm install primeicons --save
 sudo npm install ngx-bootstrap bootstrap --save
+sudo npm install popper.js --save
 
 // Don't forget to add:
 - "node_modules/bootstrap/dist/css/bootstrap.min.css"

@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   }
 
   handleClick() {
-    console.log(this.firstName + ' ' + this.lastName);
+    console.log(`${this.firstName} ${this.lastName}`);
   }
 
 }

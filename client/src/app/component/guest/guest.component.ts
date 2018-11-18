@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DietService} from '../../service/diet.service';
 import {SelectItem} from 'primeng/api';
 import {TranslationService} from '../../service/translation.service';
 import {AllergyService} from '../../service/allergy.service';
+import {Guest} from '../../model/guest';
 
 @Component({
   selector: 'app-guest',
@@ -11,11 +12,11 @@ import {AllergyService} from '../../service/allergy.service';
 })
 export class GuestComponent implements OnInit {
 
-  firstName: string;
-  lastName: string;
-  selectedDiet: string;
-  allergies: string[];
-  comment: string;
+  @Input()
+  guest: Guest = new Guest();
+
+  @Output() // ...Change is the keyword!
+  guestChange = new EventEmitter<Guest>();
 
   dietaryOptions: SelectItem[];
   allergyOptions: SelectItem[];
@@ -57,7 +58,7 @@ export class GuestComponent implements OnInit {
   }
 
   handleClick() {
-    console.log(this.firstName + ' ' + this.lastName + this.selectedDiet + ' - ' + this.comment + ' - ' + this.allergies);
+    console.log(`${this.guest.firstName} ${this.guest.lastName} ${this.guest.diet} - ${this.guest.comment} - ${this.guest.allergies}`);
   }
 
 }

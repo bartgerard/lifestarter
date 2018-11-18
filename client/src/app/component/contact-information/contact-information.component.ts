@@ -10,28 +10,23 @@ import {CountryService} from '../../service/country.service';
 })
 export class ContactInformationComponent implements OnInit {
 
+  constructor(
+    private countryService: CountryService
+  ) {
+  }
+
   email: string;
 
   address: string;
-  city: string;
   zipCode: string;
+  city: string;
   selectedCountry: Country; // iso3
 
   phoneNumber: string;
 
   countries: SelectItem[];
 
-  constructor(
-    private countryService: CountryService
-  ) {
-  }
-
-  ngOnInit() {
-    this.countryService.countries()
-      .subscribe(countries => this.countries = this.toCountryOptions(countries));
-  }
-
-  private toCountryOptions(
+  private static toCountryOptions(
     countries: Country[]
   ) {
     return countries.map(country => {
@@ -40,6 +35,11 @@ export class ContactInformationComponent implements OnInit {
         label: country.name + ' (' + country.iso3 + ')'
       };
     });
+  }
+
+  ngOnInit() {
+    this.countryService.countries()
+      .subscribe(countries => this.countries = ContactInformationComponent.toCountryOptions(countries));
   }
 
 }

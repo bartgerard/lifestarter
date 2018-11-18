@@ -1,11 +1,11 @@
-import {FullName} from './full-name';
-
 export class Guest {
 
   constructor(
-    private fullName: FullName,
-    private diet: string,
-    private comment: string
+    public firstName?: string,
+    public lastName?: string,
+    public diet?: string,
+    public allergies?: string[],
+    public comment?: string
   ) {
   }
 
