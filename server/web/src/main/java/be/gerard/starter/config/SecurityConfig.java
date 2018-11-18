@@ -34,15 +34,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(
             final HttpSecurity http
     ) throws Exception {
-        http.headers()
+        http
+                //.headers()
                 //.frameOptions()
                 //.disable() // FAR FROM IDEAL
                 //.sameOrigin()
-                .and()
+                //.and()
                 .authorizeRequests()
-                .antMatchers("/index.html", "/").permitAll()
+                .antMatchers("/", "/index.html").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().permitAll();//.authenticated();
+                .anyRequest().permitAll()//.authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .and()
+                .logout().permitAll();
     }
 
     @Bean

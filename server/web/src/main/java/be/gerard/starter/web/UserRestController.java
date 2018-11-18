@@ -22,6 +22,13 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UserRestController {
 
+    @GetMapping
+    public Principal user(
+            final Principal user
+    ) {
+        return user;
+    }
+
     @GetMapping("info")
     public Map<String, Object> users(
             final Principal user
