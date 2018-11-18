@@ -1,3 +1,58 @@
 .text-small {
   font-size: 0.7em;
 }
+
+.pledge {
+  position: relative;
+}
+
+.pledge:hover {
+}
+
+.available:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 158, 116, 0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+.available:hover:after {
+  color: white;
+  content: 'Select this reward';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 1.2em;
+}
+
+.pledge:not(.available):before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(91, 91, 91, 0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+.pledge:not(.available):after {
+  color: white;
+  content: 'No longer available';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 1.2em;
+}
+
+.unavailable {
+  background-color: #E8E8E8;
+  padding: 2%;
+  font-weight: bold;
+}
