@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {WebConfig} from '../model/web-config';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class DietService {
   }
 
   diets(): Observable<string[]> {
-    return this.http.get<string[]>(WebConfig.baseUri + '/diets');
+    return this.http.get<string[]>(environment.serverUrl + '/diets');
   }
 
 }

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Pledge} from '../model/pledge';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {WebConfig} from '../model/web-config';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class PledgeService {
   }
 
   pledges(): Observable<Pledge[]> {
-    return this.http.get<Pledge[]>(WebConfig.baseUri + '/pledges');
+    return this.http.get<Pledge[]>(environment.serverUrl + '/pledges');
   }
 
 }

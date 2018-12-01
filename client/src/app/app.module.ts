@@ -8,8 +8,16 @@ import {FooterComponent} from './component/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ProjectComponent} from './component/project/project.component';
 import {GuestComponent} from './component/guest/guest.component';
-import {ButtonModule, DropdownModule, InputMaskModule, InputTextModule, ListboxModule} from 'primeng/primeng';
-import {FormsModule} from '@angular/forms';
+import {
+  ButtonModule,
+  DropdownModule,
+  InputMaskModule,
+  InputTextModule,
+  ListboxModule,
+  MessageModule,
+  MessagesModule
+} from 'primeng/primeng';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AddressComponent} from './component/address/address.component';
 import {AllergyComponent} from './component/allergy/allergy.component';
@@ -48,7 +56,10 @@ import {PledgeComponent} from './component/pledge/pledge.component';
     ButtonModule,
     DropdownModule,
     InputMaskModule,
-    ListboxModule
+    ListboxModule,
+    ReactiveFormsModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [

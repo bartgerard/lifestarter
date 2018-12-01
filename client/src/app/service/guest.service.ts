@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Guest} from '../model/guest';
-import {WebConfig} from '../model/web-config';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class GuestService {
   }
 
   getGuests(): Observable<Guest> {
-    return this.http.get<Guest>(WebConfig.baseUri + '/guests');
+    return this.http.get<Guest>(environment.serverUrl + '/guests');
   }
 
 }

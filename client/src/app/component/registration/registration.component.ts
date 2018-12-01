@@ -8,7 +8,7 @@ import {Guest} from '../../model/guest';
 })
 export class RegistrationComponent implements OnInit {
 
-  guests: Guest[] = [new Guest()];
+  guests: Guest[] = [new Guest('a', 'b', 'a', ['EGGS'], null)];
 
   constructor() {
   }

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+read -p "username:" username
+read -p "host:" host
+
+scp ../server/web/target/starter-web-0.0.1-SNAPSHOT.jar $username@$host:~/Downloads/

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Country} from '../../model/country';
 import {SelectItem} from 'primeng/api';
 import {CountryService} from '../../service/country.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-contact-information',
@@ -10,21 +11,15 @@ import {CountryService} from '../../service/country.service';
 })
 export class ContactInformationComponent implements OnInit {
 
+  userForm: FormGroup;
+
+  countries: SelectItem[];
+
   constructor(
+    private formBuilder: FormBuilder,
     private countryService: CountryService
   ) {
   }
-
-  email: string;
-
-  address: string;
-  zipCode: string;
-  city: string;
-  selectedCountry: Country; // iso3
-
-  phoneNumber: string;
-
-  countries: SelectItem[];
 
   private static toCountryOptions(
     countries: Country[]
@@ -40,6 +35,19 @@ export class ContactInformationComponent implements OnInit {
   ngOnInit() {
     this.countryService.countries()
       .subscribe(countries => this.countries = ContactInformationComponent.toCountryOptions(countries));
+
+    this.userForm = this.formBuilder.group({
+      'email': ['', Validators.required],
+      'address': ['', Validators.required],
+      'zipCode': ['', Validators.required],
+      'city': ['', Validators.required],
+      'country': ['', Validators.required],
+      'phoneNumber': ['', Validators.required]
+    });
+  }
+
+  saveUser() {
+    console.log(this.userForm);
   }
 
 }

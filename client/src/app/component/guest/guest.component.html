@@ -1,59 +1,67 @@
-<div class="container">
+<form [formGroup]="guestForm" (submit)="saveGuest()">
+  <div class="container">
 
-  <div class="row">
+    <div class="row">
 
-    <div class="mt-3 mb-3 col-12">
+      <!--
+      <p-message severity="error" text="{{'guest.first-name' | translate}} is required"
+                 *ngIf="guestForm.controls['firstName'].invalid && guestForm.controls['firstName'].dirty">
+      </p-message>
+      -->
+
+      <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
-        <input pInputText id="first-name" type="text" [(ngModel)]="guest.firstName" class="w-100">
-        <label for="first-name">{{'guest.first-name' | translate}}</label>
+        <input pInputText id="first-name" type="text" formControlName="firstName" class="w-100">
+        <label for="first-name">{{'guest.first-name' | translate}}*</label>
       </span>
-    </div>
+      </div>
 
-    <div class="mt-3 mb-3 col-12">
+      <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
-        <input pInputText id="last-name" type="text" [(ngModel)]="guest.lastName" class="w-100">
-        <label for="last-name">{{'guest.last-name' | translate}}</label>
+        <input pInputText id="last-name" type="text" formControlName="lastName" class="w-100">
+        <label for="last-name">{{'guest.last-name' | translate}}*</label>
       </span>
-    </div>
+      </div>
 
-    <div class="mt-3 mb-3 col-12">
-      <p-listbox [options]="dietaryOptions"
-                 [(ngModel)]="guest.diet"
-                 [style]="{'width':'100%'}">
-        <p-header>
-          {{'guest.diet' | translate}}
-        </p-header>
-      </p-listbox>
-    </div>
+      <div class="mt-3 mb-3 col-12">
+        <p-listbox [options]="dietaryOptions"
+                   formControlName="diet"
+                   [style]="{'width':'100%'}">
+          <p-header>
+            {{'guest.diet' | translate}}*
+          </p-header>
+        </p-listbox>
+      </div>
 
-    <div class="mt-3 mb-3 col-12">
-      <app-allergy [(allergies)]="guest.allergies"></app-allergy>
-    </div>
+      <div class="mt-3 mb-3 col-12">
+        <app-allergy [(allergies)]="guest.allergies"></app-allergy>
+      </div>
 
-    <div class="mt-3 mb-3 col-12">
+      <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
-        <textarea pInputText id="comment" type="text" [(ngModel)]="guest.comment" class="w-100">
+        <textarea pInputText id="comment" type="text" formControlName="comment" class="w-100">
         </textarea>
         <label for="comment">{{'guest.comment' | translate}}</label>
       </span>
+      </div>
+
+      <div class="mt-3 mb-3 col-12">
+        <button pButton
+                type="submit"
+                label="{{'common.add' | translate}}"
+                [disabled]="guestForm.invalid"
+                class="w-100">
+          <!--routerLink="/project"-->
+        </button>
+      </div>
+
     </div>
 
-    <div class="mt-3 mb-3 col-12">
-      <button pButton
-              type="button"
-              label="{{'common.add' | translate}}"
-              (click)="handleClick()"
-              class="w-100">
-        <!--routerLink="/project"-->
-      </button>
+    <!--
+    <div class="row">
+      <app-seat></app-seat>
     </div>
+    -->
 
   </div>
-
-  <!--
-  <div class="row">
-    <app-seat></app-seat>
-  </div>
-  -->
-
-</div>
+</form>

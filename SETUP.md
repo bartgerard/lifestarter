@@ -241,3 +241,14 @@ Permissions
 1. Run
 
         nohup java -jar ~/Downloads/starter-web-0.0.1-SNAPSHOT.jar &
+        
+## Custom Scripts
+
+1. Change permissions
+
+        chomd u+x <script>
+        
+1. Execute
+
+        ./<script>
+        

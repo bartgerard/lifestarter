@@ -4,6 +4,7 @@ import {SelectItem} from 'primeng/api';
 import {TranslationService} from '../../service/translation.service';
 import {AllergyService} from '../../service/allergy.service';
 import {Guest} from '../../model/guest';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-guest',
@@ -13,7 +14,7 @@ import {Guest} from '../../model/guest';
 export class GuestComponent implements OnInit {
 
   @Input()
-  guest: Guest = new Guest();
+  guest: Guest;
 
   @Output() // ...Change is the keyword!
   guestChange = new EventEmitter<Guest>();
@@ -21,7 +22,12 @@ export class GuestComponent implements OnInit {
   dietaryOptions: SelectItem[];
   allergyOptions: SelectItem[];
 
+  guestForm: FormGroup;
+
+  allergies: string[];
+
   constructor(
+    private formBuilder: FormBuilder,
     private dietService: DietService,
     private allergyService: AllergyService,
     private translationService: TranslationService
@@ -31,8 +37,18 @@ export class GuestComponent implements OnInit {
   ngOnInit() {
     this.dietService.diets()
       .subscribe(diets => this.dietaryOptions = this.toDietaryOptions(diets));
+
     this.allergyService.allergies()
       .subscribe(allergies => this.allergyOptions = this.toAllergyOptions(allergies));
+
+    this.allergies = this.guest.allergies;
+
+    this.guestForm = this.formBuilder.group({
+      'firstName': [this.guest.firstName, Validators.required],
+      'lastName': [this.guest.lastName, Validators.required],
+      'diet': [this.guest.diet, Validators.required],
+      'comment': [this.guest.comment]
+    });
   }
 
   private toDietaryOptions(
@@ -57,8 +73,20 @@ export class GuestComponent implements OnInit {
     });
   }
 
-  handleClick() {
-    console.log(`${this.guest.firstName} ${this.guest.lastName} ${this.guest.diet} - ${this.guest.comment} - ${this.guest.allergies}`);
+  saveGuest() {
+    if (this.guestForm.valid) {
+      const guest = new Guest(
+        this.guestForm.value.firstName,
+        this.guestForm.value.lastName,
+        this.guestForm.value.diet,
+        this.allergies,
+        this.guestForm.value.comment
+      );
+
+      console.log(`${this.guest.firstName} ${this.guest.lastName} ${this.guest.diet} - ${this.guest.comment} - ${this.guest.allergies}`);
+
+      this.guestChange.emit(guest);
+    }
   }
 
 }
