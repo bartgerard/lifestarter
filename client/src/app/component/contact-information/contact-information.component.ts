@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Country} from '../../model/country';
 import {SelectItem} from 'primeng/api';
 import {CountryService} from '../../service/country.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ContactInformation} from '../../model/contact-information';
 
 @Component({
   selector: 'app-contact-information',
@@ -11,9 +12,12 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ContactInformationComponent implements OnInit {
 
-  userForm: FormGroup;
+  contactForm: FormGroup;
 
   countries: SelectItem[];
+
+  @Output() // ...Change is the keyword!
+  contactInformationChange = new EventEmitter<ContactInformation>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,18 +40,31 @@ export class ContactInformationComponent implements OnInit {
     this.countryService.countries()
       .subscribe(countries => this.countries = ContactInformationComponent.toCountryOptions(countries));
 
-    this.userForm = this.formBuilder.group({
+    this.contactForm = this.formBuilder.group({
       'email': ['', Validators.required],
       'address': ['', Validators.required],
       'zipCode': ['', Validators.required],
       'city': ['', Validators.required],
       'country': ['', Validators.required],
-      'phoneNumber': ['', Validators.required]
+      'phoneNumber': ['']
     });
   }
 
-  saveUser() {
-    console.log(this.userForm);
+  addContactInformation() {
+    if (this.contactForm.valid) {
+      const contactInformation = new ContactInformation(
+        this.contactForm.value.email,
+        this.contactForm.value.address,
+        this.contactForm.value.zipCode,
+        this.contactForm.value.city,
+        this.contactForm.value.country.iso3,
+        this.contactForm.value.phoneNumber,
+      );
+
+      console.log(`${contactInformation.email} ${contactInformation.address} ${contactInformation.zipCode} ${contactInformation.countryIso3}`);
+
+      this.contactInformationChange.emit(contactInformation);
+    }
   }
 
 }

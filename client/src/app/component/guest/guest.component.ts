@@ -13,6 +13,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class GuestComponent implements OnInit {
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private dietService: DietService,
+    private allergyService: AllergyService,
+    private translationService: TranslationService
+  ) {
+  }
+
   @Input()
   guest: Guest;
 
@@ -24,14 +32,17 @@ export class GuestComponent implements OnInit {
 
   guestForm: FormGroup;
 
-  allergies: string[];
+  allergies: string[] = [];
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private dietService: DietService,
-    private allergyService: AllergyService,
-    private translationService: TranslationService
-  ) {
+  toGuestFormGroup(
+    guest: Guest
+  ): FormGroup {
+    return this.formBuilder.group({
+      'firstName': [guest.firstName, Validators.required],
+      'lastName': [guest.lastName, Validators.required],
+      'diet': [guest.diet, Validators.required],
+      'comment': [guest.comment]
+    });
   }
 
   ngOnInit() {
@@ -42,13 +53,7 @@ export class GuestComponent implements OnInit {
       .subscribe(allergies => this.allergyOptions = this.toAllergyOptions(allergies));
 
     this.allergies = this.guest.allergies;
-
-    this.guestForm = this.formBuilder.group({
-      'firstName': [this.guest.firstName, Validators.required],
-      'lastName': [this.guest.lastName, Validators.required],
-      'diet': [this.guest.diet, Validators.required],
-      'comment': [this.guest.comment]
-    });
+    this.guestForm = this.toGuestFormGroup(this.guest);
   }
 
   private toDietaryOptions(
@@ -80,10 +85,10 @@ export class GuestComponent implements OnInit {
         this.guestForm.value.lastName,
         this.guestForm.value.diet,
         this.allergies,
-        this.guestForm.value.comment
+        this.guestForm.value.comment,
       );
 
-      console.log(`${this.guest.firstName} ${this.guest.lastName} ${this.guest.diet} - ${this.guest.comment} - ${this.guest.allergies}`);
+      console.log(`${guest.firstName} ${guest.lastName} ${guest.diet} - ${guest.comment} - ${guest.allergies}`);
 
       this.guestChange.emit(guest);
     }

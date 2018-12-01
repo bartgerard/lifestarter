@@ -22,6 +22,7 @@ export class TranslationService {
     .set('diet.VEGAN', 'Veganist')
     .set('diet.FRUITARIAN', 'Fruitariër')
     .set('diet.FLEXITARIAN', 'Flexitariër')
+    .set('common.next', 'Volgende')
     .set('common.add', 'Add')
     .set('common.select', 'Select')
     .set('common.selected', 'Selected')

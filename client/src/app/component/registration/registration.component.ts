@@ -8,12 +8,16 @@ import {Guest} from '../../model/guest';
 })
 export class RegistrationComponent implements OnInit {
 
-  guests: Guest[] = [new Guest('a', 'b', 'a', ['EGGS'], null)];
+  guests: Guest[] = [new Guest()];
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  addGuest() {
+    this.guests.push(new Guest());
   }
 
 }
