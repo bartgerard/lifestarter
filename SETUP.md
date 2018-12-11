@@ -114,6 +114,10 @@ Source:
 
         sudo cp -r /etc/letsencrypt/ ~/Downloads/
         sudo tar czf letsencrypt.tar.gz letsencrypt/
+        
+1. Renew
+
+        sudo certbot renew
 
 ### SSL
 
