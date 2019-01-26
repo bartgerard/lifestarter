@@ -1,7 +1,8 @@
 # lifestarter
 
 # HARD RESET
-sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp
+
+    sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp
 
 To completely uninstall node + npm is to do the following:
 
@@ -41,20 +42,18 @@ sudo npm install popper.js --save
 // Don't forget to add:
 - "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-sudo npm i -g npm-check-updates
-sudo ncu -u
-sudo npm install
+# UPDATE
 
+    sudo npm i -g npm-check-updates
+    sudo ncu -u
+    sudo npm install
 
-sudo chmod -R 777 .
+    sudo chmod -R 777 .
 
 
 # BUILD
 
-sudo npm run build
-
-
-
+    sudo npm run build
 
 https://www.devglan.com/spring-boot/spring-boot-angular-deployment
 

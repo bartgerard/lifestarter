@@ -1,0 +1,22 @@
+<p-listbox [options]="allergyOptions"
+  [ngModel]="allergies"
+  (onChange)="this.allergiesChange.emit($event.value)"
+  multiple="multiple"
+  checkbox="checkbox"
+  filter="filter"
+  styleClass="w-100">
+  <p-header>
+    {{'guest.allergies' | translate}}
+  </p-header>
+  <ng-template let-allergen pTemplate="item">
+    <img src="assets/images/allergens/{{allergen.value}}_grey_50x50.png" width="50">
+    <span style="margin-left: 5px;">{{allergen.label}}</span>
+  </ng-template>
+  <p-footer>
+    <div>
+      {{'common.selected' | translate}}:
+      <span *ngFor="let allergy of allergies; let i = index">{{i === 0 ? '' : ', '}}{{'allergy.' + allergy | translate}}</span>
+      <!--{{allergies || 'common.none' | translate}}-->
+    </div>
+  </p-footer>
+</p-listbox>
