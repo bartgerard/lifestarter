@@ -5,6 +5,7 @@ import be.gerard.starter.service.RegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -23,6 +24,7 @@ public class RegistrationRestController {
 
     private final RegistrationService registrationService;
 
+    // TODO REMOVE
     @GetMapping
     public Flux<Registration> registrations() {
         return registrationService.findAll();
@@ -30,7 +32,7 @@ public class RegistrationRestController {
 
     @PutMapping
     public Mono<Registration> addRegistration(
-            final Registration registration
+            @RequestBody final Registration registration
     ) {
         return registrationService.save(registration);
     }

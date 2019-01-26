@@ -1,6 +1,5 @@
 package be.gerard.starter.model;
 
-import be.gerard.starter.value.FullName;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,9 @@ import java.util.List;
 @Builder
 public class Guest {
 
-    private final FullName fullName;
+    private final String firstName;
+
+    private final String lastName;
 
     private final Diet diet;
 

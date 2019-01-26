@@ -4,9 +4,6 @@ import be.gerard.starter.model.Guest;
 import be.gerard.starter.service.GuestService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
-import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
-import org.springframework.web.reactive.config.EnableWebFlux;
-import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
@@ -24,9 +21,9 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
  * @version v0.0.1
  */
 //@Configuration
-@EnableWebFlux
-@EnableWebFluxSecurity
-public class WebFluxConfig implements WebFluxConfigurer {
+//@EnableWebFlux
+//@EnableWebFluxSecurity
+public class WebFluxConfig /*implements WebFluxConfigurer*/ {
 
     /*
     @Override

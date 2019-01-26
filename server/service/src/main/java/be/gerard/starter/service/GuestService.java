@@ -1,7 +1,6 @@
 package be.gerard.starter.service;
 
 import be.gerard.starter.model.Guest;
-import be.gerard.starter.value.FullName;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.util.function.Tuple2;
@@ -21,18 +20,12 @@ public class GuestService {
 
     private static final List<Guest> GUESTS = Arrays.asList(
             Guest.builder()
-                    .fullName(FullName.builder()
-                            .firstName("James")
-                            .lastName("Bond")
-                            .build()
-                    )
+                    .firstName("James")
+                    .lastName("Bond")
                     .build(),
             Guest.builder()
-                    .fullName(FullName.builder()
-                            .firstName("Bruce")
-                            .lastName("Wayne")
-                            .build()
-                    )
+                    .firstName("Bruce")
+                    .lastName("Wayne")
                     .build()
     );
 
