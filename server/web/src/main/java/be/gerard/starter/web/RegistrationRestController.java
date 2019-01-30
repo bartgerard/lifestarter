@@ -24,7 +24,7 @@ public class RegistrationRestController {
 
     private final RegistrationService registrationService;
 
-    // TODO REMOVE
+    // TODO HIDE FROM USERS... GDPR
     @GetMapping
     public Flux<Registration> registrations() {
         return registrationService.findAll();
