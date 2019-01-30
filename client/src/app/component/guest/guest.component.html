@@ -9,6 +9,8 @@
       </p-message>
       -->
 
+      <div class="mb-2 col-12">{{title | translate}}</div>
+
       <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
         <input pInputText id="first-name" type="text" formControlName="firstName" class="w-100">
@@ -34,7 +36,7 @@
       </div>
 
       <div class="mt-3 mb-3 col-12">
-        <app-allergy [(allergies)]="guest.allergies"></app-allergy>
+        <app-allergy [(allergies)]="allergies"></app-allergy>
       </div>
 
       <div class="mt-3 mb-3 col-12">

@@ -11,13 +11,17 @@ import {ContactInformation} from '../../model/contact-information';
 })
 export class RegistrationComponent implements OnInit {
 
-  editContact = true;
-  disableContact = true;
-  hideGuests = false;
+  step = -1;
 
   guestLimit = 2;
 
   contactInformation: ContactInformation;
+
+  guestTitles: string[] = [
+    'guest.main',
+    'guest.plus1'
+  ];
+
   guests: Guest[] = [new Guest()];
 
   constructor(
@@ -33,17 +37,12 @@ export class RegistrationComponent implements OnInit {
   ) {
     this.contactInformation = contactInformation;
 
+    this.step = 0;
     this.guestLimit = 2;
-    this.editContact = false;
-
-    this.guests = [
-      new Guest(),
-      new Guest()
-    ];
   }
 
   addGuest() {
-    this.guests.push(new Guest());
+    this.step++;
   }
 
   register(

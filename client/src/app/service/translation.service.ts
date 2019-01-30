@@ -36,6 +36,7 @@ export class TranslationService {
     .set('guest.diet', 'Dietary Preference')
     .set('guest.allergies', 'Allergies')
     .set('guest.comment', 'Comment')
+    .set('contact.title', 'Contact Informatie')
     .set('contact.email', 'Email')
     .set('contact.address', 'Address')
     .set('contact.zip-code', 'Zip Code')

@@ -22,6 +22,12 @@ export class GuestComponent implements OnInit {
   }
 
   @Input()
+  title: string;
+
+  @Input()
+  index: number;
+
+  @Input()
   guest: Guest;
 
   @Output() // ...Change is the keyword!
@@ -52,8 +58,18 @@ export class GuestComponent implements OnInit {
     this.allergyService.allergies()
       .subscribe(allergies => this.allergyOptions = this.toAllergyOptions(allergies));
 
-    this.allergies = this.guest.allergies;
-    this.guestForm = this.toGuestFormGroup(this.guest);
+    if (!this.guest) {
+      this.allergies = [];
+      this.guestForm = this.formBuilder.group({
+        'firstName': ['', Validators.required],
+        'lastName': ['', Validators.required],
+        'diet': ['', Validators.required],
+        'comment': ['']
+      });
+    } else {
+      this.allergies = this.guest.allergies;
+      this.guestForm = this.toGuestFormGroup(this.guest);
+    }
   }
 
   private toDietaryOptions(
