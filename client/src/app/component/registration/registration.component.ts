@@ -17,12 +17,13 @@ export class RegistrationComponent implements OnInit {
 
   contactInformation: ContactInformation;
 
-  guestTitles: string[] = [
+  roles: string[] = [
     'guest.main',
-    'guest.plus1'
+    'guest.plus1',
+    // 'guest.child1'
   ];
 
-  guests: Guest[] = [new Guest()];
+  guests: Map<string, Guest> = new Map<string, Guest>();
 
   constructor(
     private registrationService: RegistrationService
@@ -41,13 +42,22 @@ export class RegistrationComponent implements OnInit {
     this.guestLimit = 2;
   }
 
-  addGuest() {
+  addGuest(
+    role: string,
+    guest: Guest
+  ) {
+    this.guests.set(role, guest);
     this.step++;
   }
 
-  register(
-    registration: Registration
+  skip(
+    role: string
   ) {
+    this.guests.delete(role);
+    this.step++;
+  }
+
+  register() {
     this.registrationService.register(new Registration(
       this.contactInformation.email,
       this.guests,

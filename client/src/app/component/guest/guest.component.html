@@ -8,8 +8,7 @@
                  *ngIf="guestForm.controls['firstName'].invalid && guestForm.controls['firstName'].dirty">
       </p-message>
       -->
-
-      <div class="mb-2 col-12">{{title | translate}}</div>
+      <div class="mb-2 col-12 font-weight-bolder blue">{{role | translate}}</div>
 
       <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
@@ -47,13 +46,21 @@
       </span>
       </div>
 
-      <div class="mt-3 mb-3 col-12">
+      <div class="mt-3 mb-1 col-12">
         <button pButton
                 type="submit"
                 label="{{'common.add' | translate}}"
                 [disabled]="guestForm.invalid"
                 class="w-100">
           <!--routerLink="/project"-->
+        </button>
+      </div>
+
+      <div class="mt-1 mb-3 col-12">
+        <button (click)="skip()"
+                class="w-100 ui-button-secondary"
+                label="{{'common.skip' | translate}}"
+                pButton>
         </button>
       </div>
 

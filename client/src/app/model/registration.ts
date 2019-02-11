@@ -5,7 +5,7 @@ export class Registration {
 
   constructor(
     public email?: string,
-    public guests?: Guest[],
+    public guests?: Map<string, Guest>,
     public contactInformation?: ContactInformation,
     public pledgeName?: string
   ) {

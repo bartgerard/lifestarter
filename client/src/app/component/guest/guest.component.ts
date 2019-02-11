@@ -5,6 +5,7 @@ import {TranslationService} from '../../service/translation.service';
 import {AllergyService} from '../../service/allergy.service';
 import {Guest} from '../../model/guest';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {GuestAdded} from '../../event/guest-added';
 
 @Component({
   selector: 'app-guest',
@@ -22,7 +23,7 @@ export class GuestComponent implements OnInit {
   }
 
   @Input()
-  title: string;
+  role: string;
 
   @Input()
   index: number;
@@ -31,7 +32,10 @@ export class GuestComponent implements OnInit {
   guest: Guest;
 
   @Output() // ...Change is the keyword!
-  guestChange = new EventEmitter<Guest>();
+  guestChange = new EventEmitter<GuestAdded>();
+
+  @Output()
+  skipChange = new EventEmitter<string>();
 
   dietaryOptions: SelectItem[];
   allergyOptions: SelectItem[];
@@ -106,8 +110,15 @@ export class GuestComponent implements OnInit {
 
       console.log(`${guest.firstName} ${guest.lastName} ${guest.diet} - ${guest.comment} - ${guest.allergies}`);
 
-      this.guestChange.emit(guest);
+      this.guestChange.emit(new GuestAdded(
+        this.role,
+        guest
+      ));
     }
+  }
+
+  skip() {
+    this.skipChange.emit(this.role);
   }
 
 }

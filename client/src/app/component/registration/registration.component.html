@@ -1,29 +1,50 @@
 <div class="container">
   <button pButton (click)="addGuest()">TEST</button>
-  <div [hidden]="step != -1" class="row justify-content-md-center">
+  <div [hidden]="step !== -1" class="row justify-content-md-center">
     <div class="col-xl-4 col-md-6 col-12">
       <app-contact-information (contactInformationChange)="addContactInformation($event)">
       </app-contact-information>
     </div>
   </div>
-  <div [hidden]="step < 0 || guestTitles.length < step" class="row justify-content-md-center">
-    <div *ngFor="let title of guestTitles; let i = index" class="col-xl-4 col-md-6 col-12">
+  <div [hidden]="step < 0 || roles.length < step" class="row justify-content-md-center">
+    <div *ngFor="let role of roles; let i = index" [hidden]="step !== i" class="col-xl-4 col-md-6 col-12">
       <app-guest
-        [guest]="guests[i]"
+        (guestChange)="addGuest($event.role, $event.guest)"
         [index]="i"
-        [title]="title"
+        (skipChange)="skip($event)"
+        [guest]="guests.get(role)"
+        [role]="role"
       >
       </app-guest>
     </div>
-    <!--
+  </div>
+  <div [hidden]="step !== roles.length" class="row justify-content-md-center">
     <div class="col-xl-4 col-md-6 col-12">
-      <app-guest [(guest)]="guests[0]" (guestChange)="addGuest($event)"></app-guest>
+      <div class="container">
+        <div class="row">
+          <div class="mt-3 mb-3 col-12">
+            <ul>
+              <li *ngFor="let guest of guests | keyvalue" [hidden]="!guest.value">
+                <div class="row">
+                  <div class="col-12 font-weight-bolder blue">{{guest.value?.firstName}} {{guest.value?.lastName}}</div>
+                  <div class="col-12">{{'diet.' + guest.value?.diet | translate}}</div>
+                  <div class="col-12">
+                    <span
+                      *ngFor="let allergy of guest.value?.allergies; let i = index">{{i === 0 ? '' : ', '}}{{'allergy.' + allergy | translate}}</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-3 mb-3 col-12">
+            <button (click)="register()"
+                    class="w-100"
+                    label="{{'common.confirm' | translate}}"
+                    pButton>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    -->
-    <!--
-    <div class="col-xl-4 col-md-6 col-12" *ngFor="let guest of guests; let i = index">
-      <app-guest [guest]="guest"></app-guest>
-    </div>
-    -->
   </div>
 </div>
