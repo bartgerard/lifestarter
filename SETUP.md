@@ -271,3 +271,4 @@ sudo npm install
 
 sudo npm i -g npm
 sudo npm i --save lodash
+sudo npm i --save @angular/cdk

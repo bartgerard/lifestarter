@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RegistrationService} from '../../service/registration.service';
+import {WaveService} from '../../service/wave.service';
+import {Wave} from '../../model/wave';
 
 @Component({
   selector: 'app-info',
