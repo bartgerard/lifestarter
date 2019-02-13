@@ -256,3 +256,9 @@ Permissions
 
         ./<script>
         
+
+## RANDOM SHIZZLE
+
+sudo npm update
+sudo npm install
+sudo npm install --unsafe-perm=true --allow-root

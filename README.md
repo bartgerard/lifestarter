@@ -15,6 +15,8 @@ go to /usr/local/bin and delete any node executable
 sudo rm -rf /opt/local/bin/node /opt/local/include/node /opt/local/lib/node_modules
 sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node.1 /usr/local/lib/dtrace/node.d
 
+sudo npm install npm@latest -g
+
 #
 sudo npm cache clean -f
 sudo npm update npm -g n
