@@ -262,3 +262,12 @@ Permissions
 sudo npm update
 sudo npm install
 sudo npm install --unsafe-perm=true --allow-root
+
+sudo npm info express version
+
+sudo npm i -g npm-check-updates
+sudo ncu -u
+sudo npm install
+
+sudo npm i -g npm
+sudo npm i --save lodash
