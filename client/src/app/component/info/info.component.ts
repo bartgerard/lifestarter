@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {RegistrationService} from '../../service/registration.service';
 
 @Component({
   selector: 'app-info',
@@ -7,10 +8,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  constructor() {
+  nbGuests = 0;
+
+  constructor(
+    private registrationService: RegistrationService
+  ) {
   }
 
   ngOnInit() {
+    this.registrationService.nbGuests()
+      .subscribe(nbGuests => this.nbGuests = nbGuests);
   }
 
 }

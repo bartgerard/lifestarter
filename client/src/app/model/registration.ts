@@ -4,10 +4,10 @@ import {ContactInformation} from './contact-information';
 export class Registration {
 
   constructor(
-    public email?: string,
-    public guests?: Map<string, Guest>,
-    public contactInformation?: ContactInformation,
-    public pledgeName?: string
+    public email: string,
+    public guests: Guest[],
+    public contactOptions: ContactInformation[],
+    public pledgeName: string
   ) {
   }
 

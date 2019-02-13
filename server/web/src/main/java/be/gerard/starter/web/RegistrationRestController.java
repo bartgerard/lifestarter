@@ -1,5 +1,6 @@
 package be.gerard.starter.web;
 
+import be.gerard.starter.command.AddRegistration;
 import be.gerard.starter.model.Registration;
 import be.gerard.starter.service.RegistrationService;
 import lombok.RequiredArgsConstructor;
@@ -32,9 +33,20 @@ public class RegistrationRestController {
 
     @PutMapping
     public Mono<Registration> addRegistration(
-            @RequestBody final Registration registration
+            @RequestBody final AddRegistration command
     ) {
+        final Registration registration = Registration.builder()
+                .email(command.getEmail())
+                .guests(command.getGuests())
+                .contactOptions(command.getContactOptions())
+                .build();
+
         return registrationService.save(registration);
+    }
+
+    @GetMapping("guests")
+    public long nbGuests() {
+        return registrationService.nbGuests();
     }
 
 }

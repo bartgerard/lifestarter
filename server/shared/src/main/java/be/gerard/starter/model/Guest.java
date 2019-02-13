@@ -1,9 +1,8 @@
 package be.gerard.starter.model;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Singular;
+import lombok.Value;
 
 import java.util.List;
 
@@ -13,10 +12,11 @@ import java.util.List;
  * @author bartgerard
  * @version v0.0.1
  */
-@RequiredArgsConstructor
-@Getter
+@Value
 @Builder
 public class Guest {
+
+    private final String role;
 
     private final String firstName;
 

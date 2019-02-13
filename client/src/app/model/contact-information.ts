@@ -6,7 +6,7 @@ export class ContactInformation {
     public zipCode: string,
     public city: string,
     public countryIso3: string,
-    public phoneNumber: string
+    public phoneNumber: string,
   ) {
   }
 

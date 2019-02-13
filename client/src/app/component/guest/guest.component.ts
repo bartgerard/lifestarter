@@ -101,6 +101,7 @@ export class GuestComponent implements OnInit {
   saveGuest() {
     if (this.guestForm.valid) {
       const guest = new Guest(
+        this.role,
         this.guestForm.value.firstName,
         this.guestForm.value.lastName,
         this.guestForm.value.diet,

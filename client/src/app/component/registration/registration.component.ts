@@ -15,6 +15,8 @@ export class RegistrationComponent implements OnInit {
 
   guestLimit = 2;
 
+  pledge: string;
+
   contactInformation: ContactInformation;
 
   roles: string[] = [
@@ -60,9 +62,14 @@ export class RegistrationComponent implements OnInit {
   register() {
     this.registrationService.register(new Registration(
       this.contactInformation.email,
-      this.guests,
-      this.contactInformation
-    ));
+      Array.from(this.guests.values()),
+      [this.contactInformation],
+      this.pledge,
+    ))
+      .subscribe(result => {
+        console.log(result);
+        this.step++;
+      });
   }
 
 }

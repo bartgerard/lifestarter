@@ -29,4 +29,8 @@ public class RegistrationService {
         return Mono.just(registrationRepository.save(registration));
     }
 
+    public long nbGuests() {
+        return registrationRepository.count();
+    }
+
 }
