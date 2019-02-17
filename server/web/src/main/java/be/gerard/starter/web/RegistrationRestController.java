@@ -4,13 +4,17 @@ import be.gerard.starter.command.AddRegistration;
 import be.gerard.starter.event.RegistrationAdded;
 import be.gerard.starter.model.Registration;
 import be.gerard.starter.service.RegistrationService;
+import be.gerard.starter.service.VipService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 /**
  * RegistrationRestController
@@ -24,6 +28,7 @@ import reactor.core.publisher.Mono;
 public class RegistrationRestController {
 
     private final RegistrationService registrationService;
+    private final VipService vipService;
 
     // TODO HIDE FROM USERS... GDPR
     /*
@@ -50,6 +55,14 @@ public class RegistrationRestController {
     @GetMapping("guests")
     public long nbGuests() {
         return registrationService.nbGuests();
+    }
+
+    @GetMapping("vip-check")
+    public List<String> extraRoles(
+            @RequestParam("first-name") final String firstName,
+            @RequestParam("last-name") final String lastName
+    ) {
+        return vipService.findRoles(firstName, lastName);
     }
 
 }

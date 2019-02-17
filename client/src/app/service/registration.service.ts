@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Registration} from '../model/registration';
 import {Observable} from 'rxjs';
+import {Guest} from '../model/guest';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,19 @@ export class RegistrationService {
 
   nbGuests(): Observable<number> {
     return this.http.get<number>(environment.serverUrl + '/registrations/guests');
+  }
+
+  vipCheck(
+    guest: Guest
+  ): Observable<string[]> {
+    return this.http.get<string[]>(
+      environment.serverUrl + '/registrations/vip-check',
+      {
+        params: new HttpParams()
+          .set('first-name', guest.firstName)
+          .set('last-name', guest.lastName)
+      }
+    );
   }
 
 }

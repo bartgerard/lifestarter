@@ -73,6 +73,7 @@ public class MailService {
                 .stream()
                 .filter(method -> method.getContactMethod() == ContactOption.Method.EMAIL)
                 .map(ContactOption::getEmail)
+                .filter(mail -> mail.contains("@"))
                 .toArray(String[]::new);
 
         if (tos.length == 0) {

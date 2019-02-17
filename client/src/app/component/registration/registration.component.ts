@@ -13,16 +13,13 @@ export class RegistrationComponent implements OnInit {
 
   step = -1;
 
-  guestLimit = 2;
-
   pledge: string;
 
   contactInformation: ContactInformation;
 
   roles: string[] = [
     'guest.main',
-    'guest.plus1',
-    // 'guest.child1'
+    'guest.plus1'
   ];
 
   guests: Map<string, Guest> = new Map<string, Guest>();
@@ -41,15 +38,23 @@ export class RegistrationComponent implements OnInit {
     this.contactInformation = contactInformation;
 
     this.step = 0;
-    this.guestLimit = 2;
+    window.scrollTo(0, 0);
   }
 
   addGuest(
     role: string,
     guest: Guest
   ) {
-    this.guests.set(role, guest);
-    this.step++;
+    this.registrationService.vipCheck(guest)
+      .subscribe((roles) => {
+        if (roles.length > 0) {
+          this.roles = roles;
+        }
+
+        this.guests.set(role, guest);
+        this.step++;
+        window.scrollTo(0, 0);
+      });
   }
 
   skip(
@@ -61,6 +66,7 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     this.step++;
+    window.scrollTo(0, 0);
 
     this.registrationService.register(new Registration(
       this.contactInformation.email,
@@ -71,6 +77,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe(result => {
         console.log(result);
         this.step++;
+        window.scrollTo(0, 0);
       });
   }
 
