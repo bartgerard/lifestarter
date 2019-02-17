@@ -1,6 +1,7 @@
 package be.gerard.starter.web;
 
 import be.gerard.starter.command.AddRegistration;
+import be.gerard.starter.event.RegistrationAdded;
 import be.gerard.starter.model.Registration;
 import be.gerard.starter.service.RegistrationService;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -26,13 +26,15 @@ public class RegistrationRestController {
     private final RegistrationService registrationService;
 
     // TODO HIDE FROM USERS... GDPR
+    /*
     @GetMapping
     public Flux<Registration> registrations() {
         return registrationService.findAll();
     }
+    */
 
     @PutMapping
-    public Mono<Registration> addRegistration(
+    public Mono<RegistrationAdded> addRegistration(
             @RequestBody final AddRegistration command
     ) {
         final Registration registration = Registration.builder()

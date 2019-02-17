@@ -60,6 +60,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
+    this.step++;
+
     this.registrationService.register(new Registration(
       this.contactInformation.email,
       Array.from(this.guests.values()),

@@ -7,6 +7,7 @@ export class ContactInformation {
     public city: string,
     public countryIso3: string,
     public phoneNumber: string,
+    public contactMethod: string,
   ) {
   }
 

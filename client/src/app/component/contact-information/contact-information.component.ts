@@ -4,6 +4,7 @@ import {SelectItem} from 'primeng/api';
 import {CountryService} from '../../service/country.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ContactInformation} from '../../model/contact-information';
+import {TranslationService} from '../../service/translation.service';
 
 @Component({
   selector: 'app-contact-information',
@@ -12,18 +13,27 @@ import {ContactInformation} from '../../model/contact-information';
 })
 export class ContactInformationComponent implements OnInit {
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private countryService: CountryService,
+    private translationService: TranslationService
+  ) {
+  }
+
   contactForm: FormGroup;
 
   countries: SelectItem[];
 
+  contactMethods = this.toContactOptions([
+      'NONE',
+      'EMAIL',
+      'PIGEON',
+      'PHONE'
+    ]
+  );
+
   @Output() // ...Change is the keyword!
   contactInformationChange = new EventEmitter<ContactInformation>();
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private countryService: CountryService
-  ) {
-  }
 
   private static toCountryOptions(
     countries: Country[]
@@ -32,6 +42,17 @@ export class ContactInformationComponent implements OnInit {
       return {
         value: country,
         label: country.name + ' (' + country.iso3 + ')'
+      };
+    });
+  }
+
+  private toContactOptions(
+    contactOptions: string[]
+  ) {
+    return contactOptions.map(option => {
+      return {
+        value: option,
+        label: this.translationService.translate('contact.method.' + option)
       };
     });
   }
@@ -46,7 +67,8 @@ export class ContactInformationComponent implements OnInit {
       'zipCode': ['', Validators.required],
       'city': ['', Validators.required],
       'country': [''],
-      'phoneNumber': ['']
+      'phoneNumber': [''],
+      'contactMethod': ['', Validators.required]
     });
   }
 
@@ -59,9 +81,10 @@ export class ContactInformationComponent implements OnInit {
         this.contactForm.value.city,
         this.contactForm.value.country.iso3,
         this.contactForm.value.phoneNumber,
+        this.contactForm.value.contactMethod,
       );
 
-      console.log(`${contactInformation.email} ${contactInformation.address} ${contactInformation.zipCode} ${contactInformation.countryIso3}`);
+      // console.log(`${contactInformation.email} ${contactInformation.address} ${contactInformation.zipCode}`);
 
       this.contactInformationChange.emit(contactInformation);
     }

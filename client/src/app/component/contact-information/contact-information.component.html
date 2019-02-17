@@ -3,7 +3,7 @@
 
     <div class="row">
 
-      <div class="mb-2 col-12 font-weight-bolder blue">{{'contact.title' | translate}}</div>
+      <div class="mt-3 mb-2 col-12 font-weight-bolder blue">{{'contact.title' | translate}}</div>
 
       <div class="mt-3 mb-3 col-12">
       <span class="ui-float-label">
@@ -48,6 +48,16 @@
         </p-inputMask>
         <label for="phone-number">{{'contact.phone-number' | translate}}</label>
       </span>
+      </div>
+
+      <div class="mt-3 mb-3 col-12">
+        <p-listbox [options]="contactMethods"
+                   formControlName="contactMethod"
+                   [style]="{'width':'100%'}">
+          <p-header>
+            {{'contact.method.preferred' | translate}}*
+          </p-header>
+        </p-listbox>
       </div>
 
       <div class="mt-3 mb-3 col-12">

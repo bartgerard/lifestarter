@@ -23,4 +23,13 @@ public class ContactOption {
 
     private final String phoneNumber;
 
+    private final Method contactMethod;
+
+    public enum Method {
+        NONE,
+        EMAIL,
+        PIGEON,
+        GSM
+    }
+
 }
