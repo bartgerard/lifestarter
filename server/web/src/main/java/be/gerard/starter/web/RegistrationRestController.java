@@ -39,6 +39,7 @@ public class RegistrationRestController {
                 .email(command.getEmail())
                 .guests(command.getGuests())
                 .contactOptions(command.getContactOptions())
+                .pledgeName(command.getPledgeName())
                 .build();
 
         return registrationService.save(registration);

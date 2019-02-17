@@ -45,7 +45,7 @@ export class ContactInformationComponent implements OnInit {
       'address': ['', Validators.required],
       'zipCode': ['', Validators.required],
       'city': ['', Validators.required],
-      'country': ['', Validators.required],
+      'country': [''],
       'phoneNumber': ['']
     });
   }

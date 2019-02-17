@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 /**
  * RegistrationService
  *
@@ -30,7 +32,13 @@ public class RegistrationService {
     }
 
     public long nbGuests() {
-        return registrationRepository.count();
+        // Anyone: Hmm? Can't you count within the DB itself?
+        // Me: Probably, but neither the tools or documentation make it obvious how this can be done.
+        return registrationRepository.findAll()
+                .stream()
+                .map(Registration::getGuests)
+                .mapToLong(List::size)
+                .sum();
     }
 
 }

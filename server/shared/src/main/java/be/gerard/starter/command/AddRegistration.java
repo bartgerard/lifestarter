@@ -17,4 +17,5 @@ public class AddRegistration {
     private final String email;
     private final List<Guest> guests;
     private final List<ContactOption> contactOptions;
+    private final String pledgeName;
 }

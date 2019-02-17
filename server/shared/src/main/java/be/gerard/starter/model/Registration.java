@@ -28,4 +28,6 @@ public class Registration {
     @Singular
     private final List<ContactOption> contactOptions;
 
+    private final String pledgeName;
+
 }
