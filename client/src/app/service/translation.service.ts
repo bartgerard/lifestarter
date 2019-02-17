@@ -59,6 +59,8 @@ export class TranslationService {
     .set('guest.main', '(Hoofd)Genodigde')
     .set('guest.plus1', 'Tweede Genodigde of +1')
     .set('guest.child1', 'Kind')
+    .set('guest.child2', 'Kind (2)')
+    .set('guest.ringbearer', 'Ringbear(er)')
     .set('contact.title', 'Contact Informatie')
     .set('contact.email', 'Email')
     .set('contact.address', 'Adres')

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 
 /**
@@ -25,7 +26,10 @@ public class WaveRestController {
 
     @GetMapping("current")
     public Mono<Wave> currentWave() {
+        final LocalDate now = LocalDate.now();
+
         return waveService.findAll()
+                .filter(wave -> now.isBefore(wave.getDeadline()))
                 .sort(Comparator.comparing(Wave::getDeadline))
                 .next();
     }

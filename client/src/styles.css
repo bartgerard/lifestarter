@@ -4,9 +4,21 @@
   src: url('assets/fonts/rns_baruta_black/RNS-B.ttf')
 }
 
+@font-face {
+  font-family: '24';
+  src: url('assets/fonts/open_24_display_st/open-24-display-st.ttf')
+}
+
 .life-starter {
   font-family: 'RNS-B';
   font-size: 2em;
+}
+
+.twenty-four {
+  font-family: '24';
+  font-size: 2em;
+  margin: auto;
+  padding: 0.5em;
 }
 
 .grey {
