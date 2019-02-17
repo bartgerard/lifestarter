@@ -64,11 +64,14 @@
           </div>
           <div class="row">
             <div class="mt-2 mb-2 pl-0 pr-0 col-6">
+              <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
               <button pButton
                       type="button"
                       label="{{'common.reminder' | translate}}"
                       class="ui-button-secondary w-100 pt-2 pb-2"
-                      routerLink="/registration">
+                      (click)="reminder()"
+              >
+                <!--routerLink="/registration"-->
               </button>
             </div>
             <div class="col-1 d-md-none d-lg-block">
@@ -219,7 +222,8 @@
 
       <div>
         <h4>Stretch Goals</h4>
-        <p>Stretch goals zijn ambitieuze doelstellingen die de kickstarter creator normaal gezien wenst te behalen en daartegenover dan ook iets extra voorziet.</p>
+        <p>Stretch goals zijn ambitieuze doelstellingen die de kickstarter creator normaal gezien wenst te behalen en
+          daartegenover dan ook iets extra voorziet.</p>
         <div class="container row">
           <div class="col-3 p-2 m-auto">2 gasten</div>
           <div class="col-9 p-2 m-auto">Bart & Kim trouwen!</div>

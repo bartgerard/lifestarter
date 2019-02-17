@@ -2,11 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {RegistrationService} from '../../service/registration.service';
 import {WaveService} from '../../service/wave.service';
 import {Wave} from '../../model/wave';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
-  styleUrls: ['./info.component.css']
+  styleUrls: ['./info.component.css'],
+  providers: [ConfirmationService]
 })
 export class InfoComponent implements OnInit {
 
@@ -16,7 +18,8 @@ export class InfoComponent implements OnInit {
 
   constructor(
     private registrationService: RegistrationService,
-    private waveService: WaveService
+    private waveService: WaveService,
+    private confirmationService: ConfirmationService
   ) {
   }
 
@@ -33,6 +36,13 @@ export class InfoComponent implements OnInit {
           0
         );
       });
+  }
+
+  reminder() {
+    this.confirmationService.confirm({
+      message: 'Vergeet je niet te registreren!',
+      header: 'Herinnering'
+    });
   }
 
 }

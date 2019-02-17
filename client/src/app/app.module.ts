@@ -10,6 +10,7 @@ import {ProjectComponent} from './component/project/project.component';
 import {GuestComponent} from './component/guest/guest.component';
 import {
   ButtonModule,
+  ConfirmDialogModule,
   DropdownModule,
   InputMaskModule,
   InputTextModule,
@@ -59,7 +60,8 @@ import {PledgeComponent} from './component/pledge/pledge.component';
     ListboxModule,
     ReactiveFormsModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [
