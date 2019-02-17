@@ -3,6 +3,7 @@ import {Guest} from '../../model/guest';
 import {RegistrationService} from '../../service/registration.service';
 import {Registration} from '../../model/registration';
 import {ContactInformation} from '../../model/contact-information';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -10,6 +11,12 @@ import {ContactInformation} from '../../model/contact-information';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  constructor(
+    private registrationService: RegistrationService,
+    private route: ActivatedRoute
+  ) {
+  }
 
   step = -1;
 
@@ -24,12 +31,17 @@ export class RegistrationComponent implements OnInit {
 
   guests: Map<string, Guest> = new Map<string, Guest>();
 
-  constructor(
-    private registrationService: RegistrationService
-  ) {
+  private static toTop() {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
   ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        if (params.pledge) {
+          this.pledge = params.pledge;
+        }
+      });
   }
 
   addContactInformation(
@@ -38,7 +50,7 @@ export class RegistrationComponent implements OnInit {
     this.contactInformation = contactInformation;
 
     this.step = 0;
-    window.scrollTo(0, 0);
+    RegistrationComponent.toTop();
   }
 
   addGuest(
@@ -53,7 +65,7 @@ export class RegistrationComponent implements OnInit {
 
         this.guests.set(role, guest);
         this.step++;
-        window.scrollTo(0, 0);
+        RegistrationComponent.toTop();
       });
   }
 
@@ -66,7 +78,7 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     this.step++;
-    window.scrollTo(0, 0);
+    RegistrationComponent.toTop();
 
     this.registrationService.register(new Registration(
       this.contactInformation.email,
@@ -77,7 +89,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe(result => {
         console.log(result);
         this.step++;
-        window.scrollTo(0, 0);
+        RegistrationComponent.toTop();
       });
   }
 
