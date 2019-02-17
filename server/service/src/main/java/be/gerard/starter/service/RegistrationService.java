@@ -10,6 +10,9 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * RegistrationService
@@ -44,6 +47,18 @@ public class RegistrationService {
                 .map(Registration::getGuests)
                 .mapToLong(List::size)
                 .sum();
+    }
+
+    public Map<String, Integer> nbGuestsPerPledge() {
+        // Anyone: Hmm? Can't you count within the DB itself?
+        // Me: Probably, but neither the tools or documentation make it obvious how this can be done.
+        return registrationRepository.findAll()
+                .stream()
+                .filter(registration -> Objects.nonNull(registration.getPledgeName()))
+                .collect(Collectors.groupingBy(
+                        Registration::getPledgeName,
+                        Collectors.summingInt(registration -> registration.getGuests().size())
+                ));
     }
 
 }

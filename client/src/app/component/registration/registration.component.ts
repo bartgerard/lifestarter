@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   ) {
   }
 
-  step = -1;
+  step = 3;
 
   pledge: string;
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * RegistrationRestController
@@ -52,17 +53,22 @@ public class RegistrationRestController {
         return registrationService.save(registration);
     }
 
-    @GetMapping("guests")
-    public long nbGuests() {
-        return registrationService.nbGuests();
-    }
-
     @GetMapping("vip-check")
     public List<String> extraRoles(
             @RequestParam("first-name") final String firstName,
             @RequestParam("last-name") final String lastName
     ) {
         return vipService.findRoles(firstName, lastName);
+    }
+
+    @GetMapping("nb-guests")
+    public long nbGuests() {
+        return registrationService.nbGuests();
+    }
+
+    @GetMapping("nb-guests-by-pledge")
+    public Map<String, Integer> nbGuestsPerPledge() {
+        return registrationService.nbGuestsPerPledge();
     }
 
 }

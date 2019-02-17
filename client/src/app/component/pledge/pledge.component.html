@@ -2,7 +2,7 @@
   <div class="p-3 mb-4 border pledge"
        [class.available]="pledge.available"
        *ngFor="let pledge of pledges"
-       [routerLink]="['registration']"
+       [routerLink]="pledge.available ? ['registration'] : null"
        [queryParams]="{'pledge' : pledge.name}">
 
     <p>Pledge {{pledge.price | currency : 'EUR' : 'symbol' : '1.0'}} or more</p>

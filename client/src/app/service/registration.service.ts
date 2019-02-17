@@ -25,7 +25,7 @@ export class RegistrationService {
   }
 
   nbGuests(): Observable<number> {
-    return this.http.get<number>(environment.serverUrl + '/registrations/guests');
+    return this.http.get<number>(environment.serverUrl + '/registrations/nb-guests');
   }
 
   vipCheck(

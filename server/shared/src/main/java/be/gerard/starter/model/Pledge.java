@@ -18,7 +18,7 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 @Getter
-@Builder
+@Builder(toBuilder = true)
 @EqualsAndHashCode(of = "name")
 public class Pledge {
 

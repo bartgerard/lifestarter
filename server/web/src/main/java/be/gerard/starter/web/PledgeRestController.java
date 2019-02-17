@@ -2,11 +2,14 @@ package be.gerard.starter.web;
 
 import be.gerard.starter.model.Pledge;
 import be.gerard.starter.service.PledgeService;
+import be.gerard.starter.service.RegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+
+import java.util.Map;
 
 /**
  * PledgeRestController
@@ -20,10 +23,17 @@ import reactor.core.publisher.Flux;
 public class PledgeRestController {
 
     private final PledgeService pledgeService;
+    private final RegistrationService registrationService;
 
     @GetMapping
     public Flux<Pledge> pledges() {
-        return pledgeService.findAll();
+        final Map<String, Integer> pledgeMap = registrationService.nbGuestsPerPledge();
+
+        return pledgeService.findAll()
+                .map(pledge -> pledge.toBuilder()
+                        .amount(pledgeMap.getOrDefault(pledge.getName(), 0))
+                        .build()
+                );
     }
-    
+
 }
