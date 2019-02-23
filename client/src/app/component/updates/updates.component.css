@@ -1,0 +1,8 @@
+.green-bar {
+  border-top-style: solid;
+  border-top-color: #037362;
+}
+
+.link-active {
+  border-bottom: 3px solid #282828;
+}

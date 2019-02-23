@@ -221,3 +221,4 @@ Thumbs.db
 /nbdist/
 /.nb-gradle/
 /**/application-local.properties
+/client/src/assets/images/we/*.jpg
