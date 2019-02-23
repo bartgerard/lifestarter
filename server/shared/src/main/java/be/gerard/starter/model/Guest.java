@@ -27,4 +27,6 @@ public class Guest {
     @Singular
     private final List<String> allergies;
 
+    private final String comment;
+
 }

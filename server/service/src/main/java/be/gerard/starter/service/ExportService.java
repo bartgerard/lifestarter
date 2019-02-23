@@ -47,7 +47,9 @@ public class ExportService {
             "ZipCode",
             "City",
             "Phone Number",
-            "Preferred Contact Method"
+            "Preferred Contact Method",
+            "Role",
+            "Comment"
     };
 
     private static final String[] ACTIVITY_HEADERS = new String[]{
@@ -120,6 +122,9 @@ public class ExportService {
                     row.createCell(10).setCellValue(contact.getPhoneNumber());
                     row.createCell(11).setCellValue(Objects.toString(contact.getContactMethod()));
                 });
+
+                row.createCell(12).setCellValue(guest.getRole());
+                row.createCell(13).setCellValue(guest.getComment());
             }
         }
     }
