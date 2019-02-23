@@ -22,3 +22,7 @@
 #          auth: true
 #          starttls:
 #            enable: true
+
+life-stater:
+  export:
+    uri: test

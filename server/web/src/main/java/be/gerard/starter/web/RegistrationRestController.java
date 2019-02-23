@@ -3,6 +3,7 @@ package be.gerard.starter.web;
 import be.gerard.starter.command.AddRegistration;
 import be.gerard.starter.event.RegistrationAdded;
 import be.gerard.starter.model.Registration;
+import be.gerard.starter.service.ExportService;
 import be.gerard.starter.service.RegistrationService;
 import be.gerard.starter.service.VipService;
 import be.gerard.starter.value.Activity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +31,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class RegistrationRestController {
 
+    private final ExportService exportService;
     private final RegistrationService registrationService;
     private final VipService vipService;
 
@@ -39,6 +42,12 @@ public class RegistrationRestController {
         return registrationService.findAll();
     }
     */
+
+    @GetMapping("export")
+    public String export() throws IOException {
+        exportService.export();
+        return "DONE";
+    }
 
     @PutMapping
     public Mono<RegistrationAdded> addRegistration(
