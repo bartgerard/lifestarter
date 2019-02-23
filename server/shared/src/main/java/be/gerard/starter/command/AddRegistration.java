@@ -2,6 +2,7 @@ package be.gerard.starter.command;
 
 import be.gerard.starter.model.ContactOption;
 import be.gerard.starter.model.Guest;
+import be.gerard.starter.value.Activity;
 import lombok.Value;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public class AddRegistration {
     private final List<Guest> guests;
     private final List<ContactOption> contactOptions;
     private final String pledgeName;
-    private final List<String> activities;
+    private final List<Activity> activities;
 }

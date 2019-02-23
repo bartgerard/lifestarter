@@ -59,6 +59,7 @@ public class RegistrationRestController {
                 .guests(command.getGuests())
                 .contactOptions(command.getContactOptions())
                 .pledgeName(command.getPledgeName())
+                .activities(command.getActivities())
                 .registrationDateTime(LocalDateTime.now())
                 .build();
 
