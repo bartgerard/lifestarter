@@ -34,8 +34,8 @@ public class PledgeService {
                     .name("friends")
                     .orderId(2)
                     .price(BigDecimal.ZERO)
-                    .description("Toegang tot alle bijna festiviteiten. Helaas kunnen we niet iedereen uitnodigen op de feestmaaltijd, maar wees welkom op het aansluitende dessertenbuffet!")
-                    .content("2x Toegang tot alle bijna festiviteiten")
+                    .description("Toegang tot bijna alle festiviteiten. Helaas kunnen we niet iedereen uitnodigen op de feestmaaltijd, maar wees welkom op het aansluitende dessertenbuffet!")
+                    .content("2x Toegang tot bijna alle festiviteiten")
                     .available(true)
                     .build(),
             Pledge.builder()

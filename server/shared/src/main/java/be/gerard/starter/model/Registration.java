@@ -7,6 +7,7 @@ import lombok.Singular;
 import lombok.Value;
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -33,5 +34,7 @@ public class Registration {
 
     @Singular
     private final List<Activity> activities;
+
+    private final LocalDateTime registrationDateTime;
 
 }

@@ -30,6 +30,7 @@ import {ContactInformationComponent} from './component/contact-information/conta
 import {TranslatePipe} from './pipe/translate.pipe';
 import {InfoComponent} from './component/info/info.component';
 import {PledgeComponent} from './component/pledge/pledge.component';
+import {UpdatesComponent} from './component/updates/updates.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {PledgeComponent} from './component/pledge/pledge.component';
     ContactInformationComponent,
     TranslatePipe,
     InfoComponent,
-    PledgeComponent
+    PledgeComponent,
+    UpdatesComponent
   ],
   imports: [
     BrowserModule,

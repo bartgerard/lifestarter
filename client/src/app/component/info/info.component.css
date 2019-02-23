@@ -11,3 +11,7 @@
 .link-active {
   border-bottom: 3px solid #282828;
 }
+
+.pending {
+  color: #cad3db !important
+}

@@ -1,9 +1,11 @@
 package be.gerard.starter.service;
 
 import be.gerard.starter.config.ExportProperties;
+import be.gerard.starter.model.Bouncer;
 import be.gerard.starter.model.ContactOption;
 import be.gerard.starter.model.Guest;
 import be.gerard.starter.model.Registration;
+import be.gerard.starter.repository.BouncerRepository;
 import be.gerard.starter.repository.RegistrationRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.ss.usermodel.Cell;
@@ -48,60 +50,107 @@ public class ExportService {
             "Preferred Contact Method"
     };
 
+    private static final String[] ACTIVITY_HEADERS = new String[]{
+            "First Name",
+            "Last Name",
+            "Activities"
+    };
+
     private final RegistrationRepository registrationRepository;
+    private final BouncerRepository bouncerRepository;
     private final ExportProperties exportProperties;
 
     public void export() throws IOException {
-        final List<Registration> registrations = registrationRepository.findAll();
-
         try (final Workbook workbook = XSSFWorkbookFactory.createWorkbook()) {
             final CellStyle headerStyle = createHeaderStyle(workbook);
 
-            final Sheet sheet = workbook.createSheet("guests");
-            final Row header = sheet.createRow(0);
+            final List<Registration> registrations = registrationRepository.findAll();
+            addGuests(registrations, headerStyle, workbook.createSheet("guests"));
 
-            for (int i = 0; i < GUESTS_HEADERS.length; i++) {
-                final Cell cell = header.createCell(i);
-                cell.setCellValue(GUESTS_HEADERS[i]);
-                cell.setCellStyle(headerStyle);
-            }
-
-            sheet.createFreezePane(0, 1);
-
-            int i = 1;
-
-            for (final Registration registration : registrations) {
-                final Optional<ContactOption> contactOption = registration.getContactOptions().stream().findFirst();
-
-                for (final Guest guest : registration.getGuests()) {
-                    final Row row = sheet.createRow(i++);
-                    row.createCell(0).setCellValue(registration.getPledgeName());
-                    row.createCell(2).setCellValue(guest.getFirstName());
-                    row.createCell(3).setCellValue(guest.getLastName());
-                    row.createCell(4).setCellValue(Objects.toString(guest.getDiet()));
-
-                    if (Objects.nonNull(registration.getActivities())) {
-                        row.createCell(5).setCellValue(registration.getActivities().stream()
-                                .map(Enum::name)
-                                .collect(Collectors.joining(","))
-                        );
-                    }
-
-                    row.createCell(6).setCellValue(String.join(",", guest.getAllergies()));
-
-                    contactOption.ifPresent(contact -> {
-                        row.createCell(1).setCellValue(contact.getEmail());
-                        row.createCell(7).setCellValue(contact.getAddress());
-                        row.createCell(8).setCellValue(contact.getZipCode());
-                        row.createCell(9).setCellValue(contact.getCity());
-                        row.createCell(10).setCellValue(contact.getPhoneNumber());
-                        row.createCell(11).setCellValue(Objects.toString(contact.getContactMethod()));
-                    });
-                }
-            }
+            final List<Bouncer> bouncers = bouncerRepository.findAll();
+            addActivities(bouncers, headerStyle, workbook.createSheet("activities"));
 
             try (final FileOutputStream fos = new FileOutputStream(exportProperties.getUri() + LocalDate.now() + ".xlsx")) {
                 workbook.write(fos);
+            }
+        }
+    }
+
+    private static void addGuests(
+            final List<Registration> registrations,
+            final CellStyle headerStyle,
+            final Sheet sheet
+    ) {
+        final Row header = sheet.createRow(0);
+
+        for (int i = 0; i < GUESTS_HEADERS.length; i++) {
+            final Cell cell = header.createCell(i);
+            cell.setCellValue(GUESTS_HEADERS[i]);
+            cell.setCellStyle(headerStyle);
+        }
+
+        sheet.createFreezePane(0, 1);
+
+        int i = 1;
+
+        for (final Registration registration : registrations) {
+            final Optional<ContactOption> contactOption = registration.getContactOptions().stream().findFirst();
+
+            for (final Guest guest : registration.getGuests()) {
+                final Row row = sheet.createRow(i++);
+                row.createCell(0).setCellValue(registration.getPledgeName());
+                row.createCell(2).setCellValue(guest.getFirstName());
+                row.createCell(3).setCellValue(guest.getLastName());
+                row.createCell(4).setCellValue(Objects.toString(guest.getDiet()));
+
+                if (Objects.nonNull(registration.getActivities())) {
+                    row.createCell(5).setCellValue(registration.getActivities().stream()
+                            .map(Enum::name)
+                            .collect(Collectors.joining(","))
+                    );
+                }
+
+                row.createCell(6).setCellValue(String.join(",", guest.getAllergies()));
+
+                contactOption.ifPresent(contact -> {
+                    row.createCell(1).setCellValue(contact.getEmail());
+                    row.createCell(7).setCellValue(contact.getAddress());
+                    row.createCell(8).setCellValue(contact.getZipCode());
+                    row.createCell(9).setCellValue(contact.getCity());
+                    row.createCell(10).setCellValue(contact.getPhoneNumber());
+                    row.createCell(11).setCellValue(Objects.toString(contact.getContactMethod()));
+                });
+            }
+        }
+    }
+
+    private static void addActivities(
+            final List<Bouncer> bouncers,
+            final CellStyle headerStyle,
+            final Sheet sheet
+    ) {
+        final Row header = sheet.createRow(0);
+
+        for (int i = 0; i < ACTIVITY_HEADERS.length; i++) {
+            final Cell cell = header.createCell(i);
+            cell.setCellValue(ACTIVITY_HEADERS[i]);
+            cell.setCellStyle(headerStyle);
+        }
+
+        sheet.createFreezePane(0, 1);
+
+        int i = 1;
+
+        for (final Bouncer bouncer : bouncers) {
+            final Row row = sheet.createRow(i++);
+            row.createCell(0).setCellValue(bouncer.getFirstName());
+            row.createCell(1).setCellValue(bouncer.getLastName());
+
+            if (Objects.nonNull(bouncer.getActivities())) {
+                row.createCell(2).setCellValue(bouncer.getActivities().stream()
+                        .map(Enum::name)
+                        .collect(Collectors.joining(","))
+                );
             }
         }
     }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +59,7 @@ public class RegistrationRestController {
                 .guests(command.getGuests())
                 .contactOptions(command.getContactOptions())
                 .pledgeName(command.getPledgeName())
+                .registrationDateTime(LocalDateTime.now())
                 .build();
 
         return registrationService.save(registration);

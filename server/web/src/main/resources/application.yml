@@ -23,6 +23,6 @@
 #          starttls:
 #            enable: true
 
-life-stater:
-  export:
-    uri: test
+#life-stater:
+#  export:
+#    uri: test

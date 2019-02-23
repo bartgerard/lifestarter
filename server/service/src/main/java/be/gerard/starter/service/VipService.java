@@ -1,8 +1,10 @@
 package be.gerard.starter.service;
 
 import be.gerard.starter.model.Bouncer;
+import be.gerard.starter.model.Registration;
 import be.gerard.starter.model.Vip;
 import be.gerard.starter.repository.BouncerRepository;
+import be.gerard.starter.repository.RegistrationRepository;
 import be.gerard.starter.repository.VipRepository;
 import be.gerard.starter.value.Activity;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,6 +32,7 @@ public class VipService {
 
     private final BouncerRepository bouncerRepository;
     private final VipRepository vipRepository;
+    private final RegistrationRepository registrationRepository;
 
     public List<String> findRoles(
             final String firstName,
@@ -90,7 +94,7 @@ public class VipService {
                 .collect(Collectors.toList());
 
         if (result.isEmpty()) {
-            if ("family".equals(pledge)) {
+            if ("family".equals(pledge) || nbDinerGuests() < 95) {
                 return Arrays.asList(
                         Activity.CEREMONY,
                         Activity.DINNER,
@@ -116,6 +120,17 @@ public class VipService {
                         Activity.values()
                 )
         ));
+    }
+
+    public long nbDinerGuests() {
+        return registrationRepository.findAll()
+                .stream()
+                .filter(registration -> Objects.nonNull(registration.getActivities())
+                        && registration.getActivities().contains(Activity.DINNER)
+                )
+                .map(Registration::getGuests)
+                .mapToInt(List::size)
+                .sum();
     }
 
 }
