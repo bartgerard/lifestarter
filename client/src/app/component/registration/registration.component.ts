@@ -26,10 +26,23 @@ export class RegistrationComponent implements OnInit {
 
   roles: string[] = [
     'guest.main',
-    'guest.plus1'
+    'guest.plus1',
   ];
 
   guests: Map<string, Guest> = new Map<string, Guest>();
+
+  selectedActivities: string[] = [];
+
+  activities: string[] = [
+    'CEREMONY',
+    // 'RECEPTION',
+    'PARTY',
+  ];
+
+  hideGuestsStep = true;
+  hideConfirmationStep = true;
+  hideProcessingStep = true;
+  hideProcessedStep = true;
 
   private static toTop() {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -49,48 +62,71 @@ export class RegistrationComponent implements OnInit {
   ) {
     this.contactInformation = contactInformation;
 
-    this.step = 0;
-    RegistrationComponent.toTop();
+    this.next();
   }
 
   addGuest(
     role: string,
     guest: Guest
   ) {
+    this.guests.set(role, guest);
+
     this.registrationService.vipCheck(guest)
-      .subscribe((roles) => {
-        if (roles.length > 0) {
+      .subscribe(roles => {
+        if (roles.length > 0 && this.roles.length < roles.length) {
           this.roles = roles;
         }
 
-        this.guests.set(role, guest);
-        this.step++;
-        RegistrationComponent.toTop();
+        this.next();
+      });
+
+    this.registrationService.vipActivityCheck(
+      this.pledge,
+      Array.from(this.guests.values())
+    )
+      .subscribe(activities => {
+        // console.log(activities);
+        this.activities = activities;
       });
   }
 
   skip(
     role: string
   ) {
+    if (this.step === 0) {
+      console.log('A girl has no name - Arya Stark');
+    }
+
     this.guests.delete(role);
-    this.step++;
+
+    this.next();
   }
 
   register() {
-    this.step++;
-    RegistrationComponent.toTop();
+    this.next();
 
     this.registrationService.register(new Registration(
       this.contactInformation.email,
       Array.from(this.guests.values()),
       [this.contactInformation],
       this.pledge,
+      this.selectedActivities,
     ))
       .subscribe(result => {
-        console.log(result);
-        this.step++;
-        RegistrationComponent.toTop();
+        // console.log(result);
+        this.next();
       });
+  }
+
+  next() {
+    this.step++;
+
+    this.hideGuestsStep = this.step < 0 || this.roles.length < this.step;
+    this.hideConfirmationStep = this.step !== this.roles.length;
+    this.hideProcessingStep = this.step !== this.roles.length + 1;
+    this.hideProcessedStep = this.step !== this.roles.length + 2;
+
+    RegistrationComponent.toTop();
   }
 
 }

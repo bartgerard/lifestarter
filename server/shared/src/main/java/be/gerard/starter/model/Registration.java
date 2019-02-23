@@ -1,5 +1,6 @@
 package be.gerard.starter.model;
 
+import be.gerard.starter.value.Activity;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Singular;
@@ -29,5 +30,8 @@ public class Registration {
     private final List<ContactOption> contactOptions;
 
     private final String pledgeName;
+
+    @Singular
+    private final List<Activity> activities;
 
 }

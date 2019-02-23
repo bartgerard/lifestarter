@@ -74,7 +74,13 @@ export class TranslationService {
     .set('contact.method.PIGEON', 'Postduif')
     .set('contact.method.PHONE', 'GSM')
     .set('main.title', 'Togetherness Foreverness')
-    .set('main.subtitle', 'Een registratie module voor vrienden en familie voor de trouw van Kim & Bart met een lichte knipoog naar een welbepaald crowdfunding platform.');
+    .set('main.subtitle', 'Een registratie module voor vrienden en familie voor de trouw van Kim & Bart met een lichte knipoog naar een welbepaald crowdfunding platform.')
+    .set('activity.OFFICIAL', 'Het officiële gedeelte')
+    .set('activity.PHOTO_SHOOT', 'Photo Shoot')
+    .set('activity.CEREMONY', 'Ceremonie')
+    .set('activity.RECEPTION', 'Receptie (stretch goal)')
+    .set('activity.DINNER', 'Diner')
+    .set('activity.PARTY', 'Dessertenbuffet en Avondfeest');
 
   constructor() {
   }

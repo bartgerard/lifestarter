@@ -18,4 +18,5 @@ public class AddRegistration {
     private final List<Guest> guests;
     private final List<ContactOption> contactOptions;
     private final String pledgeName;
+    private final List<String> activities;
 }

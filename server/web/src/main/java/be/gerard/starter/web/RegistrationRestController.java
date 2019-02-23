@@ -5,6 +5,7 @@ import be.gerard.starter.event.RegistrationAdded;
 import be.gerard.starter.model.Registration;
 import be.gerard.starter.service.RegistrationService;
 import be.gerard.starter.service.VipService;
+import be.gerard.starter.value.Activity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -53,12 +54,29 @@ public class RegistrationRestController {
         return registrationService.save(registration);
     }
 
-    @GetMapping("vip-check")
+    @GetMapping("roles/vip-check")
     public List<String> extraRoles(
             @RequestParam("first-name") final String firstName,
             @RequestParam("last-name") final String lastName
     ) {
         return vipService.findRoles(firstName, lastName);
+    }
+
+    @GetMapping("activities/vip-check")
+    public List<Activity> extraActivities(
+            @RequestParam(value = "pledge", required = false) final String pledge,
+            @RequestParam("first-first-name") final String firstFirstName,
+            @RequestParam("first-last-name") final String firstLastName,
+            @RequestParam(value = "second-first-name", required = false) final String secondFirstName,
+            @RequestParam(value = "second-last-name", required = false) final String secondLastName
+    ) {
+        return vipService.findActivities(
+                pledge,
+                firstFirstName,
+                firstLastName,
+                secondFirstName,
+                secondLastName
+        );
     }
 
     @GetMapping("nb-guests")

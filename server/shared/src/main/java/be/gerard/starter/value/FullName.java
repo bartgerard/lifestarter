@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
  * @author bartgerard
  * @version v0.0.1
  */
-@RequiredArgsConstructor
+@RequiredArgsConstructor(staticName = "of")
 @Getter
 @Builder
 public class FullName {

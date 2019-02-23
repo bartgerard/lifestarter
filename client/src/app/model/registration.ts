@@ -7,7 +7,8 @@ export class Registration {
     public email: string,
     public guests: Guest[],
     public contactOptions: ContactInformation[],
-    public pledgeName: string
+    public pledgeName: string,
+    public activities: string[]
   ) {
   }
 

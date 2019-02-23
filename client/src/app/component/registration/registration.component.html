@@ -5,7 +5,7 @@
       </app-contact-information>
     </div>
   </div>
-  <div [hidden]="step < 0 || roles.length < step" class="row justify-content-md-center">
+  <div [hidden]="hideGuestsStep" class="row justify-content-md-center">
     <div *ngFor="let role of roles; let i = index" [hidden]="step !== i" class="col-xl-4 col-md-6 col-12">
       <app-guest
         (guestChange)="addGuest($event.role, $event.guest)"
@@ -18,11 +18,14 @@
     </div>
   </div>
 
-  <div [hidden]="step !== roles.length" class="row justify-content-md-center">
+  <div [hidden]="hideConfirmationStep" class="row justify-content-md-center">
     <div class="col-xl-4 col-md-6 col-12">
       <div class="container">
         <div class="row">
-          <div class="mt-3 mb-3 col-12">
+          <div class="mt-3 col-12">
+            {{guests.size > 1 ? 'Wij' : 'Ik'}}
+          </div>
+          <div class="mt-2 col-12">
             <ul>
               <li *ngFor="let guest of guests | keyvalue" [hidden]="!guest.value">
                 <div class="row">
@@ -34,6 +37,21 @@
                   </div>
                 </div>
               </li>
+            </ul>
+          </div>
+          <div class="mt-2 col-12">
+            kom{{guests.size > 1 ? 'en' : ''}} naar
+          </div>
+          <div class="mt-2 mb-2 col-12">
+            <ul>
+              <div class="row" *ngFor="let activity of activities">
+                <p-checkbox name="group2"
+                            value="{{activity}}"
+                            label="{{'activity.' + activity | translate}}"
+                            [(ngModel)]="selectedActivities"
+                            inputId="{{activity}}">
+                </p-checkbox>
+              </div>
             </ul>
           </div>
           <div class="mt-3 mb-3 col-12">
@@ -48,7 +66,7 @@
     </div>
   </div>
 
-  <div [hidden]="step !== roles.length + 1" class="row justify-content-md-center">
+  <div [hidden]="hideProcessingStep" class="row justify-content-md-center">
     <div class="mt-3 col-12">
       De gegevens worden verwerkt...
     </div>
@@ -74,7 +92,7 @@
     </div>
   </div>
 
-  <div [hidden]="step !== roles.length + 2" class="row justify-content-md-center">
+  <div [hidden]="hideProcessedStep" class="row justify-content-md-center">
     <div class="mt-3 col-12">
       De registratie werd voltooid! Tot binnenkort!
     </div>
