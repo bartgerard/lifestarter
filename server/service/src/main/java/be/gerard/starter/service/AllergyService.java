@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class AllergyService {
         return Flux.fromIterable(allergyRepository.findAll());
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         allergyRepository.saveAll(ALLERGIES);
     }

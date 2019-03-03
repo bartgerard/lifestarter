@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +32,7 @@ public class WaveService {
         return Flux.fromIterable(waveRepository.findAll());
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         waveRepository.saveAll(WAVES);
     }

@@ -165,7 +165,7 @@ public class PledgeService {
         return Flux.fromIterable(pledgeRepository.findAll());
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         pledgeRepository.saveAll(PLEDGES);
     }
