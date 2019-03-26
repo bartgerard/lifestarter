@@ -94,7 +94,7 @@ public class VipService {
                 .collect(Collectors.toList());
 
         if (result.isEmpty()) {
-            if ("family".equals(pledge) || nbDinerGuests() < 85) {
+            if ("family".equals(pledge) || nbDinerGuests() < 90) {
                 return Arrays.asList(
                         Activity.CEREMONY,
                         Activity.DINNER,
