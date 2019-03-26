@@ -102,7 +102,7 @@
 <div class="border-bottom border-top">
   <div class="container d-flex flex-row justify-content-start">
     <a class="mr-5 pt-3 pb-3" [class.link-active]="true" routerLink="">Concept</a>
-    <a class="mr-5 pt-3 pb-3" [class.link-active]="">Updates</a><!--routerLink="/updates"-->
+    <a [class.link-active]="" class="mr-5 pt-3 pb-3" routerLink="/updates">Updates</a>
     <a class="mr-5 pt-3 pb-3" [class.link-active]="">Comments</a><!--routerLink="/comments"-->
   </div>
 </div>
@@ -130,17 +130,22 @@
         <!--Omwille van beperkingen in budget en daardoor quasi rechtstreeks (zit)plaatsen, werken we met gefaseerde
         inschrijvingen waarbij wij zoveel mogelijk vrienden en familieleden de kans willen geven om te komen.
         -->
+        <!--
         Omwille van beperkte (zit)plaatsen werken we met gefaseerde
         inschrijvingen waarbij wij zoveel mogelijk vrienden en familieleden de kans willen geven om te komen.
         Hoe sneller wij een zicht kunnen krijgen op de bezetting, des te sneller vrije plaatsen kunnen worden
         doorgegeven in een volgende wave.
+        -->
+        Wij willen graag iedereen op zoveel mogelijk activiteiten van onze speciale dag, maar dit is helaas niet mogelijk voor het diner en bijhorende receptie.
+        Indien je tijdens je registratie nog diner kan aanduiden, dan was er nog een plaats voor jezelf en eventuele plus one.
+        Anders zitten we al aan de maximale capaciteit, maar ben je toch nog altijd even welkom op het dessertenbuffet en dansfeest achteraf.
       </p>
-
+<!--
       <p>
         Wij begrijpen dat de uitnodigingen aan de late kant zijn, maar mogen wij toch vragen om zo snel mogelijk te
         reageren bij voorkeur voor het einde van jouw wave.
       </p>
-
+-->
       <p>
         De details op deze pagina zijn nog niet definitief en kleine verschuivingen in de planning zijn niet uit te
         sluiten.
@@ -184,25 +189,25 @@
         </div>
         <div class="col-9 m-auto">
           <b>Ceremonie</b>
-          <p class="text-secondary mb-0">Iedereen welkom (100 zitplaatsen)</p>
-        </div>
-        <div class="col-3 text-center twenty-four pending">
-          16:00
-        </div>
-        <div class="col-9 m-auto">
-          <b class="pending">Receptie</b>
-          <p class="pending mb-0">Potentiële oplossing om toch meer gasten te kunnen ontvangen</p>
+          <p class="text-secondary mb-0">Iedereen welkom (±100 zitplaatsen)</p>
         </div>
         <div class="col-3 text-center twenty-four">
-          18:00
+          15:30
         </div>
         <div class="col-9 m-auto">
-          <b>Jamjamjamjam</b>
+          <b>Receptie</b>
+          <p class="text-secondary mb-0">Korte receptie voor de avondeters</p>
+        </div>
+        <div class="col-3 text-center twenty-four">
+          17:00
+        </div>
+        <div class="col-9 m-auto">
+          <b>Diner</b>
           <p class="text-secondary mb-0">Een feestelijke maaltijd</p>
-          <p class="text-secondary mb-0">Beperkte kring (familie en early bird vrienden) en fotograaf</p>
+          <p class="text-secondary mb-0">Familie, vroeg ingeschreven vrienden en fotograaf (±80 plaatsen)</p>
         </div>
         <div class="col-3 text-center twenty-four">
-          20:00
+          20:30
         </div>
         <div class="col-9 m-auto">
           <b>Dessertenbuffet en Avondfeest</b>
@@ -212,7 +217,7 @@
       </div>
 
       <p>
-        Tijden en receptie onder voorbehoud.
+        Tijden onder voorbehoud.
       </p>
       <p class="text-secondary">
         Wijzigingen worden gecommuniceerd via deze pagina en mail.

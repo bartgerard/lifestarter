@@ -14,8 +14,8 @@ import java.util.Optional;
 public interface BouncerRepository extends MongoRepository<Bouncer, String> {
 
     Optional<Bouncer> findByFirstNameLikeAndLastNameLike(
-            final String firstName,
-            final String lastName
+            String firstName,
+            String lastName
     );
 
 }
