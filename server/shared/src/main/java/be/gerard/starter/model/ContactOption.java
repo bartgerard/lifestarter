@@ -29,7 +29,7 @@ public class ContactOption {
         NONE,
         EMAIL,
         PIGEON,
-        GSM
+        PHONE
     }
 
 }
