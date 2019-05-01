@@ -17,7 +17,8 @@ import {
   InputTextModule,
   ListboxModule,
   MessageModule,
-  MessagesModule
+  MessagesModule,
+  ProgressBarModule
 } from 'primeng/primeng';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -65,7 +66,8 @@ import {UpdatesComponent} from './component/updates/updates.component';
     MessagesModule,
     MessageModule,
     ConfirmDialogModule,
-    CheckboxModule
+    CheckboxModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [
