@@ -205,3 +205,7 @@ server {
          proxy_set_header X-Forwarded-For $remote_addr;
     }
 }
+
+## When All Else Fails
+
+sudo npm install -g --unsafe-perm node-sass
