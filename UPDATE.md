@@ -45,6 +45,7 @@ or n latest or n <version>
         
         cd client
         sudo rm -rf node_modules
+        sudo rm package-lock.json
         sudo npm uninstall --save-dev angular-cli
         sudo npm install --save-dev @angular/cli@latest
         sudo npm install
