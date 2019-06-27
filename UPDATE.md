@@ -94,3 +94,8 @@ sudo npm install --unsafe-perm=true --allow-root
 sudo ng update @angular/cli @angular/core
 npm install -g @angular/cli
 ng update
+
+#
+
+Never import from primeng/primeng
+Add primeng/primeng to the import-blacklist of tslint.json

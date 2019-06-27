@@ -8,18 +8,6 @@ import {FooterComponent} from './component/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ProjectComponent} from './component/project/project.component';
 import {GuestComponent} from './component/guest/guest.component';
-import {
-  ButtonModule,
-  CheckboxModule,
-  ConfirmDialogModule,
-  DropdownModule,
-  InputMaskModule,
-  InputTextModule,
-  ListboxModule,
-  MessageModule,
-  MessagesModule,
-  ProgressBarModule
-} from 'primeng/primeng';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AddressComponent} from './component/address/address.component';
@@ -32,6 +20,16 @@ import {TranslatePipe} from './pipe/translate.pipe';
 import {InfoComponent} from './component/info/info.component';
 import {PledgeComponent} from './component/pledge/pledge.component';
 import {UpdatesComponent} from './component/updates/updates.component';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+import {CheckboxModule} from 'primeng/checkbox';
+import {InputMaskModule} from 'primeng/inputmask';
+import {ListboxModule} from 'primeng/listbox';
+import {MessagesModule} from 'primeng/messages';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {MessageModule} from 'primeng/message';
+import {ProgressBarModule} from 'primeng/progressbar';
 
 @NgModule({
   declarations: [
