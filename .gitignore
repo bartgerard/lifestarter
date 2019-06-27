@@ -229,3 +229,4 @@ Thumbs.db
 /server/service/target/
 
 package-lock.json
+/server/web/src/main/resources/static/
