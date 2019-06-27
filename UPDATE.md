@@ -88,3 +88,9 @@ sudo chown -R $(whoami):staff /usr/local/lib/node_modules
 sudo chown -R root:staff /usr/local/lib/node_modules
 
 sudo npm install --unsafe-perm=true --allow-root
+
+#
+
+sudo ng update @angular/cli @angular/core
+npm install -g @angular/cli
+ng update

@@ -227,3 +227,5 @@ Thumbs.db
 /server/web/target/
 # Project exclude paths
 /server/service/target/
+
+package-lock.json
