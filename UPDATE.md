@@ -66,11 +66,15 @@ or n latest or n <version>
 
 https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
 
+# EACCES
+
+https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
+
 # Angular
 
 1. Update
 
-        sudo ng update --all
+        sudo ng update --all --force
         
 1. Build
 
