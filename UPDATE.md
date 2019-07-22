@@ -99,3 +99,14 @@ ng update
 
 Never import from primeng/primeng
 Add primeng/primeng to the import-blacklist of tslint.json
+
+#
+
+    sudo npm install --no-optional --no-shrinkwrap --no-package-lock
+
+    --no-optional argument will prevent optional dependencies from being installed.
+
+    --no-shrinkwrap argument, which will ignore an available package lock or
+                   shrinkwrap file and use the package.json instead.
+
+    --no-package-lock argument will prevent npm from creating a package-lock.json file.
