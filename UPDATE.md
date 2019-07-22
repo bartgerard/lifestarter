@@ -110,3 +110,7 @@ Add primeng/primeng to the import-blacklist of tslint.json
                    shrinkwrap file and use the package.json instead.
 
     --no-package-lock argument will prevent npm from creating a package-lock.json file.
+    
+#
+
+    sudo npm audit fix --force
