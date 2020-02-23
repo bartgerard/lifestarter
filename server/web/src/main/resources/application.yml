@@ -26,3 +26,5 @@
 #life-stater:
 #  export:
 #    uri: test
+
+logging.level.org.mongodb.driver: ERROR
