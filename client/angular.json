@@ -32,8 +32,7 @@
               "src/styles.css",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -131,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "client"
+  "defaultProject": "client",
+  "cli": {
+    "analytics": false
+  }
 }
