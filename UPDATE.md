@@ -56,9 +56,9 @@ or n latest or n <version>
 1. And when it doesn't work because of permissions bs
 
         sudo chmod -R 777 .
-        sudo sudo npm audit --unsafe-perm=true --allow-root
-        sudo sudo npm audit fix --unsafe-perm=true --allow-root
-        sudo sudo npm audit fix --unsafe-perm=true --allow-root --force
+        sudo npm audit --unsafe-perm=true --allow-root
+        sudo npm audit fix --unsafe-perm=true --allow-root
+        sudo npm audit fix --unsafe-perm=true --allow-root --force
         sudo npm install --save-dev @angular/cli@latest --unsafe-perm=true --allow-root
         sudo npm install --unsafe-perm=true --allow-root
         
