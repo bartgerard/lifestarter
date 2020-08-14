@@ -1,0 +1,112 @@
+<div class="border-bottom border-top">
+  <div class="container d-flex flex-row justify-content-start">
+    <a [class.link-active]="" class="mr-5 pt-3 pb-3" routerLink="">Concept</a>
+    <a [class.link-active]="true" class="mr-5 pt-3 pb-3" routerLink="/updates">Updates</a>
+    <a [class.link-active]="" class="mr-5 pt-3 pb-3" routerLink="">Comments</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-3 mb-3">
+
+    <div class="col-12 mt-3 row">
+
+      <div class="col-6 green">Update #5</div>
+      <div class="col-6 text-muted text-right">14 augustus 2020</div>
+      <div class="col-12 mt-3">
+        <h3>The After Special</h3>
+
+        <img class="img-fluid center mt-5 mb-5 w-25" src="assets/images/special/bee.png">
+
+        <p>
+          1 jaar, 2 maanden en 27 dagen geleden stapten Kim en ik in het huwelijksbootje.
+        </p>
+        <p>
+          Vandaag zijn wij klaar voor onze volgende grote stap en is de naam van deze website zelfs nog meer van
+          toepassing.
+        </p>
+
+        <img class="img-fluid center mt-5 mb-5 w-50" src="assets/images/special/bee_dress.jpg">
+
+        <p>
+          Oktober aanstaande verwachten wij een <b>bij</b>productje van de trouw!
+        </p>
+
+        <p>
+          De keuze voor bijtjes is natuurlijk niet geheel toevallig want...
+        </p>
+
+        <p style="margin-top: 25vh">
+          ...
+        </p>
+
+        <p style="margin-top: 25vh">
+          ... (voor extra spanning) ...
+        </p>
+
+        <p style="margin-top: 25vh">
+          ...
+        </p>
+
+        <p style="margin-top: 25vh">
+          <b style="font-size: 5em">Jan</b>
+        </p>
+
+        <p>
+          Iemand heeft een vraag speciaal voor jou!
+        </p>
+
+        <p>
+          De vraag is wel in het engels om een kleine woordspeling te kunnen gebruiken. :-)
+        </p>
+
+        <p style="margin-top: 25vh">
+          Klaar?
+        </p>
+
+        <p style="font-size: 5em; text-align: center; font-weight: bold">
+          Jan
+        </p>
+
+        <p style="font-size: 5em; text-align: center">
+          Will You
+        </p>
+
+        <img class="img-fluid center mt-5 mb-5 w-25" src="assets/images/special/bee.png">
+
+        <p style="font-size: 5em; text-align: center">
+          My
+        </p>
+
+        <img class="img-fluid center mt-3 mb-3 w-50" src="assets/images/special/godfather.png">
+
+        <p>
+          Deze positie komt met een hoop contractuele verplichtingen waaronder een jaarlijks wederkerend
+          nieuwjaarsbrief-voorlees-momentje, een extra luisterend oor voor moest zij dat ooit nodig hebben en een
+          onuitputtelijke bron aan mopjes. :-)
+        </p>
+        <p>
+          Full disclosure: Het peterschap, indien je kiest deze te accepteren, zal je delen met de broer van Kim ter
+          extra ondersteuning.
+        </p>
+
+        <div class="p-field-checkbox">
+          <p-checkbox [(ngModel)]="checked" binary="true" inputId="binary"></p-checkbox>
+          <label for="binary" style="margin-left: 2em">Ik aanvaard de terms en conditions!</label>
+        </div>
+
+        <button (click)="accept()"
+                [disabled]="!checked"
+                class="w-100 pt-2 pb-2 mt-3"
+                label="Ik wil peter worden!"
+                pButton
+                type="button"
+        >
+        </button>
+        <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+
+      </div>
+    </div>
+
+  </div>
+</div>

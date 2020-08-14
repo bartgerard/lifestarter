@@ -30,6 +30,7 @@ import {MessagesModule} from 'primeng/messages';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {MessageModule} from 'primeng/message';
 import {ProgressBarModule} from 'primeng/progressbar';
+import {SpecialComponent} from './component/special/special.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {ProgressBarModule} from 'primeng/progressbar';
     TranslatePipe,
     InfoComponent,
     PledgeComponent,
-    UpdatesComponent
+    UpdatesComponent,
+    SpecialComponent
   ],
   imports: [
     BrowserModule,

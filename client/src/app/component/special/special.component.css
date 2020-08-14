@@ -1,0 +1,28 @@
+.green-bar {
+  border-top-style: solid;
+  border-top-color: #037362;
+}
+
+.link-active {
+  border-bottom: 3px solid #282828;
+}
+
+.green {
+  color: #009E74
+}
+
+::ng-deep .greenBar .ui-progressbar .ui-progressbar-value {
+  background: green;
+}
+
+::ng-deep .yellowBar .ui-progressbar .ui-progressbar-value {
+  background: yellow;
+}
+
+::ng-deep .redBar .ui-progressbar .ui-progressbar-value {
+  background: indianred;
+}
+
+::ng-deep .redBar .ui-progressbar .ui-progressbar-label {
+  color: white;
+}
