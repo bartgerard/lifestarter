@@ -60,14 +60,14 @@ import {SpecialComponent} from './component/special/special.component';
     InputTextModule,
     ButtonModule,
     DropdownModule,
-    InputMaskModule,
-    ListboxModule,
     ReactiveFormsModule,
     MessagesModule,
+    ProgressBarModule,
+    InputMaskModule,
+    ListboxModule,
     MessageModule,
     ConfirmDialogModule,
-    CheckboxModule,
-    ProgressBarModule
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [
