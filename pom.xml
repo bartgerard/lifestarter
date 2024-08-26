@@ -28,7 +28,7 @@
         <!--<java.version>10</java.version>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
         <apache.poi.version>4.0.1</apache.poi.version>
     </properties>
 
