@@ -1,0 +1,27 @@
+<nav class="tabs" [attr.aria-label]="'nav.campaign' | translate">
+  <div class="page tabs__inner">
+    <a
+      class="tabs__tab"
+      routerLink="/"
+      routerLinkActive="tabs__tab--active"
+      #concept="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [attr.aria-current]="concept.isActive ? 'page' : null"
+    >
+      {{ 'nav.concept' | translate }}
+    </a>
+    <a
+      class="tabs__tab"
+      routerLink="/updates"
+      routerLinkActive="tabs__tab--active"
+      #updates="routerLinkActive"
+      [attr.aria-current]="updates.isActive ? 'page' : null"
+    >
+      {{ 'nav.updates' | translate }}
+    </a>
+    <span class="tabs__tab tabs__tab--disabled">
+      {{ 'nav.comments' | translate }}
+      <span class="visually-hidden">({{ 'common.unavailable' | translate }})</span>
+    </span>
+  </div>
+</nav>

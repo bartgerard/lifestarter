@@ -1,0 +1,90 @@
+.pledges {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Square corners and a hairline border, as the original `p-3 mb-4 border pledge` had it. */
+.pledge {
+  position: relative;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+}
+
+/*
+ * The signature Kickstarter interaction: hovering an available reward veils the whole tile in
+ * green and offers to select it; a sold-out one stays veiled in grey. The overlay is inert —
+ * `pointer-events: none` keeps the stretched link underneath receiving the click.
+ */
+.pledge__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background-color: rgb(0 158 116 / 90%);
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-base) ease-in-out;
+}
+
+/* `:focus-within` so the keyboard sees the same affordance the mouse does. */
+.pledge:hover .pledge__overlay,
+.pledge:focus-within .pledge__overlay {
+  opacity: 1;
+}
+
+.pledge--unavailable .pledge__overlay {
+  background-color: rgb(91 91 91 / 90%);
+  opacity: 1;
+}
+
+.pledge__price {
+  font-weight: 600;
+}
+
+.pledge__name {
+  margin-block: var(--space-1) var(--space-3);
+}
+
+.pledge__link {
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  /* Stretches the link's hit area over the entire card without nesting anything in it. */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.pledge__description {
+  font-size: var(--text-sm);
+}
+
+.pledge__contents {
+  margin-block-start: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.pledge__contents-title {
+  font-weight: 600;
+}
+
+.pledge__contents-list {
+  padding-inline-start: var(--space-5);
+  list-style: disc;
+}
+
+.pledge__backers {
+  margin-block-start: var(--space-3);
+  font-size: var(--text-sm);
+}

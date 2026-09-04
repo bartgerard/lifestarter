@@ -1,0 +1,28 @@
+<header class="header">
+  <div class="header__inner page">
+    <!--
+      Kickstarter's own chrome, reproduced as set dressing: the wording stays English in every
+      language, exactly as the original site had it. "Search" and "Sign up" have no destination,
+      so they are anchors without `href` — they look like links, do nothing, and are correctly
+      skipped by the keyboard and by assistive technology.
+    -->
+    <nav class="header__nav" [attr.aria-label]="'nav.primary' | translate">
+      <a routerLink="/">Explore</a>
+      <a routerLink="/registration">Start a life</a>
+    </nav>
+
+    <a class="header__brand" routerLink="/">
+      <span class="wordmark header__brand-life">LIFE</span
+      ><span class="wordmark header__brand-starter">STARTER</span>
+    </a>
+
+    <div class="header__end">
+      <nav class="header__nav header__nav--end" aria-hidden="true">
+        <a>Search</a>
+        <a>Sign up</a>
+      </nav>
+
+      <app-language-switcher />
+    </div>
+  </div>
+</header>

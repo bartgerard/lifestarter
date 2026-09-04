@@ -221,7 +221,7 @@ Thumbs.db
 /nbdist/
 /.nb-gradle/
 /**/application-local.properties
-/client/src/assets/images/we/
+/client/public/assets/images/we/
 # Project exclude paths
 /server/target/
 

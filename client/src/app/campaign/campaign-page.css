@@ -1,0 +1,234 @@
+/*
+ * The original was a Bootstrap row of `col-md-2` (author), `col-md-8` (title), `col-md-8`
+ * (photo), `col-md-4` (stats) and `col-md-8` (facts), which wrapped into three lines: a slim
+ * author column with the title running wide beside it, then the photo next to the stats, then
+ * the facts bar under the photo. Three tracks reproduce that without the 12-column arithmetic.
+ */
+.hero {
+  display: grid;
+  gap: var(--space-4) var(--space-6);
+  grid-template-areas:
+    'author'
+    'intro'
+    'media'
+    'facts'
+    'stats';
+  padding-block: var(--space-6);
+}
+
+@media (width >= 60rem) {
+  .hero {
+    grid-template-areas:
+      'author intro intro'
+      'media  media  stats'
+      'facts  facts  stats';
+    grid-template-columns: auto minmax(0, 1fr) minmax(17rem, 22rem);
+    align-items: start;
+  }
+}
+
+.hero__author {
+  grid-area: author;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (width >= 60rem) {
+  .hero__author {
+    flex-direction: column;
+    gap: var(--space-2);
+    inline-size: 5.25rem;
+    text-align: center;
+  }
+}
+
+.hero__avatar {
+  /* 42px, as the original `.me` rule had it. */
+  inline-size: 2.625rem;
+  block-size: 2.625rem;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.hero__intro {
+  grid-area: intro;
+  align-self: end;
+}
+
+.hero__intro h1 {
+  font-size: var(--text-3xl);
+  line-height: 1.2;
+}
+
+.hero__media {
+  grid-area: media;
+}
+
+/* The bar sat above a rule on phones and lost it from `md` up (`border-bottom-none-md`). */
+.hero__facts {
+  grid-area: facts;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  padding-block-end: var(--space-3);
+  border-block-end: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (width >= 60rem) {
+  .hero__facts {
+    padding-block-end: 0;
+    border-block-end: none;
+  }
+}
+
+.hero__facts span {
+  color: var(--color-brand);
+}
+
+.hero__stats {
+  grid-area: stats;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  /* The `.green-bar` rule: the one piece of chrome tying the sidebar to the brand. */
+  padding-block-start: var(--space-4);
+  border-block-start: 3px solid var(--color-brand);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  gap: var(--space-3);
+}
+
+@media (width >= 60rem) {
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.stats__value {
+  font-size: var(--text-h4);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.hero__all-or-nothing,
+.hero__live {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.hero__live {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hero__live-dot {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__live-dot {
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.campaign {
+  display: grid;
+  gap: var(--space-7);
+  padding-block: var(--space-7) var(--space-8);
+}
+
+@media (width >= 60rem) {
+  .campaign {
+    grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+    align-items: start;
+  }
+}
+
+/*
+ * The original filled `col-md-8` with no measure cap. The grid track is the constraint here,
+ * so the `.prose` cap would only carve a dead gutter out of the middle of the page.
+ */
+.campaign__main {
+  max-inline-size: none;
+}
+
+.campaign__aside h2 {
+  margin-block-end: var(--space-4);
+  font-size: var(--text-h3);
+}
+
+.campaign__photo-narrow {
+  max-inline-size: 26rem;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-block: var(--space-5);
+}
+
+.schedule__slot {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: baseline;
+}
+
+/*
+ * Open 24 Display, centred, as the original `.twenty-four` had it. The `.clock` utility sets
+ * the same family, but it lives in a `@layer` and this file is unlayered — unlayered styles
+ * win against every layer, so stating it here is what actually decides the font.
+ */
+.schedule__time {
+  font-family: var(--font-clock);
+  font-size: var(--text-xl);
+  text-align: center;
+  color: var(--color-brand);
+}
+
+.schedule__name {
+  font-weight: 600;
+}
+
+.stretch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-block: var(--space-5);
+}
+
+.stretch__row {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.stretch__target {
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+@media (width < 30rem) {
+  .schedule__slot,
+  .stretch__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-1);
+  }
+}

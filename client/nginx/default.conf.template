@@ -70,6 +70,14 @@ server {
 
     # --- Single page application ----------------------------------------------------------------
 
+    # Translation dictionaries are fetched at runtime and are not fingerprinted, so they get a short
+    # cache with revalidation instead of the immutable rule below.
+    location /i18n/ {
+        include    /etc/nginx/snippets/security-headers.inc;
+        add_header Cache-Control "public, max-age=300, must-revalidate";
+        try_files  $uri =404;
+    }
+
     # The Angular CLI fingerprints its bundles, so they can be cached forever.
     location ~* \.(?:js|css|woff2?|ttf|eot|otf|svg|png|jpe?g|gif|ico|webp)$ {
         include    /etc/nginx/snippets/security-headers.inc;

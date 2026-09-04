@@ -1,0 +1,359 @@
+{
+  "a11y": {
+    "skip-to-content": "Ga naar de inhoud",
+    "choose-language": "Kies een taal"
+  },
+  "nav": {
+    "primary": "Hoofdnavigatie",
+    "campaign": "Campagnesecties",
+    "concept": "Concept",
+    "updates": "Updates",
+    "comments": "Reacties"
+  },
+  "common": {
+    "loading": "Laden…",
+    "unavailable": "niet beschikbaar",
+    "rsvp": "RSVP",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "add": "Voeg toe",
+    "confirm": "Bevestig",
+    "skip": "Sla over",
+    "select": "Selecteer",
+    "selected": "Geselecteerd",
+    "none": "geen",
+    "remove": "Verwijder",
+    "optional": "optioneel",
+    "error": "Er ging iets mis"
+  },
+  "footer": {
+    "copyright": "Bart & Kim © 2019 - {{year}}"
+  },
+  "campaign": {
+    "title": "Togetherness Foreverness",
+    "subtitle": "De registratiemodule voor vrienden en familie voor de trouw van Kim & Bart, met een lichte knipoog naar een welbepaald crowdfundingplatform.",
+    "by-author": "Door Bart Gerard",
+    "author-photo-alt": "Portret van Bart",
+    "ring-photo-alt": "De trouwring",
+    "photo-alt": {
+      "couple": "Kim en Bart samen op de foto"
+    },
+    "stats-label": "Campagnecijfers",
+    "support": "Support",
+    "live-updates": "Nieuwe registraties komen live binnen",
+    "all-or-nothing": "Alles of niets.",
+    "reply-before-deadline": "Reageer voor de deadline.",
+    "fact": {
+      "who": "Kim",
+      "what": "Wedding",
+      "where": "Bertem, België"
+    },
+    "stat": {
+      "entrance-fee": "toegangsprijs",
+      "guests": "gasten",
+      "wave": "wave",
+      "days-to-go": "dagen te gaan"
+    },
+    "welcome": {
+      "title": "Verwelkoming",
+      "greeting": "Gegroet,",
+      "intro": "Welkom op deze registratiemodule voor de trouw van Bart en Kim.",
+      "date": "Wij trouwen op <b>18 mei 2019</b> en dat willen wij samen met jou vieren!",
+      "no-invitation": "Heb je (nog) geen uitnodiging ontvangen via brief of mail, neem dan even contact met ons op om na te gaan wat er al dan niet is misgelopen.",
+      "capacity": "Wij willen graag iedereen op zoveel mogelijk activiteiten van onze speciale dag, maar dit is helaas niet mogelijk voor het diner en de bijhorende receptie. Indien je tijdens je registratie nog diner kan aanduiden, dan was er nog een plaats voor jezelf en een eventuele plus one. Anders zitten we al aan de maximale capaciteit, maar ben je toch nog altijd even welkom op het dessertenbuffet en dansfeest achteraf.",
+      "provisional": "De details op deze pagina zijn nog niet definitief en kleine verschuivingen in de planning zijn niet uit te sluiten. Deze pagina en mail zullen worden gebruikt om eventuele wijzigingen te communiceren.",
+      "call-to-action": "Klik vlug op <b>RSVP</b> (<u>R</u>épondez <u>s</u>'il <u>v</u>ous <u>p</u>laît) of op een pledge die jou het beste omschrijft om je te registreren!",
+      "see-you-soon": "Tot binnenkort!",
+      "signature": "Bart & Kim"
+    },
+    "schedule": {
+      "title": "Planning",
+      "subject-to-change": "Tijden onder voorbehoud.",
+      "changes-communicated": "Wijzigingen worden gecommuniceerd via deze pagina en mail.",
+      "OFFICIAL": {
+        "detail": "Intieme kring (ouders, broers en getuigen) en fotograaf"
+      },
+      "PHOTO_SHOOT": {
+        "detail": "Heel intieme kring (Bart en Kim) en fotograaf"
+      },
+      "CEREMONY": {
+        "detail": "Iedereen welkom (±100 zitplaatsen)"
+      },
+      "RECEPTION": {
+        "detail": "Korte receptie voor de avondeters"
+      },
+      "DINNER": {
+        "detail": "Een feestelijke maaltijd voor familie, vroeg ingeschreven vrienden en de fotograaf (±80 plaatsen)"
+      },
+      "PARTY": {
+        "detail": "Smullen en feesten — iedereen welkom (na inschrijving)"
+      }
+    },
+    "dress-code": {
+      "title": "Dress Code",
+      "what-to-wear": "Draag iets passend voor op een trouwfeest: stadskledij is perfect.",
+      "colours": "Graag kledij met <b>blauw</b> en/of <b>zilver</b>-achtige toetsen.",
+      "palette-alt": "Kleurenpalet met blauwe en zilveren tinten"
+    },
+    "stretch": {
+      "title": "Stretch Goals",
+      "intro": "Stretch goals zijn ambitieuze doelstellingen die de kickstarter creator normaal gezien wenst te behalen en waartegenover dan ook iets extra wordt voorzien.",
+      "2": {
+        "target": "2 gasten",
+        "reward": "Bart & Kim trouwen!"
+      },
+      "42": {
+        "target": "42 gasten",
+        "reward": "Een pagina met updates wordt toegevoegd."
+      },
+      "140": {
+        "target": "140 gasten",
+        "reward": "Een update met ons origin verhaal wordt gepubliceerd op de updatepagina."
+      },
+      "150": {
+        "target": "150 gasten",
+        "reward": "Receptie!"
+      },
+      "160": {
+        "target": "160 gasten",
+        "reward": "Paniek, want dan zit de zaal te vol."
+      },
+      "10k": {
+        "target": "€10K",
+        "reward": "Bart neemt een paar dagen vrijaf en voorziet een werkende commentsectie."
+      }
+    },
+    "parody": {
+      "title": "Kickstarter?",
+      "explanation": "De site is opgevat als een persiflage/parodie van een zeer gekend crowdfundingplatform genaamd <a href=\"https://kickstarter.com\" rel=\"noopener noreferrer\" target=\"_blank\">Kickstarter</a>. Een site waar entrepreneurs steun kunnen vragen om hun grootse ideeën en projecten waar te maken. Steun kan altruïstisch zijn of gekoppeld aan een specifieke tegenprestatie. Dit noemen ze daar een pledge.",
+      "our-project": "Wij staan hier nu zelf klaar voor ons eigen gigantisch project: een leven samen!",
+      "support": "Dit project kan jij steunen op eender welke manier die jou past!<br><i>bv. een luisterend oor, babysitten (indien ooit van toepassing), delen van ervaringen…</i>",
+      "short-term": "Op korte termijn zijn wij echter op zoek naar steun in de vorm van jullie aanwezigheid op de grote kick-off van dit project: de trouw.",
+      "hope": "Wij hopen één van de mooiste dagen in ons leven samen met jullie te kunnen beleven.",
+      "gifts": "Wil je ons ook nog, of in de plaats daarvan, op een andere manier ondersteunen, dan is er altijd nog plaats voor een duitje in ons zakje. Voor de rest hebben wij alles al wat onze hartjes begeren!"
+    },
+    "shipping": {
+      "title": "Shipping",
+      "joke": "Huwelijksbootje :-)",
+      "aftermath": "Verder dan dit mopje kwamen we niet…",
+      "banner-alt": "EU-friendly shipping banner"
+    },
+    "risks": {
+      "title": "Risks and challenges",
+      "history": "Kim en Bart kennen elkaar ondertussen al minimaal negen jaar op het moment van dit schrijven. Zij beleefden samen al menig avontuur. Samen trotseerden zij onder andere (maar niet gelimiteerd tot) een Star Wars WArathon, de examens van de KU Leuven, een inbraak, een bouw en nu ook al de voorbereidingen voor de trouw.",
+      "future": "Natuurlijk veranderen mensen en niemand weet wat de toekomst zal brengen. Wij willen samen actief streven en actief werken naar een gelukkig leven samen. Een eiken huwelijksverjaardag (80 jaar) zit er waarschijnlijk niet meer in, maar wij gaan ons best doen voor de Diamond Achievement&trade; (60 jaar).",
+      "achievement-alt": "Diamond Achievement badge",
+      "friends-and-family": "Zo ver zijn we natuurlijk lang nog niet en hierbij valt onderweg de rol van vrienden en familie zeker niet te onderschatten."
+    }
+  },
+  "pledge": {
+    "price": "Steun met {{amount}} of meer",
+    "includes": "Omvat",
+    "backers": "{{count}} gasten",
+    "select": "Selecteer deze beloning",
+    "unavailable": "Niet meer beschikbaar"
+  },
+  "activity": {
+    "OFFICIAL": "Het officiële gedeelte",
+    "PHOTO_SHOOT": "Photo Shoot",
+    "CEREMONY": "Ceremonie",
+    "RECEPTION": "Receptie",
+    "DINNER": "Diner",
+    "PARTY": "Dessertenbuffet en Avondfeest"
+  },
+  "diet": {
+    "MEAT_EATER": "Vleeseter",
+    "PESCATARIAN": "Pescotariër",
+    "VEGETARIAN": "Vegetariër",
+    "VEGAN": "Veganist",
+    "FRUITARIAN": "Fruitariër",
+    "FLEXITARIAN": "Flexitariër"
+  },
+  "allergy": {
+    "EGGS": "Eieren",
+    "MILK": "Melk",
+    "PEANUTS": "Pindanoten",
+    "TREE_NUTS": "Noten",
+    "FISH": "Vis",
+    "SHELLFISH": "Schaaldieren",
+    "WHEAT": "Graan",
+    "SOY": "Soja",
+    "PAPRIKA": "Paprika",
+    "PAPRIKA_POWDER": "Paprikapoeder"
+  },
+  "guest": {
+    "first-name": "Voornaam",
+    "last-name": "Achternaam",
+    "diet": "Voorkeuren",
+    "allergies": "Allergieën",
+    "allergies-hint": "Duid alles aan wat van toepassing is.",
+    "comment": "Opmerkingen",
+    "comment-hint": "Iets wat wij zeker moeten weten?",
+    "no-allergies": "Geen allergieën",
+    "main": "(Hoofd)Genodigde",
+    "plus1": "Tweede Genodigde of +1",
+    "child1": "Kind",
+    "child2": "Kind (2)",
+    "ringbearer": "Ringbear(er)"
+  },
+  "contact": {
+    "title": "Contactinformatie",
+    "description": "Zo kunnen wij jou bereiken met praktische informatie.",
+    "email": "E-mail",
+    "email-hint": "Je bevestiging komt op dit adres toe.",
+    "address": "Adres",
+    "zip-code": "Postcode",
+    "city": "Stad",
+    "country": "Land",
+    "country-placeholder": "Kies een land",
+    "phone-number": "GSM",
+    "method": {
+      "preferred": "Gewenste contactmethode",
+      "NONE": "Geen",
+      "EMAIL": "E-mail",
+      "PIGEON": "Postduif",
+      "PHONE": "GSM"
+    }
+  },
+  "registration": {
+    "title": "Registratie",
+    "intro": "Vier stapjes en je bent erbij.",
+    "steps-label": "Stappen in de registratie",
+    "step-of": "Stap {{current}} van {{total}}",
+    "step": {
+      "contact": "Contact",
+      "guests": "Gasten",
+      "activities": "Activiteiten",
+      "review": "Nakijken"
+    },
+    "guests": {
+      "title": "Wie komt er mee?",
+      "description": "Vul minstens de hoofdgenodigde in. Voeg iedereen toe die met jou meekomt.",
+      "add": "Voeg een gast toe",
+      "remove": "Verwijder {{name}}",
+      "unnamed": "deze gast",
+      "numbered": "Gast {{number}}"
+    },
+    "activities": {
+      "title": "Waar ben je bij?",
+      "empty": "Er zijn op dit moment geen activiteiten beschikbaar voor deze gasten.",
+      "we": "Wij, {{names}}, komen naar",
+      "i": "Ik, {{names}}, kom naar"
+    },
+    "pledge": {
+      "none": "Geen pledge",
+      "chosen": "Je reageert op de pledge {{name}}."
+    },
+    "review": {
+      "title": "Klopt alles?",
+      "description": "Kijk je gegevens nog even na en bevestig.",
+      "guests": "Gasten",
+      "contact": "Contact",
+      "activities": "Activiteiten",
+      "pledge": "Pledge",
+      "nothing-selected": "Niets geselecteerd"
+    },
+    "submit": "Bevestig mijn registratie",
+    "submitting": "Bezig met registreren…",
+    "error-summary": {
+      "title": "Nog even nakijken",
+      "description": "Los deze punten op om verder te kunnen."
+    },
+    "success": {
+      "title": "Je bent ingeschreven!",
+      "body": "Bedankt! Wij kijken er al naar uit om jou te zien. Je krijgt een bevestiging per e-mail.",
+      "back": "Terug naar de campagne"
+    },
+    "failure": {
+      "title": "De registratie is niet gelukt",
+      "body": "Er liep iets mis bij het versturen. Probeer het opnieuw, of laat het ons weten als het blijft mislukken.",
+      "retry": "Probeer opnieuw"
+    }
+  },
+  "validation": {
+    "required": "Dit veld is verplicht.",
+    "email": "Vul een geldig e-mailadres in.",
+    "max-length": "Gebruik maximaal {{max}} tekens.",
+    "min-guests": "Voeg minstens één gast toe.",
+    "phone-number": "Vul een volledig nummer in, bv. +32 471 234 567."
+  },
+  "updates": {
+    "title": "Updates",
+    "number": "Update #{{number}}",
+    "4": {
+      "date": "2 mei 2019",
+      "title": "Place 2 Be!",
+      "intro": "Voor zij die hun kaartje al reeds gerecycleerd zouden hebben, is er bij deze nog eens de informatie voor de locatie:",
+      "venue-name": "Feestzalen Bertembos",
+      "venue-street": "Bosstraat 187",
+      "venue-city": "3060 Bertem",
+      "map-title": "Kaart met de ligging van Feestzalen Bertembos",
+      "parking": "Parkeren kan langs de kant van de weg."
+    },
+    "3": {
+      "date": "1 mei 2019",
+      "title": "A Bug's Life (Belangrijk)",
+      "audience": "Deze update is gericht aan zij die hebben ingeschreven met de contactmethode 'GSM'.",
+      "bug": "Helaas zat er nog een kleine bug in de software waardoor registraties met deze optie niet zijn doorgekomen.",
+      "fix": "De bug is sinds vandaag opgelost. Indien je eerder toch met deze optie had ingeschreven, hebben wij op dit moment nog geen weet van jouw komst. Voor zij die hieronder vallen: via deze weg de vraag om toch nog eens opnieuw in te schrijven. Kies je voor de contactmethode 'E-mail', dan krijg je ook nog een bevestiging via mail en ben je volledig zeker dat de inschrijving gelukt is.",
+      "apology": "Mijn excuses voor het ongemak."
+    },
+    "2": {
+      "date": "29 april 2019",
+      "title": "Tempus Fugit",
+      "closer": "Met rasse schreden komt onze grote dag dichterbij.",
+      "behind-the-scenes": "In deze update nemen wij jou mee voor een kijkje achter de schermen en lichten we al een tipje van de sluier op (pun intended).",
+      "preparations": "De voorbereidingen zijn in volle gang. De viering begint vorm te krijgen, de ringdrager past in zijn pakje, de speeches worden bedacht en de decoratie ontworpen.",
+      "progress-title": "Een overzicht van de vooruitgang:",
+      "progress": {
+        "clothing": "Kledij",
+        "favours": "Bedankjes",
+        "registrations": "Inschrijvingen",
+        "decoration": "Decoratie",
+        "ceremony": "Ceremonie",
+        "speeches": "Speeches",
+        "seating": "Tafelverdeling",
+        "stress": "Stress"
+      },
+      "teaser": "Een kleine teaser van een bedankje in wording:",
+      "teaser-alt": "Een handgemaakt bedankje in wording",
+      "sign": "Indien je je op 18 mei niet welkom zou voelen, dan is er altijd nog dit bord:",
+      "sign-alt": "Een houten bord met een welkomstboodschap",
+      "fandom": "Ook is het meteen duidelijk dat we met een grote Disney-fan en een boardgame-enthousiasteling te maken hebben!",
+      "hearts": "Hartjes zijn gewoon puur bladvulling :-)",
+      "outro": "Wij kijken er al naar uit om jullie te begroeten op onze grote dag!"
+    },
+    "1": {
+      "date": "26 maart 2019",
+      "title": "The Road to Shangri-La",
+      "goals": "De eerste twee stretch goals zijn een feit!",
+      "anecdote-intro": "Bij deze alweer een spannende eerste anekdote van Bart en de avonturen in het gemeentehuis.",
+      "anecdote": "Gisteren gingen Kim en ikzelf naar het gemeentehuis om de akte van aangifte te tekenen. Op het einde mogen wij nog betalen voor het huwelijksboekje, waarop de dame achter de desk mij het betalingsbewijs overhandigt en zegt: \"Bij deze het eerste papier in een hele stapel\". Kim vraagt nog voor roze vuilzakken en na afrekening valt een lange stilte…",
+      "question": "Aarzelend vraag ik: \"…en het huwelijksboekje?\".",
+      "lesson": "Bij deze ook weer geleerd dat dat pas voor op de trouw zelf is, en toch ook weer een stap dichter bij onze speciale dag."
+    }
+  },
+  "special": {
+    "date": "14 augustus 2020",
+    "title": "The After Special",
+    "bee-alt": "Een tekening van een bijtje",
+    "dress-alt": "Een jurk met bijtjesmotief",
+    "married": "1 jaar, 2 maanden en 27 dagen geleden stapten Kim en ik in het huwelijksbootje.",
+    "next-step": "Vandaag zijn wij klaar voor onze volgende grote stap en is de naam van deze website zelfs nog meer van toepassing.",
+    "announcement": "Oktober aanstaande verwachten wij een <b>bij</b>productje van de trouw!",
+    "why-bees": "De keuze voor bijtjes is natuurlijk niet geheel toevallig, want…",
+    "suspense": "… (voor extra spanning) …",
+    "name": "Jan",
+    "question-intro": "Iemand heeft een vraag speciaal voor jou!",
+    "language-note": "De vraag is wel in het Engels om een kleine woordspeling te kunnen gebruiken. :-)",
+    "ready": "Klaar?",
+    "will-you": "Will You",
+    "my": "My",
+    "godfather-alt": "Godfather",
+    "obligations": "Deze positie komt met een hoop contractuele verplichtingen, waaronder een jaarlijks wederkerend nieuwjaarsbrief-voorlees-momentje, een extra luisterend oor voor moest zij dat ooit nodig hebben en een onuitputtelijke bron aan voor te bereiden mopjes. :-)",
+    "disclosure": "Full disclosure: het peterschap, indien je kiest deze te accepteren, zal je delen met de broer van Kim ter extra ondersteuning.",
+    "accept-terms": "Ik aanvaard de terms en conditions!",
+    "accept": "Ik wil peter worden!",
+    "confirmed": "Finale stap: stuur vlug een berichtje naar Bart en/of Kim!"
+  }
+}

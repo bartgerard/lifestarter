@@ -1,0 +1,95 @@
+<app-campaign-nav />
+
+<article class="page special" aria-labelledby="special-title">
+  <header class="update__header special__header">
+    <p class="brand">{{ 'updates.number' | translate: { number: 5 } }}</p>
+    <p class="muted"><time datetime="2020-08-14">{{ 'special.date' | translate }}</time></p>
+  </header>
+
+  <h1 id="special-title">{{ 'special.title' | translate }}</h1>
+
+  <img
+    class="special__bee"
+    src="assets/images/special/bee.png"
+    [alt]="'special.bee-alt' | translate"
+    decoding="async"
+  />
+
+  <div class="prose">
+    <p>{{ 'special.married' | translate }}</p>
+    <p>{{ 'special.next-step' | translate }}</p>
+  </div>
+
+  <img
+    class="photo photo--portrait special__dress"
+    src="assets/images/special/bee_dress.jpg"
+    [alt]="'special.dress-alt' | translate"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <div class="prose">
+    <p [innerHTML]="'special.announcement' | translate"></p>
+    <p>{{ 'special.why-bees' | translate }}</p>
+  </div>
+
+  <p class="special__pause" aria-hidden="true">…</p>
+  <p class="special__pause">{{ 'special.suspense' | translate }}</p>
+  <p class="special__pause" aria-hidden="true">…</p>
+
+  <p class="special__pause special__shout">{{ 'special.name' | translate }}</p>
+
+  <div class="prose">
+    <p>{{ 'special.question-intro' | translate }}</p>
+    <p>{{ 'special.language-note' | translate }}</p>
+  </div>
+
+  <p class="special__pause">{{ 'special.ready' | translate }}</p>
+
+  <p class="special__shout">{{ 'special.name' | translate }}</p>
+  <p class="special__shout" lang="en">{{ 'special.will-you' | translate }}</p>
+
+  <img
+    class="special__bee"
+    src="assets/images/special/bee.png"
+    [alt]="'special.bee-alt' | translate"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <p class="special__shout" lang="en">{{ 'special.my' | translate }}</p>
+
+  <img
+    class="special__godfather"
+    src="assets/images/special/godfather.png"
+    [alt]="'special.godfather-alt' | translate"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <div class="prose">
+    <p>{{ 'special.obligations' | translate }}</p>
+    <p>{{ 'special.disclosure' | translate }}</p>
+  </div>
+
+  <div class="special__accept">
+    <label class="choice" for="accept-terms">
+      <input
+        class="choice__input"
+        type="checkbox"
+        id="accept-terms"
+        [checked]="accepted()"
+        (change)="toggleAccepted($any($event.target).checked)"
+      />
+      <span>{{ 'special.accept-terms' | translate }}</span>
+    </label>
+
+    <button class="button button--block" type="button" [disabled]="!accepted()" (click)="confirm()">
+      {{ 'special.accept' | translate }}
+    </button>
+
+    @if (confirmed()) {
+      <p class="notice" role="status">{{ 'special.confirmed' | translate }}</p>
+    }
+  </div>
+</article>

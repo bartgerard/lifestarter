@@ -1,0 +1,126 @@
+.updates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  max-inline-size: 46rem;
+  padding-block: var(--space-7);
+}
+
+.update {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-block-end: var(--space-6);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.update:last-child {
+  border-block-end: none;
+}
+
+.update__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.update__number {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update h2 {
+  font-size: var(--text-xl);
+}
+
+.update__venue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  margin-block: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  font-style: normal;
+  text-align: center;
+}
+
+.update__map {
+  inline-size: 100%;
+  block-size: min(70vh, 30rem);
+  margin-block: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.updates__photo {
+  max-inline-size: 24rem;
+  margin-inline: auto;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-block: var(--space-4);
+}
+
+.progress__item {
+  display: grid;
+  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr) 3rem;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.progress__bar {
+  inline-size: 100%;
+  block-size: 0.75rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-sunken);
+  accent-color: var(--color-brand);
+}
+
+.progress__bar::-webkit-progress-bar {
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-sunken);
+}
+
+.progress__bar::-webkit-progress-value {
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand);
+}
+
+.progress__bar::-moz-progress-bar {
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand);
+}
+
+.progress__bar--alarming {
+  accent-color: var(--color-danger);
+}
+
+.progress__bar--alarming::-webkit-progress-value,
+.progress__bar--alarming::-moz-progress-bar {
+  background-color: var(--color-danger);
+}
+
+.progress__value {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (width < 30rem) {
+  .progress__item {
+    grid-template-columns: minmax(0, 1fr) 3rem;
+  }
+
+  .progress__label {
+    grid-column: 1 / -1;
+  }
+}

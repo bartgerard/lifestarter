@@ -1,0 +1,128 @@
+<app-campaign-nav />
+
+<div class="page updates">
+  <h1 class="visually-hidden">{{ 'updates.title' | translate }}</h1>
+
+  <article class="update" aria-labelledby="update-4">
+    <header class="update__header">
+      <p class="update__number brand">{{ 'updates.number' | translate: { number: 4 } }}</p>
+      <p class="muted"><time datetime="2019-05-02">{{ 'updates.4.date' | translate }}</time></p>
+    </header>
+
+    <h2 id="update-4">{{ 'updates.4.title' | translate }}</h2>
+
+    <div class="prose">
+      <p>{{ 'updates.4.intro' | translate }}</p>
+
+      <address class="update__venue">
+        <span>{{ 'updates.4.venue-name' | translate }}</span>
+        <span>{{ 'updates.4.venue-street' | translate }}</span>
+        <span>{{ 'updates.4.venue-city' | translate }}</span>
+      </address>
+
+      <iframe
+        class="update__map"
+        [src]="mapUrl"
+        [title]="'updates.4.map-title' | translate"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+
+      <p>{{ 'updates.4.parking' | translate }}</p>
+    </div>
+  </article>
+
+  <article class="update" aria-labelledby="update-3">
+    <header class="update__header">
+      <p class="update__number brand">{{ 'updates.number' | translate: { number: 3 } }}</p>
+      <p class="muted"><time datetime="2019-05-01">{{ 'updates.3.date' | translate }}</time></p>
+    </header>
+
+    <h2 id="update-3">{{ 'updates.3.title' | translate }}</h2>
+
+    <div class="prose">
+      <p>{{ 'updates.3.audience' | translate }}</p>
+      <p>{{ 'updates.3.bug' | translate }}</p>
+      <p>{{ 'updates.3.fix' | translate }}</p>
+      <p>{{ 'updates.3.apology' | translate }}</p>
+    </div>
+  </article>
+
+  <article class="update" aria-labelledby="update-2">
+    <header class="update__header">
+      <p class="update__number brand">{{ 'updates.number' | translate: { number: 2 } }}</p>
+      <p class="muted"><time datetime="2019-04-29">{{ 'updates.2.date' | translate }}</time></p>
+    </header>
+
+    <h2 id="update-2">{{ 'updates.2.title' | translate }}</h2>
+
+    <div class="prose">
+      <p>{{ 'updates.2.closer' | translate }}</p>
+      <p>{{ 'updates.2.behind-the-scenes' | translate }}</p>
+      <p>{{ 'updates.2.preparations' | translate }}</p>
+      <p>{{ 'updates.2.progress-title' | translate }}</p>
+
+      <ul class="progress">
+        @for (item of progress; track item.key) {
+          <li class="progress__item">
+            <span class="progress__label" [id]="'progress-' + item.key">
+              {{ 'updates.2.progress.' + item.key | translate }}
+            </span>
+            <progress
+              class="progress__bar"
+              [class.progress__bar--alarming]="item.value >= 99"
+              [value]="item.value"
+              max="100"
+              [attr.aria-labelledby]="'progress-' + item.key"
+            >
+              {{ item.value }}%
+            </progress>
+            <span class="progress__value muted">{{ item.value }}%</span>
+          </li>
+        }
+      </ul>
+
+      <p>{{ 'updates.2.teaser' | translate }}</p>
+
+      <img
+        class="photo photo--portrait updates__photo"
+        src="assets/images/we/59374459_656314598126159_3583400161193230336_n-min.jpg"
+        [alt]="'updates.2.teaser-alt' | translate"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <p>{{ 'updates.2.sign' | translate }}</p>
+
+      <img
+        class="photo photo--portrait updates__photo"
+        src="assets/images/we/IMG_20190501_111141-min.jpg"
+        [alt]="'updates.2.sign-alt' | translate"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <p>{{ 'updates.2.fandom' | translate }}</p>
+      <p>{{ 'updates.2.hearts' | translate }}</p>
+      <p>{{ 'updates.2.outro' | translate }}</p>
+    </div>
+  </article>
+
+  <article class="update" aria-labelledby="update-1">
+    <header class="update__header">
+      <p class="update__number brand">{{ 'updates.number' | translate: { number: 1 } }}</p>
+      <p class="muted"><time datetime="2019-03-26">{{ 'updates.1.date' | translate }}</time></p>
+    </header>
+
+    <h2 id="update-1">{{ 'updates.1.title' | translate }}</h2>
+
+    <div class="prose">
+      <p>{{ 'updates.1.goals' | translate }}</p>
+      <p>{{ 'updates.1.anecdote-intro' | translate }}</p>
+      <p>{{ 'updates.1.anecdote' | translate }}</p>
+      <p>{{ 'updates.1.question' | translate }}</p>
+      <p>{{ 'updates.1.lesson' | translate }}</p>
+    </div>
+  </article>
+</div>

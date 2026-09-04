@@ -1,0 +1,29 @@
+.tabs {
+  border-block: 1px solid var(--color-border);
+}
+
+.tabs__inner {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.tabs__tab {
+  padding-block: var(--space-4);
+  border-block-end: 3px solid transparent;
+  color: var(--color-heading);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-brand);
+  }
+}
+
+.tabs__tab--active {
+  border-block-end-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.tabs__tab--disabled {
+  color: var(--color-text-muted);
+  cursor: default;
+}

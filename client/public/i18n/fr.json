@@ -1,0 +1,359 @@
+{
+  "a11y": {
+    "skip-to-content": "Aller au contenu",
+    "choose-language": "Choisir une langue"
+  },
+  "nav": {
+    "primary": "Navigation principale",
+    "campaign": "Sections de la campagne",
+    "concept": "Concept",
+    "updates": "Actualités",
+    "comments": "Commentaires"
+  },
+  "common": {
+    "loading": "Chargement…",
+    "unavailable": "indisponible",
+    "rsvp": "RSVP",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "add": "Ajouter",
+    "confirm": "Confirmer",
+    "skip": "Passer",
+    "select": "Sélectionner",
+    "selected": "Sélectionné",
+    "none": "aucun",
+    "remove": "Supprimer",
+    "optional": "facultatif",
+    "error": "Une erreur est survenue"
+  },
+  "footer": {
+    "copyright": "Bart & Kim © 2019 - {{year}}"
+  },
+  "campaign": {
+    "title": "Togetherness Foreverness",
+    "subtitle": "Le module d'inscription destiné aux amis et à la famille pour le mariage de Kim & Bart, avec un clin d'œil à une certaine plateforme de financement participatif.",
+    "by-author": "Par Bart Gerard",
+    "author-photo-alt": "Portrait de Bart",
+    "ring-photo-alt": "L'alliance",
+    "photo-alt": {
+      "couple": "Kim et Bart ensemble"
+    },
+    "stats-label": "Chiffres de la campagne",
+    "support": "Soutien",
+    "live-updates": "De nouvelles inscriptions arrivent en direct",
+    "all-or-nothing": "Tout ou rien.",
+    "reply-before-deadline": "Répondez avant la date limite.",
+    "fact": {
+      "who": "Kim",
+      "what": "Mariage",
+      "where": "Bertem, Belgique"
+    },
+    "stat": {
+      "entrance-fee": "droit d'entrée",
+      "guests": "invités",
+      "wave": "vague",
+      "days-to-go": "jours restants"
+    },
+    "welcome": {
+      "title": "Bienvenue",
+      "greeting": "Bonjour,",
+      "intro": "Bienvenue sur le module d'inscription au mariage de Bart et Kim.",
+      "date": "Nous nous marions le <b>18 mai 2019</b> et nous aimerions le fêter avec vous !",
+      "no-invitation": "Si vous n'avez pas (encore) reçu d'invitation par courrier ou par e-mail, contactez-nous afin que nous puissions vérifier ce qui s'est perdu en route.",
+      "capacity": "Nous aimerions accueillir tout le monde à un maximum de moments de cette journée particulière, mais ce n'est hélas pas possible pour le dîner et la réception qui l'accompagne. Si vous pouvez encore cocher le dîner lors de votre inscription, c'est qu'il restait une place pour vous et éventuellement votre accompagnant. Sinon, nous avons atteint la capacité maximale, mais vous restez tout aussi bienvenu au buffet de desserts et à la soirée dansante.",
+      "provisional": "Les détails de cette page ne sont pas encore définitifs et de légers décalages dans le programme ne sont pas à exclure. Cette page et l'e-mail serviront à communiquer les éventuels changements.",
+      "call-to-action": "Cliquez vite sur <b>RSVP</b> (<u>R</u>épondez <u>s</u>'il <u>v</u>ous <u>p</u>laît) ou sur le palier qui vous décrit le mieux pour vous inscrire !",
+      "see-you-soon": "À très bientôt !",
+      "signature": "Bart & Kim"
+    },
+    "schedule": {
+      "title": "Programme",
+      "subject-to-change": "Horaires sous réserve de modification.",
+      "changes-communicated": "Les changements sont communiqués via cette page et par e-mail.",
+      "OFFICIAL": {
+        "detail": "Cercle intime (parents, frères et témoins) et photographe"
+      },
+      "PHOTO_SHOOT": {
+        "detail": "Cercle très intime (Bart et Kim) et photographe"
+      },
+      "CEREMONY": {
+        "detail": "Tout le monde est bienvenu (±100 places assises)"
+      },
+      "RECEPTION": {
+        "detail": "Courte réception pour les convives du dîner"
+      },
+      "DINNER": {
+        "detail": "Un repas de fête pour la famille, les amis inscrits tôt et le photographe (±80 places)"
+      },
+      "PARTY": {
+        "detail": "Gourmandises et danse — tout le monde est bienvenu (après inscription)"
+      }
+    },
+    "dress-code": {
+      "title": "Code vestimentaire",
+      "what-to-wear": "Portez quelque chose qui convient à un mariage : une tenue de ville est parfaite.",
+      "colours": "Nous apprécierions des tenues avec des touches <b>bleues</b> et/ou <b>argentées</b>.",
+      "palette-alt": "Palette de couleurs aux tons bleus et argentés"
+    },
+    "stretch": {
+      "title": "Paliers bonus",
+      "intro": "Les paliers bonus sont les objectifs ambitieux qu'un créateur Kickstarter espère atteindre, chacun accompagné d'un petit extra.",
+      "2": {
+        "target": "2 invités",
+        "reward": "Bart & Kim se marient !"
+      },
+      "42": {
+        "target": "42 invités",
+        "reward": "Une page d'actualités est ajoutée."
+      },
+      "140": {
+        "target": "140 invités",
+        "reward": "Une actualité racontant nos origines est publiée sur la page d'actualités."
+      },
+      "150": {
+        "target": "150 invités",
+        "reward": "Une réception !"
+      },
+      "160": {
+        "target": "160 invités",
+        "reward": "Panique, car la salle est alors trop pleine."
+      },
+      "10k": {
+        "target": "10 000 €",
+        "reward": "Bart prend quelques jours de congé et développe une vraie section commentaires."
+      }
+    },
+    "parody": {
+      "title": "Kickstarter ?",
+      "explanation": "Ce site est un pastiche d'une plateforme de financement participatif très connue nommée <a href=\"https://kickstarter.com\" rel=\"noopener noreferrer\" target=\"_blank\">Kickstarter</a>. Un site où les entrepreneurs peuvent demander du soutien pour réaliser leurs grandes idées et leurs projets. Le soutien peut être altruiste ou lié à une contrepartie précise. Là-bas, on appelle cela un palier.",
+      "our-project": "Et nous voici prêts pour notre propre projet gigantesque : une vie à deux !",
+      "support": "Vous pouvez soutenir ce projet de la manière qui vous convient !<br><i>p. ex. une oreille attentive, du baby-sitting (si cela devait un jour s'appliquer), le partage d'expériences…</i>",
+      "short-term": "À court terme, le soutien que nous recherchons est cependant votre présence au grand lancement de ce projet : le mariage.",
+      "hope": "Nous espérons vivre avec vous l'une des plus belles journées de notre vie.",
+      "gifts": "Si vous souhaitez nous soutenir autrement, en plus ou à la place, il y a toujours de la place pour une petite contribution. Pour le reste, nous avons déjà tout ce que nos cœurs désirent !"
+    },
+    "shipping": {
+      "title": "Livraison",
+      "joke": "On se jette à l'eau :-)",
+      "aftermath": "Nous ne sommes pas allés plus loin que cette blague…",
+      "banner-alt": "Bannière « EU friendly shipping »"
+    },
+    "risks": {
+      "title": "Risques et défis",
+      "history": "Au moment d'écrire ces lignes, Kim et Bart se connaissent depuis au moins neuf ans. Ils ont déjà vécu bien des aventures ensemble : entre autres (mais pas uniquement) un marathon Star Wars, les examens de la KU Leuven, un cambriolage, la construction d'une maison et maintenant les préparatifs du mariage.",
+      "future": "Les gens changent, bien sûr, et personne ne sait de quoi l'avenir sera fait. Nous voulons activement tendre vers une vie heureuse à deux et y travailler. Des noces de chêne (80 ans) sont probablement hors de portée, mais nous ferons de notre mieux pour le Diamond Achievement&trade; (60 ans).",
+      "achievement-alt": "Badge Diamond Achievement",
+      "friends-and-family": "Nous en sommes évidemment encore très loin, et le rôle des amis et de la famille en chemin ne doit certainement pas être sous-estimé."
+    }
+  },
+  "pledge": {
+    "price": "Soutenir avec {{amount}} ou plus",
+    "includes": "Comprend",
+    "backers": "{{count}} invités",
+    "select": "Sélectionner cette contrepartie",
+    "unavailable": "Plus disponible"
+  },
+  "activity": {
+    "OFFICIAL": "La partie officielle",
+    "PHOTO_SHOOT": "Séance photo",
+    "CEREMONY": "Cérémonie",
+    "RECEPTION": "Réception",
+    "DINNER": "Dîner",
+    "PARTY": "Buffet de desserts et soirée"
+  },
+  "diet": {
+    "MEAT_EATER": "Omnivore",
+    "PESCATARIAN": "Pescétarien",
+    "VEGETARIAN": "Végétarien",
+    "VEGAN": "Végétalien",
+    "FRUITARIAN": "Frugivore",
+    "FLEXITARIAN": "Flexitarien"
+  },
+  "allergy": {
+    "EGGS": "Œufs",
+    "MILK": "Lait",
+    "PEANUTS": "Cacahuètes",
+    "TREE_NUTS": "Fruits à coque",
+    "FISH": "Poisson",
+    "SHELLFISH": "Crustacés",
+    "WHEAT": "Blé",
+    "SOY": "Soja",
+    "PAPRIKA": "Paprika",
+    "PAPRIKA_POWDER": "Paprika en poudre"
+  },
+  "guest": {
+    "first-name": "Prénom",
+    "last-name": "Nom",
+    "diet": "Préférence alimentaire",
+    "allergies": "Allergies",
+    "allergies-hint": "Cochez tout ce qui s'applique.",
+    "comment": "Remarques",
+    "comment-hint": "Quelque chose que nous devrions absolument savoir ?",
+    "no-allergies": "Aucune allergie",
+    "main": "Invité principal",
+    "plus1": "Deuxième invité ou accompagnant",
+    "child1": "Enfant",
+    "child2": "Enfant (2)",
+    "ringbearer": "Porteur d'alliances"
+  },
+  "contact": {
+    "title": "Coordonnées",
+    "description": "C'est ainsi que nous vous transmettrons les informations pratiques.",
+    "email": "E-mail",
+    "email-hint": "Votre confirmation sera envoyée à cette adresse.",
+    "address": "Adresse",
+    "zip-code": "Code postal",
+    "city": "Ville",
+    "country": "Pays",
+    "country-placeholder": "Choisissez un pays",
+    "phone-number": "Portable",
+    "method": {
+      "preferred": "Méthode de contact préférée",
+      "NONE": "Aucune",
+      "EMAIL": "E-mail",
+      "PIGEON": "Pigeon voyageur",
+      "PHONE": "Portable"
+    }
+  },
+  "registration": {
+    "title": "Inscription",
+    "intro": "Quatre petites étapes et c'est fait.",
+    "steps-label": "Étapes de l'inscription",
+    "step-of": "Étape {{current}} sur {{total}}",
+    "step": {
+      "contact": "Contact",
+      "guests": "Invités",
+      "activities": "Activités",
+      "review": "Vérification"
+    },
+    "guests": {
+      "title": "Qui vient ?",
+      "description": "Renseignez au moins l'invité principal. Ajoutez toutes les personnes qui vous accompagnent.",
+      "add": "Ajouter un invité",
+      "remove": "Supprimer {{name}}",
+      "unnamed": "cet invité",
+      "numbered": "Invité {{number}}"
+    },
+    "activities": {
+      "title": "À quoi participez-vous ?",
+      "empty": "Aucune activité n'est disponible pour ces invités pour le moment.",
+      "we": "Nous, {{names}}, participons à",
+      "i": "Moi, {{names}}, je participe à"
+    },
+    "pledge": {
+      "none": "Aucun palier",
+      "chosen": "Vous répondez au palier {{name}}."
+    },
+    "review": {
+      "title": "Tout est correct ?",
+      "description": "Vérifiez encore une fois vos données et confirmez.",
+      "guests": "Invités",
+      "contact": "Contact",
+      "activities": "Activités",
+      "pledge": "Palier",
+      "nothing-selected": "Rien de sélectionné"
+    },
+    "submit": "Confirmer mon inscription",
+    "submitting": "Envoi de votre inscription…",
+    "error-summary": {
+      "title": "Quelques points à vérifier",
+      "description": "Corrigez ces points pour continuer."
+    },
+    "success": {
+      "title": "Vous êtes inscrit !",
+      "body": "Merci ! Nous avons hâte de vous voir. Une confirmation arrive dans votre boîte mail.",
+      "back": "Retour à la campagne"
+    },
+    "failure": {
+      "title": "L'inscription n'a pas abouti",
+      "body": "Une erreur est survenue lors de l'envoi. Réessayez, ou prévenez-nous si le problème persiste.",
+      "retry": "Réessayer"
+    }
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire.",
+    "email": "Saisissez une adresse e-mail valide.",
+    "max-length": "Utilisez au maximum {{max}} caractères.",
+    "min-guests": "Ajoutez au moins un invité.",
+    "phone-number": "Saisissez un numéro complet, p.ex. +32 471 234 567."
+  },
+  "updates": {
+    "title": "Actualités",
+    "number": "Actualité n° {{number}}",
+    "4": {
+      "date": "2 mai 2019",
+      "title": "Place 2 Be !",
+      "intro": "Pour celles et ceux qui auraient déjà recyclé leur carton, voici à nouveau les informations sur le lieu :",
+      "venue-name": "Feestzalen Bertembos",
+      "venue-street": "Bosstraat 187",
+      "venue-city": "3060 Bertem",
+      "map-title": "Carte indiquant l'emplacement des Feestzalen Bertembos",
+      "parking": "Vous pouvez vous garer le long de la route."
+    },
+    "3": {
+      "date": "1 mai 2019",
+      "title": "A Bug's Life (Important)",
+      "audience": "Cette actualité s'adresse à celles et ceux qui se sont inscrits avec « Portable » comme méthode de contact.",
+      "bug": "Malheureusement, un petit bug subsistait dans le logiciel : les inscriptions utilisant cette option ne nous sont jamais parvenues.",
+      "fix": "Le bug est corrigé depuis aujourd'hui. Si vous vous étiez inscrit avec cette option, nous n'avons pour l'instant aucune trace de votre venue. Si c'est votre cas, pourriez-vous vous réinscrire ? En choisissant « E-mail » comme méthode de contact, vous recevrez également une confirmation par mail et serez donc certain que l'inscription a fonctionné.",
+      "apology": "Toutes mes excuses pour le désagrément."
+    },
+    "2": {
+      "date": "29 avril 2019",
+      "title": "Tempus Fugit",
+      "closer": "Notre grand jour approche à grands pas.",
+      "behind-the-scenes": "Dans cette actualité, nous vous emmenons dans les coulisses et levons un coin du voile (jeu de mots assumé).",
+      "preparations": "Les préparatifs battent leur plein. La célébration prend forme, le porteur d'alliances rentre dans son costume, les discours s'écrivent et la décoration se dessine.",
+      "progress-title": "Un aperçu de l'avancement :",
+      "progress": {
+        "clothing": "Tenues",
+        "favours": "Cadeaux d'invités",
+        "registrations": "Inscriptions",
+        "decoration": "Décoration",
+        "ceremony": "Cérémonie",
+        "speeches": "Discours",
+        "seating": "Plan de table",
+        "stress": "Stress"
+      },
+      "teaser": "Un petit aperçu d'un cadeau d'invité en préparation :",
+      "teaser-alt": "Un cadeau d'invité fait main, en préparation",
+      "sign": "Et si vous ne vous sentiez pas le bienvenu le 18 mai, il reste toujours ce panneau :",
+      "sign-alt": "Un panneau en bois portant un message de bienvenue",
+      "fandom": "On comprend aussi tout de suite qu'on a affaire à une grande fan de Disney et à un passionné de jeux de société !",
+      "hearts": "Les petits cœurs ne sont que du remplissage :-)",
+      "outro": "Nous avons déjà hâte de vous accueillir lors de notre grand jour !"
+    },
+    "1": {
+      "date": "26 mars 2019",
+      "title": "The Road to Shangri-La",
+      "goals": "Les deux premiers paliers bonus sont atteints !",
+      "anecdote-intro": "Voici donc une première anecdote palpitante de Bart et de ses aventures à la maison communale.",
+      "anecdote": "Hier, Kim et moi sommes allés à la maison communale pour signer l'acte de déclaration. À la fin, il fallait encore payer le livret de mariage ; la dame derrière le guichet m'a alors tendu le reçu en disant : « Voilà le premier papier d'une belle pile ». Kim a encore demandé des sacs-poubelles roses et, une fois le paiement réglé, un long silence s'est installé…",
+      "question": "J'ai demandé, hésitant : « …et le livret de mariage ? ».",
+      "lesson": "J'ai donc encore appris quelque chose : il n'arrive que le jour du mariage — et c'est un pas de plus vers notre journée si particulière."
+    }
+  },
+  "special": {
+    "date": "14 août 2020",
+    "title": "The After Special",
+    "bee-alt": "Un dessin d'une petite abeille",
+    "dress-alt": "Une robe à motif d'abeilles",
+    "married": "Il y a 1 an, 2 mois et 27 jours, Kim et moi nous sommes mariés.",
+    "next-step": "Aujourd'hui, nous sommes prêts pour notre prochaine grande étape, et le nom de ce site n'a jamais été aussi juste.",
+    "announcement": "En octobre prochain, nous attendons un <b>abeille</b>ux fruit de ce mariage !",
+    "why-bees": "Le choix des abeilles n'est évidemment pas tout à fait un hasard, car…",
+    "suspense": "… (pour faire durer le suspense) …",
+    "name": "Jan",
+    "question-intro": "Quelqu'un a une question rien que pour toi !",
+    "language-note": "La question est en anglais afin de pouvoir glisser un petit jeu de mots. :-)",
+    "ready": "Prêt ?",
+    "will-you": "Will You",
+    "my": "My",
+    "godfather-alt": "Godfather",
+    "obligations": "Ce poste s'accompagne d'un tas d'obligations contractuelles, dont une lecture annuelle de la lettre de Nouvel An, une oreille attentive supplémentaire si elle en a un jour besoin, et une réserve inépuisable de blagues à préparer. :-)",
+    "disclosure": "En toute transparence : le parrainage, si tu choisis de l'accepter, sera partagé avec le frère de Kim, en renfort.",
+    "accept-terms": "J'accepte les conditions générales !",
+    "accept": "Je veux devenir parrain !",
+    "confirmed": "Dernière étape : envoie vite un message à Bart et/ou Kim !"
+  }
+}

@@ -1,0 +1,460 @@
+<div class="page rsvp">
+  @switch (status()) {
+    @case ('done') {
+      <div class="card notice" role="status">
+        <h1>{{ 'registration.success.title' | translate }}</h1>
+        <p>{{ 'registration.success.body' | translate }}</p>
+        <a class="button" routerLink="/">{{ 'registration.success.back' | translate }}</a>
+      </div>
+    }
+    @case ('failed') {
+      <div class="card notice notice--error" role="alert">
+        <h1>{{ 'registration.failure.title' | translate }}</h1>
+        <p>{{ 'registration.failure.body' | translate }}</p>
+        <button class="button" type="button" (click)="retry()">
+          {{ 'registration.failure.retry' | translate }}
+        </button>
+      </div>
+    }
+    @default {
+      <header class="rsvp__header">
+        <h1>{{ 'registration.title' | translate }}</h1>
+        <p class="muted">{{ 'registration.intro' | translate }}</p>
+      </header>
+
+      <nav class="rsvp__steps" [attr.aria-label]="'registration.steps-label' | translate">
+        <ol>
+          @for (name of steps; track name; let index = $index) {
+            <li
+              class="rsvp__step"
+              [class.rsvp__step--current]="index === stepIndex()"
+              [class.rsvp__step--done]="index < stepIndex()"
+              [attr.aria-current]="index === stepIndex() ? 'step' : null"
+            >
+              <span class="rsvp__step-number" aria-hidden="true">{{ index + 1 }}</span>
+              {{ 'registration.step.' + name | translate }}
+            </li>
+          }
+        </ol>
+        <p class="visually-hidden" aria-live="polite">
+          {{
+            'registration.step-of' | translate: { current: stepIndex() + 1, total: steps.length }
+          }}
+        </p>
+      </nav>
+
+      <form class="rsvp__form" [formRoot]="form">
+        @if (blocked()) {
+          <div class="notice notice--error" role="alert">
+            <p><strong>{{ 'registration.error-summary.title' | translate }}</strong></p>
+            <p>{{ 'registration.error-summary.description' | translate }}</p>
+          </div>
+        }
+
+        @switch (step()) {
+          @case ('contact') {
+            <section aria-labelledby="step-heading">
+              <h2 id="step-heading" #stepHeading tabindex="-1">
+                {{ 'contact.title' | translate }}
+              </h2>
+              <p class="muted">{{ 'contact.description' | translate }}</p>
+
+              <div class="field">
+                <app-float-label>
+                  <input
+                    class="control"
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    inputmode="email"
+                    [formField]="form.contact.email"
+                    [attr.aria-invalid]="
+                      form.contact.email().touched() && form.contact.email().invalid()
+                    "
+                    aria-describedby="email-hint email-error"
+                  />
+                  <label for="email">{{ 'contact.email' | translate }}</label>
+                </app-float-label>
+                <p class="field__hint" id="email-hint">{{ 'contact.email-hint' | translate }}</p>
+                <app-field-errors [field]="form.contact.email" id="email-error" />
+              </div>
+
+              <fieldset class="fieldset">
+                <legend class="fieldset__legend">{{ 'contact.method.preferred' | translate }}</legend>
+                <div class="choice-list choice-list--inline">
+                  @for (method of contactMethods; track method) {
+                    <label class="choice" [for]="'method-' + method">
+                      <input
+                        class="choice__input"
+                        type="radio"
+                        [id]="'method-' + method"
+                        [value]="method"
+                        [formField]="form.contact.contactMethod"
+                      />
+                      <span>{{ 'contact.method.' + method | translate }}</span>
+                    </label>
+                  }
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <app-float-label>
+                  <input
+                    class="control"
+                    id="phone"
+                    type="tel"
+                    appPhoneMask
+                    inputmode="tel"
+                    autocomplete="tel"
+                    [formField]="form.contact.phoneNumber"
+                    [attr.aria-invalid]="
+                      form.contact.phoneNumber().touched() && form.contact.phoneNumber().invalid()
+                    "
+                    aria-describedby="phone-error"
+                  />
+                  <label for="phone">{{ 'contact.phone-number' | translate }}</label>
+                </app-float-label>
+                <app-field-errors [field]="form.contact.phoneNumber" id="phone-error" />
+              </div>
+
+              <div class="field">
+                <app-float-label>
+                  <input
+                    class="control"
+                    id="address"
+                    type="text"
+                    autocomplete="street-address"
+                    [formField]="form.contact.address"
+                    aria-describedby="address-error"
+                  />
+                  <label for="address">{{ 'contact.address' | translate }}</label>
+                </app-float-label>
+                <app-field-errors [field]="form.contact.address" id="address-error" />
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <app-float-label>
+                    <input
+                      class="control"
+                      id="zip-code"
+                      type="text"
+                      autocomplete="postal-code"
+                      [formField]="form.contact.zipCode"
+                      aria-describedby="zip-code-error"
+                    />
+                    <label for="zip-code">{{ 'contact.zip-code' | translate }}</label>
+                  </app-float-label>
+                  <app-field-errors [field]="form.contact.zipCode" id="zip-code-error" />
+                </div>
+
+                <div class="field">
+                  <app-float-label>
+                    <input
+                      class="control"
+                      id="city"
+                      type="text"
+                      autocomplete="address-level2"
+                      [formField]="form.contact.city"
+                      aria-describedby="city-error"
+                    />
+                    <label for="city">{{ 'contact.city' | translate }}</label>
+                  </app-float-label>
+                  <app-field-errors [field]="form.contact.city" id="city-error" />
+                </div>
+              </div>
+
+              <div class="field">
+                <app-float-label>
+                  <select
+                    class="control"
+                    id="country"
+                    autocomplete="country"
+                    [formField]="form.contact.countryIso3"
+                    aria-describedby="country-error"
+                  >
+                    <option value="">{{ 'contact.country-placeholder' | translate }}</option>
+                    @for (country of countries(); track country.iso3) {
+                      <option [value]="country.iso3">{{ country.name }}</option>
+                    }
+                  </select>
+                  <label for="country">{{ 'contact.country' | translate }}</label>
+                </app-float-label>
+                <app-field-errors [field]="form.contact.countryIso3" id="country-error" />
+              </div>
+            </section>
+          }
+
+          @case ('guests') {
+            <section aria-labelledby="step-heading">
+              <h2 id="step-heading" #stepHeading tabindex="-1">
+                {{ 'registration.guests.title' | translate }}
+              </h2>
+              <p class="muted">{{ 'registration.guests.description' | translate }}</p>
+
+              @for (guest of form.guests; track $index; let index = $index) {
+                <fieldset class="card rsvp__guest">
+                  <legend class="fieldset__legend">{{ roleOf(index) | translate }}</legend>
+
+                  <div class="field-row">
+                    <div class="field">
+                      <app-float-label>
+                        <input
+                          class="control"
+                          [id]="'first-name-' + index"
+                          type="text"
+                          autocomplete="given-name"
+                          [formField]="guest.firstName"
+                          (blur)="commitPrimaryGuest()"
+                          [attr.aria-invalid]="
+                            guest.firstName().touched() && guest.firstName().invalid()
+                          "
+                          [attr.aria-describedby]="'first-name-error-' + index"
+                        />
+                        <label [for]="'first-name-' + index">
+                          {{ 'guest.first-name' | translate }}
+                        </label>
+                      </app-float-label>
+                      <app-field-errors
+                        [field]="guest.firstName"
+                        [id]="'first-name-error-' + index"
+                      />
+                    </div>
+
+                    <div class="field">
+                      <app-float-label>
+                        <input
+                          class="control"
+                          [id]="'last-name-' + index"
+                          type="text"
+                          autocomplete="family-name"
+                          [formField]="guest.lastName"
+                          (blur)="commitPrimaryGuest()"
+                          [attr.aria-invalid]="
+                            guest.lastName().touched() && guest.lastName().invalid()
+                          "
+                          [attr.aria-describedby]="'last-name-error-' + index"
+                        />
+                        <label [for]="'last-name-' + index">
+                          {{ 'guest.last-name' | translate }}
+                        </label>
+                      </app-float-label>
+                      <app-field-errors [field]="guest.lastName" [id]="'last-name-error-' + index" />
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <app-float-label>
+                      <select class="control" [id]="'diet-' + index" [formField]="guest.diet">
+                        <option value="">{{ 'common.none' | translate }}</option>
+                        @for (diet of diets(); track diet) {
+                          <option [value]="diet">{{ 'diet.' + diet | translate }}</option>
+                        }
+                      </select>
+                      <label [for]="'diet-' + index">{{ 'guest.diet' | translate }}</label>
+                    </app-float-label>
+                  </div>
+
+                  <fieldset class="fieldset">
+                    <legend class="fieldset__legend">{{ 'guest.allergies' | translate }}</legend>
+                    <p class="field__hint">{{ 'guest.allergies-hint' | translate }}</p>
+                    <div class="choice-list allergies">
+                      @for (allergy of allergies(); track allergy) {
+                        <label class="choice allergy" [for]="'allergy-' + index + '-' + allergy">
+                          <input
+                            class="choice__input"
+                            type="checkbox"
+                            [id]="'allergy-' + index + '-' + allergy"
+                            [checked]="hasAllergy(index, allergy)"
+                            (change)="toggleAllergy(index, allergy, $any($event.target).checked)"
+                          />
+                          <!--
+                            Decorative: the label beside it already names the allergen, so an
+                            `alt` would only make screen readers say everything twice.
+                          -->
+                          <img
+                            class="allergy__icon"
+                            [src]="'assets/images/allergens/' + allergy + '_grey_50x50.png'"
+                            alt=""
+                            width="50"
+                            height="50"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <span>{{ 'allergy.' + allergy | translate }}</span>
+                        </label>
+                      }
+                    </div>
+
+                    <!-- The old listbox echoed the running selection in its footer. -->
+                    <p class="field__hint">
+                      {{ 'common.selected' | translate }}:
+                      {{ allergyNamesAt(index) || ('common.none' | translate) }}
+                    </p>
+                  </fieldset>
+
+                  <div class="field">
+                    <app-float-label>
+                      <textarea
+                        class="control"
+                        [id]="'comment-' + index"
+                        rows="3"
+                        [formField]="guest.comment"
+                        [attr.aria-describedby]="'comment-hint-' + index"
+                      ></textarea>
+                      <label [for]="'comment-' + index">{{ 'guest.comment' | translate }}</label>
+                    </app-float-label>
+                    <p class="field__hint" [id]="'comment-hint-' + index">
+                      {{ 'guest.comment-hint' | translate }}
+                    </p>
+                  </div>
+
+                  @if (index > 0) {
+                    <button class="button button--secondary" type="button" (click)="removeGuest(index)">
+                      {{
+                        'registration.guests.remove'
+                          | translate
+                            : {
+                                name:
+                                  guestName(index) ||
+                                  ('registration.guests.unnamed' | translate),
+                              }
+                      }}
+                    </button>
+                  }
+                </fieldset>
+              }
+
+              @if (canAddGuest()) {
+                <button class="button button--secondary" type="button" (click)="addGuest()">
+                  {{ 'registration.guests.add' | translate }}
+                </button>
+              }
+            </section>
+          }
+
+          @case ('activities') {
+            <section aria-labelledby="step-heading">
+              <h2 id="step-heading" #stepHeading tabindex="-1">
+                {{ 'registration.activities.title' | translate }}
+              </h2>
+
+              <!-- "Wij <namen> komen naar…" / "Ik <naam> kom naar…", as the original phrased it. -->
+              <p class="rsvp__sentence">
+                {{ partySentence() | translate: { names: partyNames() } }}
+              </p>
+
+              @if (availableActivities().length === 0) {
+                <p class="muted">{{ 'registration.activities.empty' | translate }}</p>
+              } @else {
+                <!--
+                  Deliberately not swapped for a loading message while the lookup refetches: the
+                  list would vanish under the pointer mid-click. It stays put and reports busy.
+                -->
+                <fieldset class="fieldset" [attr.aria-busy]="activitiesLoading() || null">
+                  <legend class="visually-hidden">
+                    {{ 'registration.activities.title' | translate }}
+                  </legend>
+                  <div class="choice-list">
+                    @for (activity of availableActivities(); track activity) {
+                      <label class="choice" [for]="'activity-' + activity">
+                        <input
+                          class="choice__input"
+                          type="checkbox"
+                          [id]="'activity-' + activity"
+                          [checked]="hasActivity(activity)"
+                          (change)="toggleActivity(activity, $any($event.target).checked)"
+                        />
+                        <span>{{ 'activity.' + activity | translate }}</span>
+                      </label>
+                    }
+                  </div>
+                </fieldset>
+              }
+
+              @if (selectedPledge()) {
+                <p class="muted rsvp__pledge">
+                  {{ 'registration.pledge.chosen' | translate: { name: selectedPledge() } }}
+                </p>
+              }
+            </section>
+          }
+
+          @case ('review') {
+            <section aria-labelledby="step-heading">
+              <h2 id="step-heading" #stepHeading tabindex="-1">
+                {{ 'registration.review.title' | translate }}
+              </h2>
+              <p class="muted">{{ 'registration.review.description' | translate }}</p>
+
+              <dl class="summary">
+                <dt>{{ 'registration.review.contact' | translate }}</dt>
+                <dd>
+                  {{ form.contact.email().value() }}
+                  <span class="muted">
+                    ({{ 'contact.method.' + selectedContactMethod() | translate }})
+                  </span>
+                </dd>
+
+                <dt>{{ 'registration.review.guests' | translate }}</dt>
+                <dd>
+                  <ul>
+                    @for (guest of guests(); track $index) {
+                      <li>
+                        <strong>{{ guest.firstName }} {{ guest.lastName }}</strong>
+                        @if (guest.diet) {
+                          <span class="muted">— {{ 'diet.' + guest.diet | translate }}</span>
+                        }
+                        @if (guest.allergies.length > 0) {
+                          <p class="muted">{{ allergyNames(guest) }}</p>
+                        }
+                      </li>
+                    }
+                  </ul>
+                </dd>
+
+                <dt>{{ 'registration.review.activities' | translate }}</dt>
+                <dd>
+                  @if (selectedActivities().length === 0) {
+                    <span class="muted">
+                      {{ 'registration.review.nothing-selected' | translate }}
+                    </span>
+                  } @else {
+                    <ul>
+                      @for (activity of selectedActivities(); track activity) {
+                        <li>{{ 'activity.' + activity | translate }}</li>
+                      }
+                    </ul>
+                  }
+                </dd>
+
+                <dt>{{ 'registration.review.pledge' | translate }}</dt>
+                <dd>
+                  {{ selectedPledge() || ('registration.pledge.none' | translate) }}
+                </dd>
+              </dl>
+            </section>
+          }
+        }
+
+        <div class="rsvp__actions">
+          @if (stepIndex() > 0) {
+            <button class="button button--secondary" type="button" (click)="back()">
+              {{ 'common.previous' | translate }}
+            </button>
+          }
+
+          @if (step() === 'review') {
+            <button class="button" type="submit" [disabled]="submitting()">
+              {{ (submitting() ? 'registration.submitting' : 'registration.submit') | translate }}
+            </button>
+          } @else {
+            <button class="button" type="button" (click)="next()">
+              {{ 'common.next' | translate }}
+            </button>
+          }
+        </div>
+      </form>
+    }
+  }
+</div>
