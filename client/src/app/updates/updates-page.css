@@ -62,65 +62,72 @@
   margin-inline: auto;
 }
 
+/*
+ * The original drew these with PrimeNG's `p-progressBar` under the saga-blue theme, inside a
+ * Bootstrap `w-50` container: a 1.5rem grey trough with barely-rounded corners, a solid blue
+ * fill that animates to width, and the percentage centred in bold over the whole bar — not over
+ * the filled part. The measurements below are saga-blue's, kept so the section still reads the
+ * way it did.
+ *
+ * The blue is PrimeNG's `#2196F3`, not a site colour, which is why it is written out rather than
+ * taken from a token: it is a quotation, not part of the palette.
+ */
 .progress {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  /* The original's bars started flush with the prose; a list's default indent would break that. */
+  padding-inline-start: 0;
+  list-style: none;
+  /* Bootstrap's `w-50`, in proportion to the narrower measure this page now uses. */
+  max-inline-size: 24rem;
   margin-block: var(--space-4);
 }
 
 .progress__item {
-  display: grid;
-  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr) 3rem;
-  align-items: center;
-  gap: var(--space-3);
-  font-size: var(--text-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
 .progress__bar {
+  position: relative;
+  overflow: hidden;
+  block-size: 1.5rem;
+  border-radius: 3px;
+  background-color: #dee2e6;
+}
+
+.progress__track {
+  display: block;
   inline-size: 100%;
-  block-size: 0.75rem;
+  block-size: 100%;
   border: none;
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface-sunken);
-  accent-color: var(--color-brand);
+  background-color: #dee2e6;
 }
 
-.progress__bar::-webkit-progress-bar {
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface-sunken);
+/* `<progress>` has no standard part to target yet, so both engines need naming explicitly. */
+.progress__track::-webkit-progress-bar {
+  background-color: #dee2e6;
 }
 
-.progress__bar::-webkit-progress-value {
-  border-radius: var(--radius-full);
-  background-color: var(--color-brand);
+.progress__track::-webkit-progress-value {
+  background-color: #2196f3;
+  transition: width 1s ease-in-out;
 }
 
-.progress__bar::-moz-progress-bar {
-  border-radius: var(--radius-full);
-  background-color: var(--color-brand);
-}
-
-.progress__bar--alarming {
-  accent-color: var(--color-danger);
-}
-
-.progress__bar--alarming::-webkit-progress-value,
-.progress__bar--alarming::-moz-progress-bar {
-  background-color: var(--color-danger);
+.progress__track::-moz-progress-bar {
+  background-color: #2196f3;
 }
 
 .progress__value {
-  text-align: end;
-  font-variant-numeric: tabular-nums;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #495057;
+  font-weight: 700;
+  line-height: 1.5rem;
 }
 
-@media (width < 30rem) {
-  .progress__item {
-    grid-template-columns: minmax(0, 1fr) 3rem;
-  }
-
-  .progress__label {
-    grid-column: 1 / -1;
-  }
-}
+/* The label already sits above the bar at every width, so no narrow-screen reflow is needed. */
