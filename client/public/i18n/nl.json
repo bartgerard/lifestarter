@@ -27,7 +27,7 @@
     "error": "Er ging iets mis"
   },
   "footer": {
-    "copyright": "Bart & Kim © 2019 - {{year}}"
+    "copyright": "Bart & Kim © 2019-{{year}}"
   },
   "campaign": {
     "title": "Togetherness Foreverness",
