@@ -232,5 +232,6 @@ data/
 *.db-journal
 *.db-wal
 
-package-lock.json
-/server/src/main/resources/static/
+# Local container overrides
+.env
+compose.override.yaml

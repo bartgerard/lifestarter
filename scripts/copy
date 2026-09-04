@@ -1,7 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-
-read -rp "username:" username
-read -rp "host:" host
-
-scp ../server/target/lifestarter-server-1.0.0-SNAPSHOT.jar "$username@$host:~/Downloads/"

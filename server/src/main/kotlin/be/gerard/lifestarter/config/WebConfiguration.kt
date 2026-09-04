@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.web.method.HandlerTypePredicate
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @ConfigurationProperties(prefix = "lifestarter.web")
@@ -16,8 +15,8 @@ data class WebProperties(
 /**
  * Web-tier wiring shared by every controller.
  *
- * The `/api` prefix is applied centrally so no controller repeats it, which also keeps the SPA
- * routes served from `/` cleanly separated from the JSON API.
+ * The `/api` prefix is applied centrally so no controller repeats it. This service is a pure JSON
+ * API: the Angular bundle is served by its own nginx container, which reverse-proxies `/api` here.
  */
 @Configuration(proxyBeanMethods = false)
 class WebConfiguration(
@@ -37,11 +36,6 @@ class WebConfiguration(
             .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true)
-    }
-
-    override fun addViewControllers(registry: ViewControllerRegistry) {
-        // The Angular router owns client-side paths; hand them the index page instead of a 404.
-        registry.addViewController("/{path:[^.]*}").setViewName("forward:/index.html")
     }
 
     private companion object {

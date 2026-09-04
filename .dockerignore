@@ -1,0 +1,27 @@
+# The server image builds from the repository root, so everything that is not needed to compile
+# the backend is excluded here to keep the build context small and the cache stable.
+.git
+.gitignore
+.idea
+.mvn
+mvnw
+mvnw.cmd
+
+client
+scripts
+snippets
+
+**/target
+**/node_modules
+**/dist
+**/data
+**/*.db
+**/*.db-journal
+**/*.db-wal
+
+**/Dockerfile
+**/.dockerignore
+compose.yaml
+compose.override.yaml
+.env
+*.md

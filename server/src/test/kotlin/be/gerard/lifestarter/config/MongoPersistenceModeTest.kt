@@ -25,7 +25,7 @@ import java.time.Instant
  * Skipped — not failed — when Docker is unavailable, so `verify` stays green on a machine that
  * only ever runs the SQLite mode.
  */
-@SpringBootTest
+@SpringBootTest(properties = ["lifestarter.persistence.type=mongodb"])
 @Testcontainers(disabledWithoutDocker = true)
 class MongoPersistenceModeTest(
     @Autowired private val environment: Environment,
@@ -69,8 +69,10 @@ class MongoPersistenceModeTest(
         fun mongoProperties(registry: DynamicPropertyRegistry) {
             if (!DockerClientFactory.instance().isDockerAvailable) return
 
-            registry.add("lifestarter.persistence.type") { "mongodb" }
-            registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl)
+            // The persistence type itself cannot be set here: `spring.profiles.include` reads it
+            // while config data is processed, which is before dynamic properties are registered.
+            // Hence the static `properties` on @SpringBootTest above.
+            registry.add("spring.mongodb.uri", mongo::getReplicaSetUrl)
         }
     }
 }

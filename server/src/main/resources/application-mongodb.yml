@@ -8,10 +8,14 @@ spring:
       - org.springframework.boot.jdbc.autoconfigure.JdbcTemplateAutoConfiguration
       - org.springframework.boot.jdbc.autoconfigure.JdbcClientAutoConfiguration
 
+  # Boot 4 moved the driver-level settings out of `spring.data.mongodb` into `spring.mongodb`;
+  # the old keys are removed, not merely deprecated.
+  mongodb:
+    uri: "${LIFESTARTER_MONGODB_URI:mongodb://localhost:27017}"
+    database: "${LIFESTARTER_MONGODB_DATABASE:lifestarter}"
+
   data:
     mongodb:
-      uri: "${LIFESTARTER_MONGODB_URI:mongodb://localhost:27017}"
-      database: "${LIFESTARTER_MONGODB_DATABASE:lifestarter}"
       auto-index-creation: true
 
   flyway:

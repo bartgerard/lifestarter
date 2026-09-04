@@ -49,17 +49,21 @@ Source:
               proxy_set_header X-Real-IP $remote_addr;
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       
-              location /socket.io/ {
+              # Server-sent events (the live RSVP feed). Buffering here would hold the messages
+              # back until the connection closes, so it has to be off in this proxy too.
+              location /api/events/stream {
                   proxy_http_version 1.1;
-      
-                  proxy_set_header Upgrade $http_upgrade;
-                  proxy_set_header Connection "upgrade";
-      
-                  proxy_pass "http://localhost:8080/socket.io/";        
+                  proxy_set_header Connection "";
+
+                  proxy_buffering off;
+                  proxy_cache off;
+                  proxy_read_timeout 1h;
+
+                  proxy_pass "http://127.0.0.1:8080/api/events/stream";
               }
       
               location / {
-                  proxy_pass "http://localhost:8080/";
+                  proxy_pass "http://127.0.0.1:8080/";
               }
       
               error_page 404 /404.html;
@@ -210,52 +214,63 @@ Source:
 
 ### Spring Boot
 
-Permissions
-
-    ls -la
-
-1. Generate keystore
-        
-        sudo chmod -R 777 /etc/letsencrypt/live/
-        
-        cd /etc/letsencrypt/live/wedding.xplained.be/
-        
-        sudo openssl pkcs12 -export -in fullchain.pem \
-                       -inkey privkey.pem \
-                       -out keystore.p12 \
-                       -name tomcat \
-                       -CAfile chain.pem \
-                       -caname root
-
-* application.properties
-
-        server.port=8443
-        server.ssl.password=
-        server.ssl.key-store=/etc/letsencrypt/live/wedding.xplained.be/fullchain.pem
-        server.ssl.key-store-password=<password>
-        server.ssl.key-store-type=PKCS12
-        server.ssl.key-alias=tomcat
+Nothing to do: TLS is terminated by the host nginx above, and the application runs in a container
+behind it over plain HTTP on the loopback interface. (Historically the jar terminated TLS itself
+with a PKCS12 keystore built from the Let's Encrypt files; that is no longer needed.)
 
 ## App
 
-1. Build (this also bundles the Angular front-end, see README.md)
+The application ships as two containers — nginx with the Angular bundle, and the Spring Boot API.
+See the *Containers* section of [README.md](README.md) for the full story.
 
-        cd client && npm run build && cd ..
-        ./mvnw -pl server package
+1. Install Docker
 
-1. Copy to server
+        curl -fsSL https://get.docker.com | sudo sh
+        sudo usermod -aG docker "$USER"      # log out and back in
 
-        sudo scp server/target/lifestarter-server-1.0.0-SNAPSHOT.jar <username>@<host>:~/Downloads/
+1. Get the code
+
+        git clone <repository> lifestarter
+        cd lifestarter
+
+1. Configure
+
+        cp .env.example .env
+        nano .env       # at least LIFESTARTER_SECURITY_ADMIN_PASSWORD
 
 1. Run
 
-        LIFESTARTER_SECURITY_ADMIN_PASSWORD=<password> \
-          nohup java -jar ~/Downloads/lifestarter-server-1.0.0-SNAPSHOT.jar &
+        docker compose up -d --build
 
-    Defaults to SQLite at `data/lifestarter.db`, relative to the working directory — back that file
-    up. Add `LIFESTARTER_PERSISTENCE_TYPE=mongodb` plus `SPRING_DATA_MONGODB_URI=...` to use
-    MongoDB instead.
-        
+    This publishes the site on `127.0.0.1:${LIFESTARTER_HTTP_PORT}` (8080 by default), which is
+    what the host nginx above proxies to. The API container itself is never published.
+
+1. Check
+
+        docker compose ps           # both containers should say (healthy)
+        docker compose logs -f      # follow
+
+1. Upgrade
+
+        git pull
+        docker compose up -d --build
+
+    The database sits on a Docker volume and is not touched by a rebuild.
+
+### Data
+
+SQLite lives at `/var/lib/lifestarter/lifestarter.db` inside the container, on the
+`lifestarter_lifestarter-data` volume. Back it up with:
+
+        docker compose cp server:/var/lib/lifestarter/lifestarter.db ./lifestarter-$(date +%F).db
+
+`docker compose down -v` deletes it; everything else keeps it. Set
+`LIFESTARTER_DATA=/srv/lifestarter/data` in `.env` to store it in a normal host directory instead
+(it has to be writable by uid 10001).
+
+For MongoDB: put `LIFESTARTER_PERSISTENCE_TYPE=mongodb` in `.env` and start with
+`docker compose --profile mongodb up -d`.
+
 ## Custom Scripts
 
 1. Change permissions

@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-# Bundles the Angular app into the server's static resources, then packages the jar.
-npm run --prefix ../client build
-(cd .. && ./mvnw -pl server package)
+# Builds both container images (Angular + nginx, and the Spring Boot API).
+cd "$(dirname "$0")/.."
+docker compose build "$@"

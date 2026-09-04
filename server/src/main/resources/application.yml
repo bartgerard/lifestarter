@@ -54,6 +54,11 @@ management:
     web:
       exposure:
         include: health,info
+  health:
+    mail:
+      # Confirmation mail is best-effort: an unreachable SMTP server must not report the whole
+      # application as down (and, in a container, get it restarted).
+      enabled: false
 
 logging:
   level:
