@@ -1,0 +1,359 @@
+{
+  "a11y": {
+    "skip-to-content": "Skip to content",
+    "choose-language": "Choose a language"
+  },
+  "nav": {
+    "primary": "Main navigation",
+    "campaign": "Campaign sections",
+    "concept": "Concept",
+    "updates": "Updates",
+    "comments": "Comments"
+  },
+  "common": {
+    "loading": "Loading…",
+    "unavailable": "unavailable",
+    "rsvp": "RSVP",
+    "next": "Next",
+    "previous": "Previous",
+    "add": "Add",
+    "confirm": "Confirm",
+    "skip": "Skip",
+    "select": "Select",
+    "selected": "Selected",
+    "none": "none",
+    "remove": "Remove",
+    "optional": "optional",
+    "error": "Something went wrong"
+  },
+  "footer": {
+    "copyright": "Bart & Kim © 2019 - {{year}}"
+  },
+  "campaign": {
+    "title": "Togetherness Foreverness",
+    "subtitle": "The RSVP module for the friends and family of Kim & Bart's wedding, with a gentle nod to a certain crowdfunding platform.",
+    "by-author": "By Bart Gerard",
+    "author-photo-alt": "Portrait of Bart",
+    "ring-photo-alt": "The wedding ring",
+    "photo-alt": {
+      "couple": "Kim and Bart together"
+    },
+    "stats-label": "Campaign figures",
+    "support": "Support",
+    "live-updates": "New RSVPs are arriving live",
+    "all-or-nothing": "All or nothing.",
+    "reply-before-deadline": "Reply before the deadline.",
+    "fact": {
+      "who": "Kim",
+      "what": "Wedding",
+      "where": "Bertem, Belgium"
+    },
+    "stat": {
+      "entrance-fee": "entrance fee",
+      "guests": "guests",
+      "wave": "wave",
+      "days-to-go": "days to go"
+    },
+    "welcome": {
+      "title": "Welcome",
+      "greeting": "Greetings,",
+      "intro": "Welcome to the RSVP module for Bart and Kim's wedding.",
+      "date": "We are getting married on <b>18 May 2019</b> and we would love to celebrate it with you!",
+      "no-invitation": "If you have not received an invitation by letter or e-mail (yet), do get in touch so we can work out what went missing.",
+      "capacity": "We would love to have everyone at as many parts of our special day as possible, but sadly that is not possible for the dinner and the reception that goes with it. If you can still tick dinner while registering, then there was a seat left for you and a possible plus one. If not, we have reached full capacity — but you are just as welcome at the dessert buffet and the party afterwards.",
+      "provisional": "The details on this page are not final yet and small shifts in the schedule cannot be ruled out. This page and e-mail will be used to communicate any changes.",
+      "call-to-action": "Hit <b>RSVP</b> (<u>R</u>épondez <u>s</u>'il <u>v</u>ous <u>p</u>laît) or pick the pledge that describes you best to register!",
+      "see-you-soon": "See you soon!",
+      "signature": "Bart & Kim"
+    },
+    "schedule": {
+      "title": "Schedule",
+      "subject-to-change": "Times are subject to change.",
+      "changes-communicated": "Changes are communicated through this page and by e-mail.",
+      "OFFICIAL": {
+        "detail": "Close circle (parents, brothers and witnesses) and the photographer"
+      },
+      "PHOTO_SHOOT": {
+        "detail": "Very close circle (Bart and Kim) and the photographer"
+      },
+      "CEREMONY": {
+        "detail": "Everyone welcome (±100 seats)"
+      },
+      "RECEPTION": {
+        "detail": "A short reception for the dinner guests"
+      },
+      "DINNER": {
+        "detail": "A festive meal for family, early-bird friends and the photographer (±80 seats)"
+      },
+      "PARTY": {
+        "detail": "Feasting and dancing — everyone welcome (once registered)"
+      }
+    },
+    "dress-code": {
+      "title": "Dress code",
+      "what-to-wear": "Wear something suitable for a wedding: smart city wear is perfect.",
+      "colours": "We would love outfits with <b>blue</b> and/or <b>silver</b> accents.",
+      "palette-alt": "Colour palette with blue and silver tones"
+    },
+    "stretch": {
+      "title": "Stretch goals",
+      "intro": "Stretch goals are the ambitious targets a Kickstarter creator hopes to reach, each with something extra in return.",
+      "2": {
+        "target": "2 guests",
+        "reward": "Bart & Kim get married!"
+      },
+      "42": {
+        "target": "42 guests",
+        "reward": "An updates page gets added."
+      },
+      "140": {
+        "target": "140 guests",
+        "reward": "An update with our origin story gets published on the updates page."
+      },
+      "150": {
+        "target": "150 guests",
+        "reward": "A reception!"
+      },
+      "160": {
+        "target": "160 guests",
+        "reward": "Panic, because the venue is now too full."
+      },
+      "10k": {
+        "target": "€10K",
+        "reward": "Bart takes a few days off and builds a working comment section."
+      }
+    },
+    "parody": {
+      "title": "Kickstarter?",
+      "explanation": "This site is a pastiche of a very well known crowdfunding platform called <a href=\"https://kickstarter.com\" rel=\"noopener noreferrer\" target=\"_blank\">Kickstarter</a>. A place where entrepreneurs can ask for support to realise their grand ideas and projects. Support can be altruistic or tied to something specific in return. Over there they call that a pledge.",
+      "our-project": "And here we are, ready for our own enormous project: a life together!",
+      "support": "You can support this project in any way that suits you!<br><i>e.g. a listening ear, babysitting (should it ever apply), sharing experiences…</i>",
+      "short-term": "In the short term, though, the support we are after is your presence at this project's big kick-off: the wedding.",
+      "hope": "We hope to live one of the most beautiful days of our lives together with you.",
+      "gifts": "If you would like to support us in another way as well, or instead, there is always room for a little something in our pot. Other than that, we already have everything our hearts desire!"
+    },
+    "shipping": {
+      "title": "Shipping",
+      "joke": "Tying the knot :-)",
+      "aftermath": "We never got any further than that joke…",
+      "banner-alt": "EU-friendly shipping banner"
+    },
+    "risks": {
+      "title": "Risks and challenges",
+      "history": "At the time of writing, Kim and Bart have known each other for at least nine years. They have already lived through many an adventure together, including (but not limited to) a Star Wars WArathon, exams at KU Leuven, a burglary, a house build and now the wedding preparations too.",
+      "future": "People change, of course, and nobody knows what the future holds. We want to actively strive and actively work towards a happy life together. An oak anniversary (80 years) is probably out of reach, but we will do our best for the Diamond Achievement&trade; (60 years).",
+      "achievement-alt": "Diamond Achievement badge",
+      "friends-and-family": "We are nowhere near that yet, of course, and along the way the role of friends and family should certainly not be underestimated."
+    }
+  },
+  "pledge": {
+    "price": "Pledge {{amount}} or more",
+    "includes": "Includes",
+    "backers": "{{count}} guests",
+    "select": "Select this reward",
+    "unavailable": "No longer available"
+  },
+  "activity": {
+    "OFFICIAL": "The official part",
+    "PHOTO_SHOOT": "Photo shoot",
+    "CEREMONY": "Ceremony",
+    "RECEPTION": "Reception",
+    "DINNER": "Dinner",
+    "PARTY": "Dessert buffet and evening party"
+  },
+  "diet": {
+    "MEAT_EATER": "Meat eater",
+    "PESCATARIAN": "Pescatarian",
+    "VEGETARIAN": "Vegetarian",
+    "VEGAN": "Vegan",
+    "FRUITARIAN": "Fruitarian",
+    "FLEXITARIAN": "Flexitarian"
+  },
+  "allergy": {
+    "EGGS": "Eggs",
+    "MILK": "Milk",
+    "PEANUTS": "Peanuts",
+    "TREE_NUTS": "Tree nuts",
+    "FISH": "Fish",
+    "SHELLFISH": "Shellfish",
+    "WHEAT": "Wheat",
+    "SOY": "Soy",
+    "PAPRIKA": "Paprika",
+    "PAPRIKA_POWDER": "Paprika powder"
+  },
+  "guest": {
+    "first-name": "First name",
+    "last-name": "Last name",
+    "diet": "Dietary preference",
+    "allergies": "Allergies",
+    "allergies-hint": "Tick everything that applies.",
+    "comment": "Comments",
+    "comment-hint": "Anything we really should know?",
+    "no-allergies": "No allergies",
+    "main": "Main guest",
+    "plus1": "Second guest or +1",
+    "child1": "Child",
+    "child2": "Child (2)",
+    "ringbearer": "Ring bearer"
+  },
+  "contact": {
+    "title": "Contact details",
+    "description": "This is how we reach you with the practical information.",
+    "email": "E-mail",
+    "email-hint": "Your confirmation will be sent to this address.",
+    "address": "Address",
+    "zip-code": "Postcode",
+    "city": "City",
+    "country": "Country",
+    "country-placeholder": "Choose a country",
+    "phone-number": "Mobile",
+    "method": {
+      "preferred": "Preferred contact method",
+      "NONE": "None",
+      "EMAIL": "E-mail",
+      "PIGEON": "Carrier pigeon",
+      "PHONE": "Mobile"
+    }
+  },
+  "registration": {
+    "title": "RSVP",
+    "intro": "Four small steps and you are in.",
+    "steps-label": "RSVP steps",
+    "step-of": "Step {{current}} of {{total}}",
+    "step": {
+      "contact": "Contact",
+      "guests": "Guests",
+      "activities": "Activities",
+      "review": "Review"
+    },
+    "guests": {
+      "title": "Who is coming?",
+      "description": "Fill in the main guest at least. Add everyone who is coming with you.",
+      "add": "Add a guest",
+      "remove": "Remove {{name}}",
+      "unnamed": "this guest",
+      "numbered": "Guest {{number}}"
+    },
+    "activities": {
+      "title": "What will you join?",
+      "empty": "There are no activities available for these guests right now.",
+      "we": "We, {{names}}, are joining",
+      "i": "I, {{names}}, am joining"
+    },
+    "pledge": {
+      "none": "No pledge",
+      "chosen": "You are replying to the {{name}} pledge."
+    },
+    "review": {
+      "title": "Does everything look right?",
+      "description": "Check your details one more time and confirm.",
+      "guests": "Guests",
+      "contact": "Contact",
+      "activities": "Activities",
+      "pledge": "Pledge",
+      "nothing-selected": "Nothing selected"
+    },
+    "submit": "Confirm my RSVP",
+    "submitting": "Sending your RSVP…",
+    "error-summary": {
+      "title": "A few things to check",
+      "description": "Fix these points to continue."
+    },
+    "success": {
+      "title": "You are on the list!",
+      "body": "Thank you! We cannot wait to see you. A confirmation is on its way to your inbox.",
+      "back": "Back to the campaign"
+    },
+    "failure": {
+      "title": "Your RSVP did not go through",
+      "body": "Something went wrong while sending. Please try again, or let us know if it keeps failing.",
+      "retry": "Try again"
+    }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid e-mail address.",
+    "max-length": "Use at most {{max}} characters.",
+    "min-guests": "Add at least one guest.",
+    "phone-number": "Enter a complete number, e.g. +32 471 234 567."
+  },
+  "updates": {
+    "title": "Updates",
+    "number": "Update #{{number}}",
+    "4": {
+      "date": "2 May 2019",
+      "title": "Place 2 Be!",
+      "intro": "For those who may already have recycled their card, here is the venue information once more:",
+      "venue-name": "Feestzalen Bertembos",
+      "venue-street": "Bosstraat 187",
+      "venue-city": "3060 Bertem",
+      "map-title": "Map showing the location of Feestzalen Bertembos",
+      "parking": "You can park along the side of the road."
+    },
+    "3": {
+      "date": "1 May 2019",
+      "title": "A Bug's Life (Important)",
+      "audience": "This update is for everyone who registered with 'Mobile' as their contact method.",
+      "bug": "Unfortunately there was still a small bug in the software, which meant RSVPs using that option never came through.",
+      "fix": "The bug has been fixed as of today. If you registered with that option earlier, we currently have no record of you joining us. If that is you, could you please register once more? Pick 'E-mail' as the contact method and you will also get a confirmation by mail, so you know for certain that it worked.",
+      "apology": "My apologies for the inconvenience."
+    },
+    "2": {
+      "date": "29 April 2019",
+      "title": "Tempus Fugit",
+      "closer": "Our big day is approaching fast.",
+      "behind-the-scenes": "In this update we take you behind the scenes and lift a corner of the veil (pun intended).",
+      "preparations": "Preparations are in full swing. The celebration is taking shape, the ring bearer fits into his suit, the speeches are being drafted and the decoration designed.",
+      "progress-title": "An overview of the progress:",
+      "progress": {
+        "clothing": "Clothing",
+        "favours": "Party favours",
+        "registrations": "RSVPs",
+        "decoration": "Decoration",
+        "ceremony": "Ceremony",
+        "speeches": "Speeches",
+        "seating": "Seating plan",
+        "stress": "Stress"
+      },
+      "teaser": "A small teaser of a party favour in the making:",
+      "teaser-alt": "A handmade party favour in the making",
+      "sign": "And should you not feel welcome on 18 May, there is always this sign:",
+      "sign-alt": "A wooden sign with a welcome message",
+      "fandom": "It is also immediately clear that we are dealing with a big Disney fan and a board game enthusiast!",
+      "hearts": "The hearts are pure filler :-)",
+      "outro": "We are already looking forward to greeting you on our big day!"
+    },
+    "1": {
+      "date": "26 March 2019",
+      "title": "The Road to Shangri-La",
+      "goals": "The first two stretch goals are a fact!",
+      "anecdote-intro": "So here is an exciting first anecdote about Bart and his adventures at the town hall.",
+      "anecdote": "Yesterday Kim and I went to the town hall to sign the notice of marriage. At the end we still had to pay for the marriage booklet, at which point the lady behind the desk handed me the receipt and said: \"There you go, the first piece of paper in a whole stack\". Kim asked about pink rubbish bags, and after settling up a long silence fell…",
+      "question": "Hesitantly I asked: \"…and the marriage booklet?\".",
+      "lesson": "So that is another thing learned: it only comes at the wedding itself — and another step closer to our special day."
+    }
+  },
+  "special": {
+    "date": "14 August 2020",
+    "title": "The After Special",
+    "bee-alt": "A drawing of a little bee",
+    "dress-alt": "A dress with a bee pattern",
+    "married": "1 year, 2 months and 27 days ago, Kim and I tied the knot.",
+    "next-step": "Today we are ready for our next big step, and the name of this website applies more than ever.",
+    "announcement": "This coming October we are expecting a <b>bee</b>-product of the wedding!",
+    "why-bees": "The choice for bees is of course not entirely coincidental, because…",
+    "suspense": "… (for extra suspense) …",
+    "name": "Jan",
+    "question-intro": "Someone has a question especially for you!",
+    "language-note": "The question is in English so a small pun works. :-)",
+    "ready": "Ready?",
+    "will-you": "Will You",
+    "my": "My",
+    "godfather-alt": "Godfather",
+    "obligations": "This position comes with a heap of contractual obligations, including an annually recurring New Year's letter reading session, an extra listening ear should she ever need one, and an inexhaustible supply of jokes to prepare. :-)",
+    "disclosure": "Full disclosure: the godparenthood, should you choose to accept it, will be shared with Kim's brother for extra support.",
+    "accept-terms": "I accept the terms and conditions!",
+    "accept": "I want to be a godfather!",
+    "confirmed": "Final step: send Bart and/or Kim a message right away!"
+  }
+}

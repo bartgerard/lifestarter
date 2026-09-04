@@ -1,0 +1,144 @@
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-inline-size: 48rem;
+  padding-block: var(--space-7);
+}
+
+.rsvp__header h1 {
+  font-size: var(--text-2xl);
+}
+
+.rsvp__steps ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.rsvp__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.rsvp__step-number {
+  display: grid;
+  place-items: center;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  border: 1px solid currentcolor;
+  border-radius: var(--radius-full);
+  font-variant-numeric: tabular-nums;
+}
+
+.rsvp__step--current {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+.rsvp__step--current .rsvp__step-number {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: var(--color-surface);
+}
+
+.rsvp__step--done {
+  color: var(--color-text);
+}
+
+.rsvp__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.rsvp__form section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.rsvp__form h2 {
+  font-size: var(--text-xl);
+}
+
+/* The heading receives focus when a step changes; the ring makes that visible. */
+.rsvp__form h2:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.rsvp__guest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.rsvp__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.rsvp__actions .button {
+  min-inline-size: 10rem;
+}
+
+.field-row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+/*
+ * Allergens as pictograms beside their labels, as the original listbox showed them. A grid
+ * rather than a wrapping row, so the icons line up in columns instead of drifting with the
+ * varying label widths.
+ */
+.allergies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--space-2);
+}
+
+.allergy {
+  align-items: center;
+}
+
+.allergy__icon {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  object-fit: contain;
+  flex: none;
+}
+
+.summary {
+  display: grid;
+  gap: var(--space-2) var(--space-5);
+  grid-template-columns: minmax(8rem, auto) minmax(0, 1fr);
+}
+
+.summary dt {
+  font-weight: 600;
+}
+
+.summary ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+@media (width < 30rem) {
+  .summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .summary dd {
+    margin-block-end: var(--space-3);
+  }
+}

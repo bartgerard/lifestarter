@@ -1,0 +1,18 @@
+.switcher {
+  display: flex;
+  align-items: center;
+}
+
+.switcher__select {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-brand);
+  }
+}

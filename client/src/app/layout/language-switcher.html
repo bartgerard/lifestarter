@@ -1,0 +1,18 @@
+<div class="switcher">
+  <label class="visually-hidden" for="language">{{ 'a11y.choose-language' | translate }}</label>
+  <select
+    id="language"
+    class="switcher__select"
+    [attr.aria-busy]="loading() ? 'true' : null"
+    (change)="select($any($event.target).value)"
+  >
+    <!--
+      The current locale is marked on the option rather than bound to the select's `value`:
+      a value binding on the select is applied before its options exist and is then dropped,
+      which would leave the control showing a different language than the page is in.
+    -->
+    @for (option of locales; track option) {
+      <option [value]="option" [selected]="option === locale()">{{ names[option] }}</option>
+    }
+  </select>
+</div>

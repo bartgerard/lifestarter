@@ -11,7 +11,7 @@ aggregate counts on the public page and a spreadsheet export behind a login.
 | --- | --- |
 | Backend | Kotlin 2.3 · Spring Boot 4.1 · JDK 25 · Maven |
 | Persistence | SQLite (default) or MongoDB — one property decides |
-| Frontend | Angular 10 · PrimeNG · nginx |
+| Frontend | Angular 22 · standalone · zoneless · signal forms · nginx |
 | Running it | Docker Compose — two containers |
 
 ## Architecture
@@ -43,6 +43,63 @@ either is broken:
 Domain types are immutable `data class`es with `val` properties, validated in `init` blocks with
 `require`. Cross-slice needs go through ports too — `pledge` counts subscriptions through a
 `PledgeSubscriptionCounter` port rather than reaching into `registration`.
+
+## Front-end
+
+The client is a standalone, **zoneless** Angular 22 application. No NgModules, no zone.js, no UI
+framework: every widget is a native HTML control styled by hand, which is both smaller and more
+accessible than the PrimeNG/Bootstrap stack it replaces.
+
+```text
+client/
+  public/
+    assets/…              images, fonts and icons, served verbatim
+    i18n/{nl,en,fr}.json  every label and every piece of page prose
+  src/app/
+    core/       API base-URL token, resource helpers, i18n (LanguageService)
+    ui/         presentational primitives (float label, phone mask)
+    layout/     site header/footer, campaign nav, language switcher, skip link
+    campaign/   the landing page and the pledge tiers
+    registration/  the four-step RSVP wizard
+    reference/  read-only catalogues (allergies, diets, countries, pledges, waves)
+    updates/ special/  the two content pages
+```
+
+- **State is signals.** Read-only endpoints are `httpResource()`s exposed as signals; there is no
+  `ngOnInit` + `subscribe` anywhere. Note that a resource's `value()` *rethrows* the loader's
+  error, so everything goes through the `valueOr()` helper in `core/api.ts` — one unreachable
+  endpoint must not take a page down with it. Those resources deliberately declare **no**
+  `defaultValue`: it would make `value()` always defined and `hasValue()` always true, which
+  quietly disables the fallback and hides the difference between a real answer and one still in
+  flight. That mistake cost real data — see bug #8.
+- **The RSVP wizard uses signal forms** (`@angular/forms/signals`, stable since v22): one
+  immutable draft model, one schema mirroring the backend's Bean Validation constraints, and
+  `applyEach`/`applyWhen` for the dynamic guest rows and the conditional contact fields.
+- **The live guest counter** is fed by the `/api/events/stream` SSE endpoint.
+- **Three languages, switched without a reload.** `$localize` is still compile-time in v22 (one
+  bundle per locale), so runtime switching goes through `@ngx-translate/core`. The language is
+  detected from the browser, overridable from the header, and remembered only once it has been
+  chosen explicitly. `<html lang>` follows it.
+- **Accessibility**: skip link, landmarks, a `<label>` for every control, `aria-describedby`
+  error text, `aria-invalid`, `<fieldset>`/`<legend>` groups, `aria-current="step"` in the wizard,
+  focus moved to the step heading on advance, and `prefers-reduced-motion` honoured. The
+  Kickstarter green is kept for decoration only; text uses a tone that clears WCAG AA.
+- **The phone mask** (`ui/phone-mask.ts`) replaces PrimeNG's `p-inputMask`, reproducing the
+  original `+32 999 999 9?99`: a fixed prefix, digits grouped 3-3-3 with the last two optional,
+  the caret held in place while typing and pasting, and a partial number kept rather than wiped.
+  The field stays empty until focused so the float label is not pinned above an untouched
+  optional field. An incomplete number is reported through the usual field error.
+- **Float labels** (`ui/float-label.ts`) replace PrimeNG's `ui-float-label`. The label rests
+  inside its control and rises above it on focus or once the field is filled. No JavaScript
+  tracks that state — `:placeholder-shown` and `:focus-within` do, so it cannot drift out of sync
+  the way a script-toggled class can, and browser autofill floats the label for free. The label
+  stays a real, always-visible `<label for>`; it is not a placeholder standing in for one.
+
+The photos under `assets/images/we/` are deliberately not in the repository. They degrade to a
+neutral placeholder block rather than breaking the layout.
+
+[BUGS.md](BUGS.md) records the bugs the rewrite's browser pass turned up, why the build did not
+catch them, and how each is guarded against now.
 
 ## Persistence: one knob, two backends
 
@@ -87,8 +144,9 @@ cp .env.example .env          # optional; every value has a default
 docker compose up -d --build  # http://localhost:8080
 ```
 
-That is the whole setup. See [Containers](#containers) for what runs where, and
-[Where the data lives](#where-the-data-lives) for the storage.
+That is the whole setup. [RUN.md](RUN.md) has every step as a copy-pasteable block, including
+health checks, logs, backups and troubleshooting. See [Containers](#containers) for what runs
+where, and [Where the data lives](#where-the-data-lives) for the storage.
 
 For backend development the API can of course still run straight from Maven:
 
@@ -105,9 +163,13 @@ For MongoDB, point it at your server and switch the mode:
 ```
 
 The front-end runs separately during development (`cd client && npm start`, port 4200, already in
-the CORS allow-list) and talks to `http://localhost:8080/api`. Note that the Angular 10 toolchain
-needs **Node 14**; if your machine has something newer, build through the container instead
-(`docker compose build web`), which pins the right Node version for you.
+the CORS allow-list) and proxies `/api` to `http://localhost:8080` via `proxy.conf.json`. The
+Angular 22 toolchain needs **Node 22.22+, 24.15+ or 26+**; if your machine has something else,
+build through the container instead (`docker compose build web`), which pins the right version:
+
+```bash
+docker run --rm -v "$PWD/client":/app -w /app node:24-alpine npx ng build
+```
 
 API documentation is at `/swagger-ui.html`.
 
@@ -232,8 +294,14 @@ what the public RSVP page displays anyway. Validation failures and errors come b
 ## Testing
 
 ```bash
-./mvnw -pl server test
+./mvnw -pl server test                                                    # backend
+docker run --rm -v "$PWD/client":/app -w /app node:24-alpine npx ng test  # front-end (vitest)
+docker run --rm -v "$PWD/client":/app -w /app node:24-alpine npx ng lint
 ```
+
+Front-end tests cover the pure logic that is easy to get subtly wrong: locale negotiation, the
+lookup-URL builders, the draft → request mapping, and a check that the three dictionaries have
+identical keys and identical interpolation parameters.
 
 - `HexagonalArchitectureTest` — ArchUnit rules guarding the dependency direction.
 - Domain unit tests with MockK against the ports.

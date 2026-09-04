@@ -1,0 +1,238 @@
+<article>
+  <header class="page hero">
+    <div class="hero__author">
+      <img
+        class="hero__avatar"
+        src="assets/images/info/me.png"
+        [alt]="'campaign.author-photo-alt' | translate"
+        width="120"
+        height="120"
+        decoding="async"
+      />
+      <p class="muted">{{ 'campaign.by-author' | translate }}</p>
+    </div>
+
+    <div class="hero__intro">
+      <h1>{{ 'campaign.title' | translate }}</h1>
+      <p class="muted">{{ 'campaign.subtitle' | translate }}</p>
+    </div>
+
+    <div class="hero__media">
+      <img
+        class="photo"
+        src="assets/images/info/ring.jpg"
+        [alt]="'campaign.ring-photo-alt' | translate"
+        decoding="async"
+      />
+    </div>
+
+    <ul class="hero__facts">
+      <li>
+        <span aria-hidden="true">♥</span>
+        {{ 'campaign.fact.who' | translate }}
+      </li>
+      <li>
+        <span aria-hidden="true">◎</span>
+        {{ 'campaign.fact.what' | translate }}
+      </li>
+      <li>
+        <span aria-hidden="true">⌖</span>
+        {{ 'campaign.fact.where' | translate }}
+      </li>
+    </ul>
+
+    <aside class="hero__stats" [attr.aria-label]="'campaign.stats-label' | translate">
+      <dl class="stats">
+        <div class="stats__item">
+          <dt class="muted">{{ 'campaign.stat.entrance-fee' | translate }}</dt>
+          <dd class="stats__value brand">€0,00</dd>
+        </div>
+        <div class="stats__item">
+          <dt class="muted">{{ 'campaign.stat.guests' | translate }}</dt>
+          <dd class="stats__value" aria-live="polite">{{ guestCount() }}</dd>
+        </div>
+        @if (wave(); as currentWave) {
+          <div class="stats__item">
+            <dt class="muted">{{ 'campaign.stat.wave' | translate }}</dt>
+            <dd class="stats__value">{{ currentWave.label }}</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="muted">{{ 'campaign.stat.days-to-go' | translate }}</dt>
+            <dd class="stats__value">{{ daysLeft() }}</dd>
+          </div>
+        }
+      </dl>
+
+      <a class="button button--block" routerLink="/registration">
+        {{ 'common.rsvp' | translate }}
+      </a>
+
+      <p class="hero__all-or-nothing">
+        <strong>{{ 'campaign.all-or-nothing' | translate }}</strong>
+        {{ 'campaign.reply-before-deadline' | translate }}
+      </p>
+
+      @if (live()) {
+        <p class="hero__live" aria-live="polite">
+          <span class="hero__live-dot" aria-hidden="true"></span>
+          {{ 'campaign.live-updates' | translate }}
+        </p>
+      }
+    </aside>
+  </header>
+
+  <app-campaign-nav />
+
+  <div class="page campaign">
+    <div class="campaign__main prose">
+      <section aria-labelledby="welcome">
+        <h2 id="welcome">{{ 'campaign.welcome.title' | translate }}</h2>
+        <p>{{ 'campaign.welcome.greeting' | translate }}</p>
+        <p>{{ 'campaign.welcome.intro' | translate }}</p>
+        <p [innerHTML]="'campaign.welcome.date' | translate"></p>
+        <p>{{ 'campaign.welcome.no-invitation' | translate }}</p>
+        <p>{{ 'campaign.welcome.capacity' | translate }}</p>
+        <p>{{ 'campaign.welcome.provisional' | translate }}</p>
+        <p class="brand" [innerHTML]="'campaign.welcome.call-to-action' | translate"></p>
+        <p>{{ 'campaign.welcome.see-you-soon' | translate }}</p>
+        <p>{{ 'campaign.welcome.signature' | translate }}</p>
+
+        <img
+          class="photo"
+          src="assets/images/we/DSC_1958-min.jpg"
+          [alt]="'campaign.photo-alt.couple' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
+      <section aria-labelledby="schedule">
+        <h2 id="schedule">{{ 'campaign.schedule.title' | translate }}</h2>
+
+        <ol class="schedule">
+          @for (slot of schedule; track slot.key) {
+            <li class="schedule__slot">
+              <p class="clock schedule__time">
+                <time>{{ slot.time }}</time>
+              </p>
+              <div>
+                <p class="schedule__name">{{ 'activity.' + slot.key | translate }}</p>
+                <p class="muted">{{ 'campaign.schedule.' + slot.key + '.detail' | translate }}</p>
+              </div>
+            </li>
+          }
+        </ol>
+
+        <p>{{ 'campaign.schedule.subject-to-change' | translate }}</p>
+        <p class="muted">{{ 'campaign.schedule.changes-communicated' | translate }}</p>
+
+        <img
+          class="photo photo--portrait campaign__photo-narrow center"
+          src="assets/images/we/DSC_2225-min.jpg"
+          [alt]="'campaign.photo-alt.couple' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
+      <section aria-labelledby="dress-code">
+        <h2 id="dress-code">{{ 'campaign.dress-code.title' | translate }}</h2>
+        <p>{{ 'campaign.dress-code.what-to-wear' | translate }}</p>
+        <p [innerHTML]="'campaign.dress-code.colours' | translate"></p>
+
+        <img
+          class="campaign__photo-narrow center"
+          src="assets/images/info/dress-code.png"
+          [alt]="'campaign.dress-code.palette-alt' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
+      <section aria-labelledby="stretch-goals">
+        <h2 id="stretch-goals">{{ 'campaign.stretch.title' | translate }}</h2>
+        <p>{{ 'campaign.stretch.intro' | translate }}</p>
+
+        <dl class="stretch">
+          @for (goal of stretchGoals; track goal) {
+            <div class="stretch__row">
+              <dt class="stretch__target">
+                {{ 'campaign.stretch.' + goal + '.target' | translate }}
+              </dt>
+              <dd>{{ 'campaign.stretch.' + goal + '.reward' | translate }}</dd>
+            </div>
+          }
+        </dl>
+
+        <img
+          class="photo"
+          src="assets/images/we/DSC_2125-min.jpg"
+          [alt]="'campaign.photo-alt.couple' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
+      <section aria-labelledby="kickstarter">
+        <h2 id="kickstarter">{{ 'campaign.parody.title' | translate }}</h2>
+        <p class="muted"><em [innerHTML]="'campaign.parody.explanation' | translate"></em></p>
+        <p>{{ 'campaign.parody.our-project' | translate }}</p>
+        <p [innerHTML]="'campaign.parody.support' | translate"></p>
+        <p>{{ 'campaign.parody.short-term' | translate }}</p>
+        <p class="brand"><strong>{{ 'campaign.parody.hope' | translate }}</strong></p>
+        <p>{{ 'campaign.parody.gifts' | translate }}</p>
+
+        <img
+          class="photo photo--portrait campaign__photo-narrow center"
+          src="assets/images/we/DSC_1974-min.jpg"
+          [alt]="'campaign.photo-alt.couple' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
+      <section aria-labelledby="shipping">
+        <h2 id="shipping">{{ 'campaign.shipping.title' | translate }}</h2>
+        <p>{{ 'campaign.shipping.joke' | translate }}</p>
+        <p>{{ 'campaign.shipping.aftermath' | translate }}</p>
+
+        <img
+          class="photo photo--auto"
+          src="assets/images/shipping/Eu-Friendly-Banner.png"
+          [alt]="'campaign.shipping.banner-alt' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
+      <section aria-labelledby="risks">
+        <h2 id="risks">{{ 'campaign.risks.title' | translate }}</h2>
+        <p>{{ 'campaign.risks.history' | translate }}</p>
+        <p [innerHTML]="'campaign.risks.future' | translate"></p>
+
+        <img
+          class="photo photo--auto"
+          src="assets/images/achievement.png"
+          [alt]="'campaign.risks.achievement-alt' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <p>{{ 'campaign.risks.friends-and-family' | translate }}</p>
+
+        <img
+          class="photo photo--portrait campaign__photo-narrow center"
+          src="assets/images/we/DSC_2211-min.jpg"
+          [alt]="'campaign.photo-alt.couple' | translate"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+    </div>
+
+    <aside class="campaign__aside" [attr.aria-label]="'campaign.support' | translate">
+      <h2>{{ 'campaign.support' | translate }}</h2>
+      <app-pledge-list />
+    </aside>
+  </div>
+</article>

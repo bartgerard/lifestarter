@@ -1,0 +1,61 @@
+@if (loading()) {
+  <p class="muted">{{ 'common.loading' | translate }}</p>
+} @else {
+  <ul class="pledges">
+    @for (pledge of pledges(); track pledge.name) {
+      <li class="pledge" [class.pledge--unavailable]="!pledge.available">
+        <p class="pledge__price">
+          {{ 'pledge.price' | translate: { amount: pledge.formattedPrice } }}
+        </p>
+
+        <p class="pledge__name">
+          @if (pledge.available) {
+            <!--
+              The anchor is stretched over the whole card in CSS, so the entire tile is
+              clickable — as in the original — while the accessible name and the keyboard
+              behaviour stay on a real link.
+            -->
+            <a
+              class="pledge__link"
+              [routerLink]="['/registration']"
+              [queryParams]="{ pledge: pledge.name }"
+            >
+              {{ pledge.name | uppercase }}
+            </a>
+          } @else {
+            {{ pledge.name | uppercase }}
+          }
+        </p>
+
+        <p class="pledge__description">{{ pledge.description }}</p>
+
+        @if (pledge.contents.length > 0) {
+          <div class="pledge__contents">
+            <p class="pledge__contents-title">{{ 'pledge.includes' | translate }}</p>
+            <ul class="pledge__contents-list">
+              @for (content of pledge.contents; track content) {
+                <li>{{ content }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        <p class="pledge__backers muted">
+          {{ 'pledge.backers' | translate: { count: pledge.amount } }}
+        </p>
+
+        <!--
+          Decorative: for an available reward the stretched link already says where it goes,
+          and for a sold-out one the visually-hidden note below carries the same message.
+        -->
+        <span class="pledge__overlay" aria-hidden="true">
+          {{ (pledge.available ? 'pledge.select' : 'pledge.unavailable') | translate }}
+        </span>
+
+        @if (!pledge.available) {
+          <p class="visually-hidden">{{ 'pledge.unavailable' | translate }}</p>
+        }
+      </li>
+    }
+  </ul>
+}

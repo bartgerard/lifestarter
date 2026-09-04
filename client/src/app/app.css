@@ -1,0 +1,35 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-block-size: 100dvh;
+}
+
+main {
+  /* Programmatic focus after a skip-link jump must not draw an outline around the whole page. */
+  outline: none;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: none;
+
+  /* Visible only once it takes focus. */
+  transform: translateY(calc(-100% - var(--space-4)));
+  transition: transform var(--motion-fast) ease-out;
+
+  &:focus-visible {
+    transform: translateY(0);
+
+    /* The shadow is applied here rather than above, because a shadow is drawn outside the box
+       and would hang below the top of the viewport while the link is parked off-screen. */
+    box-shadow: var(--shadow-md);
+  }
+}

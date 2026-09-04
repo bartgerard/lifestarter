@@ -1,8 +1,9 @@
 # syntax=docker/dockerfile:1
 
-# Angular 10 needs a Node 14 toolchain. Pinning it here is what makes the client build reproducible
-# on any machine, whatever Node version happens to be installed on the host.
-FROM node:14-alpine AS build
+# Angular 22 needs a Node 24 toolchain (its engines allow ^22.22.3, ^24.15.0 or >=26). Pinning it
+# here is what makes the client build reproducible on any machine, whatever Node version happens
+# to be installed on the host.
+FROM node:24-alpine AS build
 WORKDIR /workspace
 
 COPY package.json package-lock.json* ./

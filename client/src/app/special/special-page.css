@@ -1,0 +1,59 @@
+.special {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-inline-size: 46rem;
+  padding-block: var(--space-7);
+}
+
+.special__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.special h1 {
+  font-size: var(--text-2xl);
+}
+
+.special__bee {
+  inline-size: min(12rem, 40%);
+  margin-inline: auto;
+}
+
+.special__dress,
+.special__godfather {
+  max-inline-size: 24rem;
+  margin-inline: auto;
+}
+
+/*
+ * The original page used inline `margin-top: 25vh` to build suspense between the lines.
+ * Keeping the effect, but capped so it never becomes an accessibility problem on small screens.
+ */
+.special__pause {
+  margin-block-start: min(25vh, 12rem);
+  text-align: center;
+}
+
+.special__shout {
+  font-size: clamp(var(--text-3xl), 12vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.special__accept {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
