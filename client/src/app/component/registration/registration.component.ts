@@ -71,7 +71,7 @@ export class RegistrationComponent implements OnInit {
   ) {
     this.guests.set(role, guest);
 
-    this.registrationService.vipCheck(guest)
+    this.registrationService.roles(guest)
       .subscribe(roles => {
         if (roles.length > 0 && this.roles.length < roles.length) {
           this.roles = roles;
@@ -80,7 +80,7 @@ export class RegistrationComponent implements OnInit {
         this.next();
       });
 
-    this.registrationService.vipActivityCheck(
+    this.registrationService.activities(
       this.pledge,
       Array.from(this.guests.values())
     )

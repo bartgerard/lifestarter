@@ -223,10 +223,14 @@ Thumbs.db
 /**/application-local.properties
 /client/src/assets/images/we/
 # Project exclude paths
-/server/shared/target/
-/server/web/target/
-# Project exclude paths
-/server/service/target/
+/server/target/
+
+# Local SQLite database
+/server/data/
+data/
+*.db
+*.db-journal
+*.db-wal
 
 package-lock.json
-/server/web/src/main/resources/static/
+/server/src/main/resources/static/

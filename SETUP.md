@@ -238,13 +238,23 @@ Permissions
 
 ## App
 
+1. Build (this also bundles the Angular front-end, see README.md)
+
+        cd client && npm run build && cd ..
+        ./mvnw -pl server package
+
 1. Copy to server
 
-        sudo scp ~/workspace/lifestarter/server/web/target/starter-web-0.0.1-SNAPSHOT.jar <username>@<host>:~/Downloads/
+        sudo scp server/target/lifestarter-server-1.0.0-SNAPSHOT.jar <username>@<host>:~/Downloads/
 
 1. Run
 
-        nohup java -jar ~/Downloads/starter-web-0.0.1-SNAPSHOT.jar &
+        LIFESTARTER_SECURITY_ADMIN_PASSWORD=<password> \
+          nohup java -jar ~/Downloads/lifestarter-server-1.0.0-SNAPSHOT.jar &
+
+    Defaults to SQLite at `data/lifestarter.db`, relative to the working directory — back that file
+    up. Add `LIFESTARTER_PERSISTENCE_TYPE=mongodb` plus `SPRING_DATA_MONGODB_URI=...` to use
+    MongoDB instead.
         
 ## Custom Scripts
 

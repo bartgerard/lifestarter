@@ -1,0 +1,16 @@
+### Local SQLite persistence — the zero-setup default.
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration
+      - org.springframework.boot.mongodb.autoconfigure.MongoReactiveAutoConfiguration
+      - org.springframework.boot.data.mongodb.autoconfigure.DataMongoAutoConfiguration
+      - org.springframework.boot.data.mongodb.autoconfigure.DataMongoReactiveAutoConfiguration
+      - org.springframework.boot.data.mongodb.autoconfigure.DataMongoRepositoriesAutoConfiguration
+      - org.springframework.boot.data.mongodb.autoconfigure.DataMongoReactiveRepositoriesAutoConfiguration
+
+  # The DataSource itself is declared by SqlitePersistenceConfiguration so the database file's
+  # parent directory can be created before the pool starts.
+  flyway:
+    enabled: true
+    locations: classpath:db/migration

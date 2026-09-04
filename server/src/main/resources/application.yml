@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: lifestarter
+
+  profiles:
+    # The single persistence knob. `lifestarter.persistence.type` (sqlite | mongodb) is turned into
+    # the matching profile here, so it can be set as a property, an env var
+    # (LIFESTARTER_PERSISTENCE_TYPE) or a command line argument.
+    include: "${lifestarter.persistence.type:sqlite}"
+
+  jackson:
+    default-property-inclusion: non_null
+    # Jackson 3 moved the date/time toggles out of SerializationFeature into DateTimeFeature.
+    datetime:
+      write-dates-as-timestamps: false
+
+  mvc:
+    problemdetails:
+      enabled: true
+
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-binding-errors: never
+
+lifestarter:
+  persistence:
+    type: sqlite
+    sqlite:
+      path: data/lifestarter.db
+  reference-data:
+    enabled: true
+  web:
+    allowed-origins:
+      - http://localhost:4200
+  security:
+    admin:
+      username: admin
+      # No default password on purpose. Set LIFESTARTER_SECURITY_ADMIN_PASSWORD, otherwise a random
+      # one is generated and logged at startup.
+      password: ""
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    org.mongodb.driver: WARN

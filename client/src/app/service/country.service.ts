@@ -15,7 +15,7 @@ export class CountryService {
   }
 
   countries(): Observable<Country[]> {
-    return this.http.get<Country[]>(environment.serverUrl + '/countries');
+    return this.http.get<Country[]>(environment.apiUrl + '/countries');
   }
 
 }

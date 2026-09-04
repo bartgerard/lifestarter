@@ -15,7 +15,7 @@ export class PledgeService {
   }
 
   pledges(): Observable<Pledge[]> {
-    return this.http.get<Pledge[]>(environment.serverUrl + '/pledges');
+    return this.http.get<Pledge[]>(environment.apiUrl + '/pledges');
   }
 
 }

@@ -14,7 +14,7 @@ export class AllergyService {
   }
 
   allergies(): Observable<string[]> {
-    return this.http.get<string[]>(environment.serverUrl + '/allergies');
+    return this.http.get<string[]>(environment.apiUrl + '/allergies');
   }
 
 }

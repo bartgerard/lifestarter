@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Registration} from '../model/registration';
+import {RegistrationStatistics} from '../model/registration-statistics';
 import {Observable} from 'rxjs';
 import {Guest} from '../model/guest';
 
@@ -21,18 +22,18 @@ export class RegistrationService {
     registration: Registration
   ): Observable<Registration> {
     return this.http
-      .put<Registration>(environment.serverUrl + '/registrations', registration, {headers: this.JSON_HEADERS});
+      .post<Registration>(environment.apiUrl + '/registrations', registration, {headers: this.JSON_HEADERS});
   }
 
-  nbGuests(): Observable<number> {
-    return this.http.get<number>(environment.serverUrl + '/registrations/nb-guests');
+  statistics(): Observable<RegistrationStatistics> {
+    return this.http.get<RegistrationStatistics>(environment.apiUrl + '/registrations/statistics');
   }
 
-  vipCheck(
+  roles(
     guest: Guest
   ): Observable<string[]> {
     return this.http.get<string[]>(
-      environment.serverUrl + '/registrations/roles/vip-check',
+      environment.apiUrl + '/access/roles',
       {
         params: new HttpParams()
           .set('first-name', guest.firstName)
@@ -41,7 +42,7 @@ export class RegistrationService {
     );
   }
 
-  vipActivityCheck(
+  activities(
     pledge: string,
     guests: Guest[]
   ): Observable<string[]> {
@@ -64,7 +65,7 @@ export class RegistrationService {
     }
 
     return this.http.get<string[]>(
-      environment.serverUrl + '/registrations/activities/vip-check',
+      environment.apiUrl + '/access/activities',
       {
         params: params
       }

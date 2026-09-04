@@ -1,0 +1,18 @@
+### MongoDB persistence — opt in with `lifestarter.persistence.type=mongodb`.
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceInitializationAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.JdbcTemplateAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.JdbcClientAutoConfiguration
+
+  data:
+    mongodb:
+      uri: "${LIFESTARTER_MONGODB_URI:mongodb://localhost:27017}"
+      database: "${LIFESTARTER_MONGODB_DATABASE:lifestarter}"
+      auto-index-creation: true
+
+  flyway:
+    enabled: false

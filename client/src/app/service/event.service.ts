@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Info} from '../model/info';
+import {Heartbeat} from '../model/heartbeat';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,15 @@ export class EventService {
   ) {
   }
 
-  getPing(): Observable<Info> {
-    return this.http.get<Info>('feed');
+  ping(): Observable<Heartbeat> {
+    return this.http.get<Heartbeat>(environment.apiUrl + '/events/ping');
+  }
+
+  /**
+   * Live feed of RSVP notifications. The caller owns the returned source and must close() it.
+   */
+  stream(): EventSource {
+    return new EventSource(environment.apiUrl + '/events/stream');
   }
 
 }

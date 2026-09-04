@@ -14,7 +14,7 @@ export class DietService {
   }
 
   diets(): Observable<string[]> {
-    return this.http.get<string[]>(environment.serverUrl + '/diets');
+    return this.http.get<string[]>(environment.apiUrl + '/diets');
   }
 
 }

@@ -7,14 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="starter-shared" />
-        <module name="starter-web" />
-        <module name="starter-service" />
+        <module name="lifestarter-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="starter-server" target="1.8" />
+      <module name="starter-service" target="1.8" />
+      <module name="starter-shared" target="1.8" />
+      <module name="starter-web" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lifestarter-server" options="-parameters" />
       <module name="starter-service" options="-parameters" />
       <module name="starter-shared" options="-parameters" />
       <module name="starter-web" options="-parameters" />
