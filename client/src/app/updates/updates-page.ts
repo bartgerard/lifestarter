@@ -4,16 +4,19 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 import { CampaignNav } from '../layout/campaign-nav';
 
-/** How far along each preparation was on 29 April 2019, as published in update #2. */
+/**
+ * How far along each preparation was on 29 April 2019, as published in update #2 — including
+ * the thirds that were left unrounded at the time.
+ */
 const PROGRESS = [
   { key: 'clothing', value: 95 },
   { key: 'favours', value: 70 },
-  { key: 'registrations', value: 67 },
-  { key: 'decoration', value: 33 },
+  { key: 'registrations', value: 66.6 },
+  { key: 'decoration', value: 33.3 },
   { key: 'ceremony', value: 30 },
   { key: 'speeches', value: 10 },
   { key: 'seating', value: 0 },
-  { key: 'stress', value: 100 },
+  { key: 'stress', value: 99.9 },
 ] as const;
 
 const MAP_URL =

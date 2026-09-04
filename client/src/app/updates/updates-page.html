@@ -69,16 +69,23 @@
             <span class="progress__label" [id]="'progress-' + item.key">
               {{ 'updates.2.progress.' + item.key | translate }}
             </span>
-            <progress
-              class="progress__bar"
-              [class.progress__bar--alarming]="item.value >= 99"
-              [value]="item.value"
-              max="100"
-              [attr.aria-labelledby]="'progress-' + item.key"
-            >
-              {{ item.value }}%
-            </progress>
-            <span class="progress__value muted">{{ item.value }}%</span>
+            <!--
+              The original used PrimeNG's `p-progressBar`, which is a pair of `div`s and tells
+              assistive tech nothing. A native `<progress>` carries the role and the value for
+              free; the percentage is drawn over it and hidden from screen readers so the value
+              is not announced twice.
+            -->
+            <div class="progress__bar">
+              <progress
+                class="progress__track"
+                [value]="item.value"
+                max="100"
+                [attr.aria-labelledby]="'progress-' + item.key"
+              >
+                {{ item.value }}%
+              </progress>
+              <span class="progress__value" aria-hidden="true">{{ item.value }}%</span>
+            </div>
           </li>
         }
       </ul>

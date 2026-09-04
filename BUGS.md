@@ -215,6 +215,37 @@ the user's pointer. The list now stays mounted and reports `aria-busy` instead.
 
 ---
 
+## 9. The "Stress" bar was never red — the override targeted a PrimeNG that was not installed
+
+Found while restoring the *Tempus Fugit* progress bars. The original `updates.component.css`
+carried, in both `updates` and `special`:
+
+```css
+::ng-deep .redBar .ui-progressbar .ui-progressbar-value { background-color: indianred; }
+```
+
+`ui-` was PrimeNG's prefix up to version 8. The project ran **PrimeNG 10**, which renames every
+class to `p-progressbar` / `p-progressbar-value`. The selector therefore matched nothing, and the
+Stress bar rendered in the saga-blue theme colour like all the others. The `redBar` class stayed
+in the template for years, describing an intention the stylesheet never carried out.
+
+Nothing reports this. An unmatched selector is not an error — it is the normal case for almost
+every rule in a stylesheet — so there is no signal to distinguish "matches nothing because the
+element is absent right now" from "matches nothing because the name is three major versions out
+of date". `::ng-deep` makes it worse by design: it exists precisely to reach markup the component
+does not own and therefore cannot be checked against.
+
+**Fix** — the bars no longer depend on a third-party class contract at all. They are built from a
+native `<progress>` inside a wrapper this component owns, so every selector refers to markup in
+the same file. The red variant was *not* reinstated: the page is a faithful restoration of what
+the original rendered, and what it rendered was blue.
+
+A related detail that was easy to get wrong when reproducing it: PrimeNG centres the percentage
+over the **whole** bar, not over the filled part, and shows it whenever the value is non-null —
+so the 0 % "Seating plan" bar is an empty trough with `0%` in the middle of it.
+
+---
+
 ## How these are guarded now
 
 | | |
@@ -226,6 +257,8 @@ the user's pointer. The list now stays mounted and reports `aria-busy` instead.
 | #6 | `docker compose build` is part of the verification routine. |
 | #7 | `design-tokens.spec.ts` fails on any undeclared token; the browser pass measures every page's top padding. |
 | #8 | `registration-activities.spec.ts` covers the refetch window and the settled response, and fails against the old code. |
+| #9 | No component styles third-party markup any more, so there is no cross-version class contract left to break. The browser pass measures the bars' computed geometry and colour rather than trusting the stylesheet. |
+
 
 The browser pass that found #1–#4 drives a headless Chromium against the running Compose stack and
 checks console output, failed requests, all three languages, the full four-step RSVP through to a
